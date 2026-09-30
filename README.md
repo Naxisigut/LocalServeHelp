@@ -20,7 +20,7 @@ python3 -m http.server 4173 --bind 127.0.0.1
 - `guide.html`：完整指南，包含章节导航、站内搜索、代码复制与常见问题。
 - `assets/style.css`：响应式布局、滚动渐入与悬浮动效；支持减少动态效果的系统设置。
 - `assets/main.js`：导航状态、移动端目录、全文章节搜索与复制交互。
-- `assets/logo.svg`：本地矢量标识。
+- `assets/logo.png`：复用 LocalServeTauri 的正式应用图标。
 
 ## 部署与维护
 
