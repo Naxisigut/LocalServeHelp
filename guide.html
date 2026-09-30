@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="LocalServe 完整使用指南：发布站点、局域网预览、自定义域名、代理规则、文件分享与常见问题。"
+    />
+    <meta name="theme-color" content="#f7f8f2" />
+    <title>使用指南 — LocalServe</title>
+    <link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="assets/style.css" />
+    <script src="assets/main.js" defer></script>
+  </head>
+  <body class="docs-page">
+    <a class="skip-link" href="#main">跳到使用指南正文</a>
+    <header class="site-header">
+      <div class="nav-wrap">
+        <a class="brand" href="index.html" aria-label="LocalServe 首页"
+          ><img
+            src="assets/logo.svg"
+            alt=""
+            width="30"
+            height="30"
+          />LocalServe<span class="brand-label">使用指南</span></a
+        >
+        <nav aria-label="主导航">
+          <a class="nav-link" href="index.html#features">功能一览</a
+          ><a class="nav-link current" href="guide.html" aria-current="page"
+            >使用文档</a
+          ><a class="nav-link" href="#faq">常见问题</a>
+        </nav>
+        <button class="search-trigger" data-search>
+          <span>⌕</span> 搜索文档 <kbd>⌘ K</kbd>
+        </button>
+      </div>
+      <div class="reading-progress" aria-hidden="true"></div>
+    </header>
+    <div class="docs-mobile-bar">
+      <button class="docs-menu" aria-expanded="false" aria-controls="docs-nav">
+        ☰ &nbsp; 指南目录</button
+      ><button data-search aria-label="搜索文档">⌕ 搜索</button>
+    </div>
+    <div class="docs-layout container">
+      <aside id="docs-nav" class="docs-sidebar">
+        <a class="back-home" href="index.html">← 返回首页</a>
+        <nav aria-label="指南章节">
+          <div class="sidebar-label">开始使用</div>
+          <a class="active" href="#overview"><span>01</span>认识 LocalServe</a
+          ><a href="#quick-start"><span>02</span>快速开始</a>
+          <div class="sidebar-label">日常工作流</div>
+          <a href="#sites"><span>03</span>站点管理</a
+          ><a href="#network"><span>04</span>局域网访问</a
+          ><a href="#domains"><span>05</span>自定义域名</a
+          ><a href="#proxy"><span>06</span>代理与高级选项</a
+          ><a href="#files"><span>07</span>文件分享</a>
+          <div class="sidebar-label">管理与帮助</div>
+          <a href="#settings"><span>08</span>设置与配置</a
+          ><a href="#faq"><span>09</span>常见问题</a>
+        </nav>
+        <div class="sidebar-note">
+          <span class="status-dot"></span> 文档随时可用
+          <p>所有内容均可离线阅读。<br />按自己的节奏，慢慢探索。</p>
+        </div>
+      </aside>
+      <main id="main" class="docs-content">
+        <div class="breadcrumb">
+          <a href="index.html">首页</a><span>/</span>使用指南
+        </div>
+        <header class="doc-header">
+          <div class="eyebrow">THE LOCALSERVE HANDBOOK</div>
+          <h1>把想法，<span>在本地打开。</span></h1>
+          <p>从第一个站点开始，了解 LocalServe 的每一种用法。</p>
+          <div class="doc-meta">
+            <span>macOS 桌面应用</span><span>适用版本 0.1.0</span
+            ><span>约 10 分钟阅读</span>
+          </div>
+        </header>
+        <section
+          id="overview"
+          class="doc-section"
+          tabindex="-1"
+          data-keywords="介绍 功能 HTTP"
+        >
+          <span class="chapter">01 / INTRODUCTION</span>
+          <h2>认识 LocalServe</h2>
+          <p>
+            LocalServe
+            是一款本地站点部署助手。无需命令行，就能把本机文件夹发布成浏览器可以打开的网站，或把文件分享给同一局域网里的其他设备。
+          </p>
+          <div class="doc-card-grid">
+            <a href="#quick-start"
+              ><span>▣</span><strong>发布一个站点 ↗</strong
+              ><small>从文件夹到浏览器，三步就够。</small></a
+            ><a href="#files"
+              ><span>↗</span><strong>分享一个文件 ↗</strong
+              ><small>让身边的设备，直接下载。</small></a
+            >
+          </div>
+          <div class="callout">
+            <strong>从本地开始</strong>
+            <p>
+              当前站点提供 HTTP 服务。局域网访问需要设备处于同一网络；LocalServe
+              本身不提供公网发布或内网穿透。
+            </p>
+          </div>
+        </section>
+        <section id="quick-start" class="doc-section" tabindex="-1">
+          <span class="chapter">02 / QUICK START</span>
+          <h2>快速开始</h2>
+          <p>
+            准备一个包含 <code>index.html</code> 的文件夹。如果是 React、Vue
+            等项目，请先完成构建，再选择生成的 <code>dist</code> 等产物目录。
+          </p>
+          <div class="doc-steps">
+            <div>
+              <span>1</span>
+              <div>
+                <h3>新增站点，选择目录</h3>
+                <p>
+                  打开
+                  LocalServe，点击右上角「新增」→「新增站点」。填写便于辨认的名称，再点击目录选择按钮，选择你的文件夹。
+                </p>
+              </div>
+            </div>
+            <div>
+              <span>2</span>
+              <div>
+                <h3>设置一个可用的端口</h3>
+                <p>
+                  例如 <code>3000</code> 或
+                  <code>8081</code>。首次安装的「使用说明」站点默认使用
+                  <code>8080</code
+                  >。仅在本机预览时，保持「局域网访问」关闭即可。
+                </p>
+              </div>
+            </div>
+            <div>
+              <span>3</span>
+              <div>
+                <h3>保存并启动，打开站点</h3>
+                <p>
+                  点击「保存并启动」，等待状态变为「运行中」。点击卡片上的地址，在弹出的二维码面板中选择在浏览器打开。
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="code-block">
+            <div class="code-header">
+              <span>示例访问地址 · 端口为 3000 时</span>
+              <div>
+                <span role="status" aria-live="polite"></span
+                ><button data-copy="example-url" aria-label="复制示例访问地址">
+                  复制
+                </button>
+              </div>
+            </div>
+            <pre><code id="example-url">http://127.0.0.1:3000</code></pre>
+          </div>
+          <div class="callout">
+            <strong>只想先看看？</strong>
+            <p>
+              首次打开应用时，「使用说明」站点会自动启动。若启动成功，可通过
+              <code>http://127.0.0.1:8080</code>
+              阅读应用自带说明。使用「保存」只会保存配置，不会立即启动新站点。
+            </p>
+          </div>
+        </section>
+        <section id="sites" class="doc-section" tabindex="-1">
+          <span class="chapter">03 / YOUR SITES</span>
+          <h2>站点管理</h2>
+          <p>
+            每个站点有独立的目录、端口和运行状态。你可以同时运行多个站点，但它们需要使用不同的可用端口。
+          </p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>配置项</th>
+                  <th>如何填写</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>名称</td>
+                  <td>填写项目名，便于在列表中区分。</td>
+                </tr>
+                <tr>
+                  <td>目录</td>
+                  <td>选择存在且包含 <code>index.html</code> 的文件夹。</td>
+                </tr>
+                <tr>
+                  <td>独立端口</td>
+                  <td>
+                    范围为 1–65535，建议使用 1024–65535。<code>19800</code>
+                    为文件分享保留，不可用于站点。
+                  </td>
+                </tr>
+                <tr>
+                  <td>局域网访问</td>
+                  <td>关闭时仅本机访问，开启后同一网络内的设备也可访问。</td>
+                </tr>
+                <tr>
+                  <td>自定义域名</td>
+                  <td>选填，例如 <code>myapp.ls</code>，详见域名章节。</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h3>启动、停止与重启</h3>
+          <p>
+            使用站点卡片右侧按钮启停服务。卡片显示「已停止」「启动中」「运行中」或「异常」；异常时会显示具体原因。更多菜单提供重启、编辑、导出配置、在
+            Finder 中显示目录和删除站点等操作。
+          </p>
+          <h3>访问站点与查看日志</h3>
+          <p>
+            站点运行后，点击地址可查看二维码、复制链接或在浏览器打开。按住
+            <kbd>Command</kbd>（或
+            <kbd>Ctrl</kbd>）点击地址，可直接用浏览器打开。
+          </p>
+          <p>
+            在站点更多菜单中打开「详情与日志」，查看端口、域名、代理数量和访问链接。日志支持按全部、访问、代理、错误筛选，也可搜索、清空和导出。清空只会清除应用记录的日志。
+          </p>
+        </section>
+        <section id="network" class="doc-section" tabindex="-1">
+          <span class="chapter">04 / SAME NETWORK, MORE SCREENS</span>
+          <h2>局域网访问</h2>
+          <p>
+            想在手机上查看页面，或让同事预览作品？在站点配置里开启「局域网访问」，保存并启动后，使用卡片提供的局域网地址。
+          </p>
+          <ol>
+            <li>让电脑和访问设备连接到同一局域网。</li>
+            <li>开启该站点的「局域网访问」，确保站点处于运行状态。</li>
+            <li>
+              点击局域网地址，使用另一台设备扫码，或复制链接在其浏览器中打开。
+            </li>
+          </ol>
+          <div class="network-example">
+            <div>
+              <span>电脑 · LocalServe</span><code>192.168.1.10:3000</code>
+            </div>
+            <span aria-hidden="true">→</span>
+            <div>
+              <span>手机 / 另一台电脑</span
+              ><strong>同一局域网，打开地址</strong>
+            </div>
+          </div>
+          <p class="caption">
+            上方 IP 仅为示例，请以应用显示的实际局域网地址为准。
+          </p>
+          <div class="callout">
+            <strong>手机上不要使用 127.0.0.1</strong>
+            <p>
+              <code>127.0.0.1</code>
+              始终指向正在访问的设备自身。手机访问电脑上的站点时，需要使用电脑的局域网
+              IP。若无法访问，请确认网络没有访客隔离，并检查 macOS
+              防火墙是否允许应用接收连接。
+            </p>
+          </div>
+        </section>
+        <section id="domains" class="doc-section" tabindex="-1">
+          <span class="chapter">05 / A FAMILIAR ADDRESS</span>
+          <h2>自定义域名</h2>
+          <p>
+            在站点基础信息的「自定义域名」中填写主机名，例如
+            <code>myapp.ls</code>。推荐使用
+            <code>.ls</code>
+            后缀，不要填写协议、端口或路径。每个站点保存一个域名。
+          </p>
+          <div class="address-example">
+            <span>主机名</span><code>myapp.ls</code><span>→</span
+            ><code>http://myapp.ls:8081</code>
+          </div>
+          <p>
+            保存、删除或导入配置时，如果域名发生变化，macOS
+            会请求管理员授权，以便修改 hosts。LocalServe
+            的日常域名同步只替换自身的标记块，保留其他原有条目。
+          </p>
+          <div class="callout">
+            <strong>取消授权后，配置仍然会保存</strong>
+            <p>
+              此时域名尚未写入 hosts，应用会显示提示。你可以继续使用 IP
+              地址访问，之后再次保存该域名以重新请求授权。
+            </p>
+          </div>
+          <h3>域名映射在哪生效？</h3>
+          <p>
+            hosts 映射作用于运行 LocalServe 的这台
+            Mac，不会自动同步到手机或其他电脑。其他设备请使用局域网 IP
+            地址访问。访问域名时，仍需带上站点的端口。
+          </p>
+          <h3>备份与还原</h3>
+          <p>
+            在「设置 → 域名与
+            hosts」中，可以查看托管域名数量。「立即备份」保存当前完整
+            hosts；「还原到备份」在确认后恢复最近一次备份，操作前请确认备份后的其他
+            hosts 修改是否需要保留。
+          </p>
+        </section>
+        <section id="proxy" class="doc-section" tabindex="-1">
+          <span class="chapter">06 / A SMOOTHER WORKFLOW</span>
+          <h2>代理与高级选项</h2>
+          <p>
+            在站点编辑页的「代理规则」中，将某个路径前缀转发到另一个服务。适合前端静态页面与本地接口一起调试的场景；目标后端需要单独运行。
+          </p>
+          <h3>以 /api 转发为例</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>字段</th>
+                  <th>示例与作用</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>路径前缀</td>
+                  <td><code>/api</code>，匹配需要转发的请求路径。</td>
+                </tr>
+                <tr>
+                  <td>目标地址</td>
+                  <td>
+                    <code>http://127.0.0.1:3000</code>，必须是带主机的 HTTP 或
+                    HTTPS 地址。
+                  </td>
+                </tr>
+                <tr>
+                  <td>来源替换</td>
+                  <td>将发给目标的 Host 改为目标主机，多数后端需要开启。</td>
+                </tr>
+                <tr>
+                  <td>路径重写</td>
+                  <td>开启时去掉前缀；关闭时保留原路径。</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="code-block">
+            <div class="code-header"><span>路径重写 · 开启时</span></div>
+            <pre><code>请求   /api/users
+  ↓    去掉 /api 前缀
+目标   http://127.0.0.1:3000/users</code></pre>
+          </div>
+          <p>
+            关闭路径重写时，目标收到的是
+            <code>/api/users</code
+            >。前缀与目标都填写完整的规则，保存后才会生效。
+          </p>
+          <h3>按需开启高级选项</h3>
+          <ul class="descriptive-list">
+            <li>
+              <strong>SPA history fallback</strong>
+              <p>
+                没有匹配文件的请求回退到 <code>index.html</code>。使用前端
+                history 路由时，开启此项可避免刷新子页面出现 404。
+              </p>
+            </li>
+            <li>
+              <strong>附加 CORS 响应头</strong>
+              <p>
+                为静态资源附加跨域响应头，默认关闭。同一站点中的接口请求优先使用代理规则。
+              </p>
+            </li>
+            <li>
+              <strong>应用启动时自动运行</strong>
+              <p>
+                下次打开 LocalServe
+                时自动启动这个站点。这与应用自身的「开机自启动」是两个独立选项。
+              </p>
+            </li>
+          </ul>
+        </section>
+        <section id="files" class="doc-section" tabindex="-1">
+          <span class="chapter">07 / SHARING, SIMPLIFIED</span>
+          <h2>文件分享</h2>
+          <p>
+            不需要先创建站点。点击「新增 →
+            新增文件」，或文件区域旁的新增按钮，选择要分享的文件。
+          </p>
+          <ol>
+            <li>文件列表中有内容时，分享服务会自动开启，无需手动启动。</li>
+            <li>
+              分享固定使用端口
+              <code>19800</code
+              >。选择文件卡片上的二维码入口，查看局域网下载地址。
+            </li>
+            <li>同一局域网中的设备扫码或打开链接，即可下载文件。</li>
+          </ol>
+          <div class="code-block">
+            <div class="code-header">
+              <span>下载地址格式 · IP 和文件名请以应用为准</span>
+            </div>
+            <pre><code>http://本机IP:19800/文件名</code></pre>
+          </div>
+          <h3>文件失效与移除分享</h3>
+          <p>
+            原文件移动或删除后，卡片会显示「文件失效」，请重新添加正确位置的文件。如果未检测到局域网
+            IP，下载地址会不可用。
+          </p>
+          <p>
+            「移除分享」只会从分享列表移除文件，不会删除磁盘上的原文件。你也可以通过卡片操作在
+            Finder 中显示原文件。
+          </p>
+          <div class="callout">
+            <strong>分享你确实想分享的文件</strong>
+            <p>
+              局域网内可连接该服务的设备能够通过下载链接访问文件。分享结束后，可从列表移除对应文件，停止提供该下载链接。
+            </p>
+          </div>
+        </section>
+        <section id="settings" class="doc-section" tabindex="-1">
+          <span class="chapter">08 / MAKE IT YOURS</span>
+          <h2>设置与配置</h2>
+          <h3>窗口与菜单栏</h3>
+          <p>
+            点击应用右上角的齿轮打开设置。启用「关闭窗口时最小化到托盘」后，关闭窗口仍会在后台提供服务。需要真正退出时，在菜单栏图标的右键菜单中选择「退出
+            LocalServe」。左键点击菜单栏图标可重新打开主窗口。
+          </p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>设置</th>
+                  <th>作用</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>关闭窗口时最小化到托盘</td>
+                  <td>关闭窗口后继续在后台运行。</td>
+                </tr>
+                <tr>
+                  <td>开机自启动</td>
+                  <td>登录 macOS 时自动打开 LocalServe。</td>
+                </tr>
+                <tr>
+                  <td>退出应用时自动还原 hosts</td>
+                  <td>
+                    退出时移除 LocalServe
+                    托管的域名，可能需要管理员授权。关闭可减少退出时的授权提示。
+                  </td>
+                </tr>
+                <tr>
+                  <td>使用说明</td>
+                  <td>打开随应用安装的离线说明文档。</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h3>导入与导出站点配置</h3>
+          <p>
+            展开站点区域的更多操作，可导入配置或导出全部站点配置。单个站点的更多菜单可单独导出该站点。
+          </p>
+          <p>
+            配置保存的是站点设置，不包含网站文件。换一台电脑使用时，也需要拷贝网站目录，并确认配置中的目录路径、端口和代理目标在新电脑上可用。导入涉及域名变化时，仍可能请求
+            hosts 授权。
+          </p>
+        </section>
+        <section id="faq" class="doc-section" tabindex="-1">
+          <span class="chapter">09 / A LITTLE HELP</span>
+          <h2>常见问题</h2>
+          <p>遇到小阻碍？先从这些地方检查。</p>
+          <div class="faq-list">
+            <details>
+              <summary>目录提示错误，或找不到 index.html？</summary>
+              <p>
+                确认选择的路径存在且是文件夹，根目录下包含
+                <code>index.html</code>。前端工程应选择构建后的产物目录，例如
+                <code>dist</code>，而不是仅包含源码的项目目录。
+              </p>
+            </details>
+            <details>
+              <summary>站点启动失败，提示端口被占用？</summary>
+              <p>
+                将端口改为未被其他站点或程序占用的值，例如
+                8081。不要使用文件分享专用的
+                19800。可以打开「详情与日志」查看具体错误信息。
+              </p>
+            </details>
+            <details>
+              <summary>电脑能打开，手机却无法访问？</summary>
+              <p>
+                确认站点已开启「局域网访问」，手机与电脑处于同一局域网，且使用的是电脑的局域网
+                IP，而非 127.0.0.1
+                或仅映射在电脑上的域名。再检查防火墙、访客网络隔离等网络限制。
+              </p>
+            </details>
+            <details>
+              <summary>自定义域名无法打开？</summary>
+              <p>
+                确认已允许写入
+                hosts，域名中没有协议或路径，且浏览器地址包含正确端口。若曾取消授权，重新保存域名以再次授权。其他设备请改用局域网
+                IP。
+              </p>
+            </details>
+            <details>
+              <summary>为什么反复要求输入管理员密码？</summary>
+              <p>
+                域名变更需要修改 hosts，因此 macOS
+                会请求管理员授权。若不需要退出时清理映射，可关闭「退出应用时自动还原
+                hosts」，减少退出应用时的授权请求。
+              </p>
+            </details>
+            <details>
+              <summary>单页应用首页正常，刷新子页面却是 404？</summary>
+              <p>
+                在站点的高级选项中开启「SPA history
+                fallback」，保存并启动，让未匹配到文件的路由回退到 index.html。
+              </p>
+            </details>
+            <details>
+              <summary>可以使用 HTTPS 或直接发布到公网吗？</summary>
+              <p>
+                当前站点只提供 HTTP 服务；代理规则的目标可以使用 HTTP 或
+                HTTPS。LocalServe
+                本身不提供公网托管和内网穿透，局域网地址也不是公网地址。
+              </p>
+            </details>
+            <details>
+              <summary>关闭窗口后，站点为什么还在运行？</summary>
+              <p>
+                开启「关闭窗口时最小化到托盘」时，这是正常行为。要停止服务，可停止对应站点，或从菜单栏图标菜单中选择「退出
+                LocalServe」。
+              </p>
+            </details>
+          </div>
+        </section>
+        <div class="doc-end">
+          <span class="check-icon">✓</span>
+          <h3>准备好，把下一个想法打开。</h3>
+          <p>回到应用，从一个文件夹开始。</p>
+          <a class="text-link" href="#quick-start">再看一眼快速开始 ↑</a>
+        </div>
+        <footer class="doc-footer">
+          <a href="index.html">← 返回首页</a
+          ><span>LocalServe · 本地运行，自在创造。</span
+          ><a href="#main">回到顶部 ↑</a>
+        </footer>
+      </main>
+      <aside class="docs-aside">
+        <span class="sidebar-label">阅读提示</span>
+        <p>第一次使用？<br />从「快速开始」入手。</p>
+        <a href="#quick-start">创建第一个站点 ↗</a>
+        <div class="aside-divider"></div>
+        <p>快速找到答案</p>
+        <button data-search>搜索文档 <kbd>⌘ K</kbd></button
+        ><a href="#faq">查看常见问题 ↗</a>
+        <div class="aside-bottom">LESS SETUP.<br />MORE CREATING.</div>
+      </aside>
+    </div>
+    <dialog id="search-dialog" aria-labelledby="search-title">
+      <div class="search-dialog-head">
+        <h2 id="search-title">搜索使用指南</h2>
+        <button data-close-search aria-label="关闭搜索">✕</button>
+      </div>
+      <label class="sr-only" for="doc-search">输入关键词</label
+      ><input
+        id="doc-search"
+        type="search"
+        placeholder="搜索端口、域名、文件分享…"
+        autocomplete="off"
+      />
+      <p id="search-status" role="status" aria-live="polite"></p>
+      <div id="search-results"></div>
+      <div class="search-dialog-foot">Tab 选择结果 · Enter 跳转 · Esc 关闭</div>
+    </dialog>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# Editors / IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# Logs & temp
+*.log
+npm-debug.log*
+pnpm-debug.log*
+*.tmp
+*.temp
+.cache/
+
+# Dependencies (若日后加入 Node / pnpm 工具链)
+node_modules/
+
+# Environment & secrets
+.env
+.env.*
+!.env.example
+
+# Local serve / preview artifacts
+dist/
+build/
+.vercel/
+.netlify/
