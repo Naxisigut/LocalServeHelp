@@ -3109,3 +3109,55 @@ dialog::backdrop {
 /* All feature flow arrows share one stroke, color and endpoint style. */
 .feature-connector { color: var(--muted); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
 .feature-connector path { vector-effect: non-scaling-stroke; }
+
+/* The guide has two functional parts with subordinate topics. */
+.doc-part {
+  margin-top: 24px;
+}
+.doc-part-heading {
+  border-top: 1px solid var(--line);
+  padding-top: 38px;
+}
+.doc-part-heading h2 {
+  font-size: 30px;
+}
+.doc-subsection {
+  padding-top: 30px;
+}
+.doc-subsection > h3 {
+  font-size: 21px;
+  margin: 0 0 18px;
+  letter-spacing: -0.3px;
+}
+.doc-subsection h4 {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  margin: 27px 0 11px;
+}
+.doc-subsection .doc-steps h4 {
+  margin: 3px 0 8px;
+  font-size: 14px;
+}
+.docs-sidebar nav .sidebar-part-link {
+  font-weight: 600;
+}
+@media (max-width: 560px) {
+  .doc-part-heading h2 {
+    font-size: 26px;
+  }
+  .doc-subsection > h3 {
+    font-size: 20px;
+  }
+  .doc-subsection h4 {
+    font-size: 15px;
+  }
+}
+
+/* Clickable main topics share a level; their subsections are indented. */
+.docs-sidebar nav .sidebar-part-link { margin-top: 14px; }
+.docs-sidebar nav .sidebar-part-link:first-child { margin-top: 3px; }
+.sidebar-subnav { margin: 6px 0 12px 10px; padding-left: 8px; border-left: 1px solid var(--line); }
+.docs-sidebar nav .sidebar-subnav a { font-weight: 400; }
+
+.doc-entry-icon { display: block; width: 28px; height: 28px; }

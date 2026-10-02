@@ -88,7 +88,7 @@
   if (dialog && search && results) {
     const entries = sections.map((section) => ({
       id: section.id,
-      title: section.querySelector("h2").textContent,
+      title: section.querySelector("h2, h3").textContent,
       text: section.textContent.replace(/\s+/g, " ").trim(),
     }));
     const renderResults = () => {
