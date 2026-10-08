@@ -159,7 +159,7 @@ kbd {
   display: flex;
   gap: 32px;
   margin-left: auto;
-  margin-right: 34px;
+  margin-right: 14px;
 }
 
 .nav-link {
@@ -183,6 +183,80 @@ kbd {
 
 .nav-cta:hover {
   background: var(--soft);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.language-switcher {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.language-switcher[hidden],
+.language-menu[hidden] {
+  display: none;
+}
+
+.language-trigger {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text);
+}
+
+.language-trigger:hover,
+.language-trigger[aria-expanded="true"] {
+  background: var(--soft);
+  border-color: var(--line);
+}
+
+.language-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 30;
+  min-width: 142px;
+  padding: 5px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+  box-shadow: 0 8px 24px #00000018;
+}
+
+.language-menu button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  font-size: 13px;
+  text-align: left;
+}
+
+.language-menu button:hover,
+.language-menu button:focus-visible {
+  background: var(--soft);
+}
+
+.language-check {
+  visibility: hidden;
+}
+
+.language-menu button[aria-checked="true"] .language-check {
+  visibility: visible;
 }
 
 .hero {
@@ -2044,6 +2118,16 @@ dialog::backdrop {
 @media (max-width: 560px) {
   .nav-wrap {
     padding: 0 20px;
+    gap: 8px;
+  }
+
+  .nav-wrap > nav {
+    display: none;
+  }
+
+  .nav-actions {
+    gap: 8px;
+    margin-left: auto;
   }
 
   .nav-wrap nav {
@@ -2705,6 +2789,9 @@ dialog::backdrop {
   color: var(--ink);
   font-size: 10px;
   white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .preview-file.pdf {
@@ -2728,6 +2815,7 @@ dialog::backdrop {
   display: flex;
   align-items: center;
   gap: 9px;
+  flex-wrap: wrap;
 }
 
 .preview-site-heading strong {
@@ -2809,6 +2897,8 @@ dialog::backdrop {
 
 .preview-footer {
   display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
   justify-content: space-between;
   border-top: 1px solid var(--line);
   padding: 5px 14px;

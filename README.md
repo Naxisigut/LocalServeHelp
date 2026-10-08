@@ -1,6 +1,6 @@
 # LocalServe 使用指南网站
 
-纯静态的中文产品落地页与二级使用指南。HTML、CSS、原生 JavaScript，无构建步骤、后端、CDN、外部字体或运行时依赖。
+纯静态的中英文产品落地页与二级使用指南。HTML、CSS、原生 JavaScript，无构建步骤、后端、CDN、外部字体或运行时依赖。
 
 ## 预览
 
@@ -20,6 +20,7 @@ python3 -m http.server 4173 --bind 127.0.0.1
 - `guide.html`：完整指南，包含章节导航、站内搜索、代码复制与常见问题。
 - `assets/style.css`：响应式布局、滚动渐入与悬浮动效；支持减少动态效果的系统设置。
 - `assets/main.js`：导航状态、移动端目录、全文章节搜索与复制交互。
+- `assets/i18n.js`：英文翻译、语言切换、偏好保存，以及搜索和复制提示的双语文案；中文正文保留在 HTML 中作为默认内容。
 - `assets/logo.png`：复用 LocalServeTauri 的正式应用图标。
 
 ## 部署与维护
@@ -28,4 +29,10 @@ python3 -m http.server 4173 --bind 127.0.0.1
 
 文档根据相邻 LocalServeTauri 仓库的应用界面、数据契约和内置使用说明编写，适用版本为 0.1.0。主页的应用窗口是 HTML/CSS 界面示意，不是可操作的桌面应用。新增或变更功能后应同步修改指南；搜索内容直接从指南章节提取，无需另外维护索引。
 
-键盘支持：Tab 导航、Command/Ctrl + K 打开搜索、Esc 关闭搜索，常见问题可使用 Enter/Space 展开。禁用 JavaScript 后，正文、页面链接和常见问题仍可使用。
+两页顶部的「文/A」图标提供中文和 English 下拉选项。默认中文，切换立即生效，并通过 `localStorage` 保存偏好。`?lang=zh` 或 `?lang=en` 可指定打开页面时的语言，优先于已保存偏好；内部页面链接自动携带当前语言，适用于子目录部署、`file://` 打开和存储受限环境。搜索索引随语言切换重建。
+
+维护翻译时，在 HTML 正文元素上使用 `data-i18n="键名"`，并在 `assets/i18n.js` 的 `english` 字典中添加对应英文。带内联代码、换行或图标的翻译保留相应标签；不要把可交互控件包进翻译元素。属性文案使用 `data-i18n-aria-label`、`data-i18n-title`、`data-i18n-placeholder`、`data-i18n-content` 或 `data-i18n-keywords`。
+
+键盘支持：Tab 导航、Command/Ctrl + K 打开搜索、Esc 关闭搜索，常见问题可使用 Enter/Space 展开。语言菜单支持方向键、Home/End 和 Esc。禁用 JavaScript 后，中文正文、页面链接和常见问题仍可使用。
+
+国际化检查（需要 Node.js，无需安装依赖）：`node scripts/check-i18n.mjs`。检查两页翻译覆盖、语言偏好与 URL 优先级、存储受限时的切换，以及搜索和复制提示。

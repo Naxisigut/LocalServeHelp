@@ -4,80 +4,96 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="LocalServe 使用指南：站点管理与文件分享，包含新建站点、局域网访问、自定义域名、代理配置和扫码下载。" />
+  <meta name="description" content="LocalServe 使用指南：站点管理与文件分享，包含新建站点、局域网访问、自定义域名、代理配置和扫码下载。"  data-i18n-content="guide.meta.content"/>
   <meta name="theme-color" content="#f0f0f0" />
-  <title>使用文档 — LocalServe</title>
+  <title data-i18n="guide.meta.title">使用文档 — LocalServe</title>
   <link rel="icon" href="assets/logo.png" type="image/png" />
   <link rel="stylesheet" href="assets/style.css" />
+  <script src="assets/i18n.js" defer></script>
   <script src="assets/main.js" defer></script>
 </head>
 
 <body class="docs-page">
-  <a class="skip-link" href="#main">跳到使用指南正文</a>
+  <a class="skip-link" href="#main" data-i18n="guide.meta.a">跳到使用指南正文</a>
   <header class="site-header">
     <div class="nav-wrap">
-      <a class="brand" href="index.html" aria-label="LocalServe 首页"><img src="assets/logo.png" alt="" width="30"
+      <a class="brand" href="index.html" aria-label="LocalServe 首页" data-i18n-aria-label="common.homeLabel"><img src="assets/logo.png" alt="" width="30"
           height="30" />LocalServe</a>
-      <nav aria-label="主导航">
-        <a class="nav-link current" href="guide.html" aria-current="page">使用文档</a><a class="nav-link"
-          href="#faq">常见问题</a>
+      <nav aria-label="主导航" data-i18n-aria-label="common.mainNav">
+        <a class="nav-link current" href="guide.html" aria-current="page" data-i18n="common.docs">使用文档</a><a class="nav-link"
+          href="#faq" data-i18n="common.faq">常见问题</a>
       </nav>
-      <button class="search-trigger" data-search>
-        <span>⌕</span> 搜索文档 <kbd>⌘ K</kbd>
-      </button>
+      <div class="nav-actions">
+        <div class="language-switcher" hidden>
+          <button class="language-trigger" type="button" aria-label="选择语言" title="选择语言" aria-haspopup="menu"
+            aria-expanded="false" aria-controls="language-menu" data-i18n-title="common.selectLanguage" data-i18n-aria-label="common.selectLanguage">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 5h12M9 3v2M5 5c1 6 5 9 9 10M13 5c-1 6-5 9-9 10M14 21l4-10 4 10M15.5 17h5" />
+            </svg>
+          </button>
+          <div id="language-menu" class="language-menu" role="menu" aria-label="选择语言" hidden data-i18n-aria-label="common.selectLanguage">
+            <button type="button" role="menuitemradio" data-language="zh" aria-checked="true" lang="zh-CN">中文<span class="language-check" aria-hidden="true">✓</span></button>
+            <button type="button" role="menuitemradio" data-language="en" aria-checked="false" lang="en">English<span class="language-check" aria-hidden="true">✓</span></button>
+          </div>
+        </div>
+        <button class="search-trigger" data-search data-i18n="guide.site-header.button">
+          <span>⌕</span> 搜索文档 <kbd>⌘ K</kbd>
+        </button>
+      </div>
     </div>
     <div class="reading-progress" aria-hidden="true"></div>
   </header>
   <div class="docs-mobile-bar">
-    <button class="docs-menu" aria-expanded="false" aria-controls="docs-nav">
-      ☰ &nbsp; 指南目录</button><button data-search aria-label="搜索文档">⌕ 搜索</button>
+    <button class="docs-menu" aria-expanded="false" aria-controls="docs-nav" data-i18n="guide.meta.button">
+      ☰ &nbsp; 指南目录</button><button data-search aria-label="搜索文档" data-i18n-aria-label="common.searchDocs" data-i18n="guide.meta.button2">⌕ 搜索</button>
   </div>
   <div class="docs-layout container">
     <aside id="docs-nav" class="docs-sidebar">
-      <nav aria-label="指南章节">
-        <a class="sidebar-part-link active" href="#overview">认识 LocalServe</a>
-        <a class="sidebar-part-link" href="#sites">站点管理</a>
+      <nav aria-label="指南章节" data-i18n-aria-label="guide.docs-nav.aria-label">
+        <a class="sidebar-part-link active" href="#overview" data-i18n="guide.docs-nav.a">认识 LocalServe</a>
+        <a class="sidebar-part-link" href="#sites" data-i18n="guide.docs-nav.a2">站点管理</a>
         <div class="sidebar-subnav">
-          <a href="#quick-start"><span>01</span>新建站点</a>
-          <a href="#site-basics"><span>02</span>基础配置</a>
-          <a href="#network"><span>03</span>局域网访问</a>
-          <a href="#domains"><span>04</span>自定义域名</a>
-          <a href="#proxy"><span>05</span>代理转发与路径重写</a>
-          <a href="#advanced"><span>06</span>高级选项</a>
-          <a href="#site-operations"><span>07</span>启停、访问与日志</a>
-          <a href="#site-transfer"><span>08</span>导入与导出配置</a>
+          <a href="#quick-start" data-i18n="guide.docs-nav.a3"><span>01</span>新建站点</a>
+          <a href="#site-basics" data-i18n="guide.docs-nav.a4"><span>02</span>基础配置</a>
+          <a href="#network" data-i18n="guide.docs-nav.a5"><span>03</span>局域网访问</a>
+          <a href="#domains" data-i18n="guide.docs-nav.a6"><span>04</span>自定义域名</a>
+          <a href="#proxy" data-i18n="guide.docs-nav.a7"><span>05</span>代理转发与路径重写</a>
+          <a href="#advanced" data-i18n="guide.docs-nav.a8"><span>06</span>高级选项</a>
+          <a href="#site-operations" data-i18n="guide.docs-nav.a9"><span>07</span>启停、访问与日志</a>
+          <a href="#site-transfer" data-i18n="guide.docs-nav.a10"><span>08</span>导入与导出配置</a>
         </div>
-        <a class="sidebar-part-link" href="#files">文件分享</a>
+        <a class="sidebar-part-link" href="#files" data-i18n="guide.docs-nav.a11">文件分享</a>
         <div class="sidebar-subnav">
-          <a href="#file-add"><span>01</span>添加文件</a>
-          <a href="#file-download"><span>02</span>局域网扫码下载</a>
-          <a href="#file-manage"><span>03</span>文件失效与移除分享</a>
+          <a href="#file-add" data-i18n="guide.docs-nav.a12"><span>01</span>添加文件</a>
+          <a href="#file-download" data-i18n="guide.docs-nav.a13"><span>02</span>局域网扫码下载</a>
+          <a href="#file-manage" data-i18n="guide.docs-nav.a14"><span>03</span>文件失效与移除分享</a>
         </div>
-        <div class="sidebar-label">设置与帮助</div>
-        <a href="#settings">通用设置</a>
-        <a href="#faq">常见问题</a>
+        <div class="sidebar-label"><span data-i18n="guide.docs-nav.text">设置与帮助</span></div>
+        <a href="#settings" data-i18n="guide.docs-nav.a15">通用设置</a>
+        <a href="#faq" data-i18n="common.faq">常见问题</a>
       </nav>
     </aside>
     <main id="main" class="docs-content">
       <div class="breadcrumb">
-        <a href="index.html">首页</a><span>/</span>使用指南
-      </div>
+        <a href="index.html" data-i18n="guide.meta.a2">首页</a><span>/</span><span data-i18n="guide.meta.text">使用指南
+      </span></div>
       <header class="doc-header">
-        <h1>使用指南</h1>
+        <h1 data-i18n="guide.doc-header.h1">使用指南</h1>
       </header>
-      <section id="overview" class="doc-section" tabindex="-1" data-keywords="介绍 功能 HTTP">
-        <h2>认识 LocalServe</h2>
-        <p>
+      <section id="overview" class="doc-section" tabindex="-1" data-keywords="介绍 功能 HTTP" data-i18n-keywords="guide.overview.keywords">
+        <h2 data-i18n="guide.overview.h2">认识 LocalServe</h2>
+        <p data-i18n="guide.overview.p">
           LocalServe
           是一款本地站点部署助手。无需命令行，就能把本机文件夹发布成浏览器可以打开的网站，或把文件分享给同一局域网里的其他设备。
         </p>
         <div class="doc-card-grid">
-          <a href="#sites"><span aria-hidden="true"><svg class="doc-entry-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="26" height="23" rx="3"/><path d="M3 11h26M8 7.5h.1m4 0h.1m4 0h.1M9 16h8m-8 5h14"/></svg></span><strong>站点管理 ↗</strong><small>新建站点、配置访问方式与代理规则。</small></a><a
-            href="#files"><span aria-hidden="true"><svg class="doc-entry-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3H7a2 2 0 0 0-2 2v22a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V11L17 3Z"/><path d="M17 3v8h8"/></svg></span><strong>文件分享 ↗</strong><small>添加文件，让局域网设备扫码下载。</small></a>
+          <a href="#sites"><span aria-hidden="true"><svg class="doc-entry-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="26" height="23" rx="3"/><path d="M3 11h26M8 7.5h.1m4 0h.1m4 0h.1M9 16h8m-8 5h14"/></svg></span><strong data-i18n="guide.overview.strong">站点管理 ↗</strong><small data-i18n="guide.overview.small">新建站点、配置访问方式与代理规则。</small></a><a
+            href="#files"><span aria-hidden="true"><svg class="doc-entry-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3H7a2 2 0 0 0-2 2v22a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V11L17 3Z"/><path d="M17 3v8h8"/></svg></span><strong data-i18n="guide.overview.strong2">文件分享 ↗</strong><small data-i18n="guide.overview.small2">添加文件，让局域网设备扫码下载。</small></a>
         </div>
         <div class="callout">
-          <strong>从本地开始</strong>
-          <p>
+          <strong data-i18n="guide.overview.strong3">从本地开始</strong>
+          <p data-i18n="guide.overview.p2">
             当前站点提供 HTTP 服务。局域网访问需要设备处于同一网络；LocalServe
             本身不提供公网发布或内网穿透。
           </p>
@@ -85,17 +101,17 @@
       </section>
       <section class="doc-part" aria-labelledby="sites-title">
         <section id="sites" class="doc-section doc-part-heading" tabindex="-1">
-          <h2 id="sites-title">站点管理</h2>
-          <p>
+          <h2 id="sites-title" data-i18n="guide.sites.h2">站点管理</h2>
+          <p data-i18n="guide.sites.p">
             把本地文件夹部署为站点。先完成新建流程，再按需要配置局域网访问、自定义域名、代理规则和自动运行等选项。
           </p>
-          <p>
+          <p data-i18n="guide.sites.p2">
             每个站点有独立的目录、端口和运行状态；同时运行多个站点时，需要使用不同的可用端口。
           </p>
         </section>
         <section id="quick-start" class="doc-section doc-subsection" tabindex="-1">
-          <h3>01 / 新建站点</h3>
-          <p>
+          <h3 data-i18n="guide.quick-start.h3">01 / 新建站点</h3>
+          <p data-i18n="guide.quick-start.p">
             准备一个包含 <code>index.html</code> 的文件夹。如果是 React、Vue
             等项目，请先完成构建，再选择生成的 <code>dist</code> 等产物目录。
           </p>
@@ -103,8 +119,8 @@
             <div>
               <span>1</span>
               <div>
-                <h4>新增站点，选择目录</h4>
-                <p>
+                <h4 data-i18n="guide.quick-start.h4">新增站点，选择目录</h4>
+                <p data-i18n="guide.quick-start.p2">
                   打开
                   LocalServe，点击右上角「新增」→「新增站点」。填写名称，选择目录。目录中必须包含<code>index.html</code>。
                 </p>
@@ -113,8 +129,8 @@
             <div>
               <span>2</span>
               <div>
-                <h4>设置一个可用的端口</h4>
-                <p>
+                <h4 data-i18n="guide.quick-start.h42">设置一个可用的端口</h4>
+                <p data-i18n="guide.quick-start.p3">
                   端口必须设置，切不能被其他程序占用，推荐使用1024-65535之间的端口。<br />
                   注意：本应用的文件分享服务已使用19800端口，故其不能再被站点使用。
                 </p>
@@ -123,8 +139,8 @@
             <div>
               <span>3</span>
               <div>
-                <h4>保存并启动，打开站点</h4>
-                <p>
+                <h4 data-i18n="guide.quick-start.h43">保存并启动，打开站点</h4>
+                <p data-i18n="guide.quick-start.p4">
                   点击「保存并启动」，等待状态变为「运行中」。点击卡片上的地址，在弹出的二维码面板中选择在浏览器打开。
                 </p>
               </div>
@@ -132,70 +148,70 @@
           </div>
         </section>
         <section id="site-basics" class="doc-section doc-subsection" tabindex="-1">
-          <h3>02 / 基础配置：名称、目录与端口</h3>
+          <h3 data-i18n="guide.site-basics.h3">02 / 基础配置：名称、目录与端口</h3>
           <div class="table-wrap">
             <table>
               <thead>
                 <tr>
-                  <th>配置项</th>
-                  <th>如何填写</th>
+                  <th data-i18n="guide.site-basics.th">配置项</th>
+                  <th data-i18n="guide.site-basics.th2">如何填写</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>名称</td>
-                  <td>填写项目名，便于在列表中区分。</td>
+                  <td data-i18n="guide.site-basics.td">名称</td>
+                  <td data-i18n="guide.site-basics.td2">填写项目名，便于在列表中区分。</td>
                 </tr>
                 <tr>
-                  <td>目录</td>
-                  <td>选择存在且包含 <code>index.html</code> 的文件夹。</td>
+                  <td data-i18n="guide.site-basics.td3">目录</td>
+                  <td data-i18n="guide.site-basics.td4">选择存在且包含 <code>index.html</code> 的文件夹。</td>
                 </tr>
                 <tr>
-                  <td>独立端口</td>
-                  <td>
+                  <td data-i18n="guide.site-basics.td5">独立端口</td>
+                  <td data-i18n="guide.site-basics.td6">
                     范围为 1–65535，建议使用 1024–65535。<code>19800</code>
                     为文件分享保留，不可用于站点。
                   </td>
                 </tr>
                 <tr>
-                  <td>局域网访问</td>
-                  <td>关闭时仅本机访问，开启后同一网络内的设备也可访问。</td>
+                  <td data-i18n="guide.site-basics.td7">局域网访问</td>
+                  <td data-i18n="guide.site-basics.td8">关闭时仅本机访问，开启后同一网络内的设备也可访问。</td>
                 </tr>
                 <tr>
-                  <td>自定义域名</td>
-                  <td>选填，例如 <code>myapp.ls</code>，详见域名章节。</td>
+                  <td data-i18n="guide.site-basics.td9">自定义域名</td>
+                  <td data-i18n="guide.site-basics.td10">选填，例如 <code>myapp.ls</code>，详见域名章节。</td>
                 </tr>
               </tbody>
             </table>
           </div>
         </section>
         <section id="network" class="doc-section doc-subsection" tabindex="-1">
-          <h3>03 / 局域网访问</h3>
-          <p>
+          <h3 data-i18n="guide.network.h3">03 / 局域网访问</h3>
+          <p data-i18n="guide.network.p">
             想在手机上查看页面，或让同事预览作品？在站点配置里开启「局域网访问」，保存并启动后，使用卡片提供的局域网地址。
           </p>
           <ol>
-            <li>让电脑和访问设备连接到同一局域网。</li>
-            <li>开启该站点的「局域网访问」，确保站点处于运行状态。</li>
-            <li>
+            <li data-i18n="guide.network.li">让电脑和访问设备连接到同一局域网。</li>
+            <li data-i18n="guide.network.li2">开启该站点的「局域网访问」，确保站点处于运行状态。</li>
+            <li data-i18n="guide.network.li3">
               点击局域网地址，使用另一台设备扫码，或复制链接在其浏览器中打开。
             </li>
           </ol>
           <div class="network-example">
             <div>
-              <span>电脑 · LocalServe</span><code>192.168.1.10:3000</code>
+              <span data-i18n="guide.network.span">电脑 · LocalServe</span><code>192.168.1.10:3000</code>
             </div>
             <span aria-hidden="true">→</span>
             <div>
-              <span>手机 / 另一台电脑</span><strong>同一局域网，打开地址</strong>
+              <span data-i18n="guide.network.span2">手机 / 另一台电脑</span><strong data-i18n="guide.network.strong">同一局域网，打开地址</strong>
             </div>
           </div>
-          <p class="caption">
+          <p class="caption" data-i18n="guide.network.p2">
             上方 IP 仅为示例，请以应用显示的实际局域网地址为准。
           </p>
           <div class="callout">
-            <strong>手机上不要使用 127.0.0.1</strong>
-            <p>
+            <strong data-i18n="guide.network.strong2">手机上不要使用 127.0.0.1</strong>
+            <p data-i18n="guide.network.p3">
               <code>127.0.0.1</code>
               始终指向正在访问的设备自身。手机访问电脑上的站点时，需要使用电脑的局域网
               IP。若无法访问，请确认网络没有访客隔离，并检查 macOS
@@ -204,27 +220,27 @@
           </div>
         </section>
         <section id="domains" class="doc-section doc-subsection" tabindex="-1">
-          <h3>04 / 自定义域名</h3>
-          <p>
+          <h3 data-i18n="guide.domains.h3">04 / 自定义域名</h3>
+          <p data-i18n="guide.domains.p">
             在站点基础信息的「自定义域名」中填写主机名，例如
             <code>myapp.ls</code>。推荐使用
             <code>.ls</code>
             后缀，不要填写协议、端口或路径。每个站点保存一个域名。
           </p>
-          <h4>域名映射请求管理员授权</h4>
-          <p>
+          <h4 data-i18n="guide.domains.h4">域名映射请求管理员授权</h4>
+          <p data-i18n="guide.domains.p2">
             保存、删除或导入配置时，如果域名发生变化，macOS
             会请求管理员授权，以便修改 hosts。LocalServe
             对 hosts的操作不影响其它域名访问。
           </p>
-          <h4>域名映射在哪生效？</h4>
-          <p>
+          <h4 data-i18n="guide.domains.h42">域名映射在哪生效？</h4>
+          <p data-i18n="guide.domains.p3">
             hosts 映射仅作用于运行 LocalServe 的这台
             Mac，其它设备无法访问自定义域名，请使用局域网 IP
             地址访问，且仍需带上站点的端口。
           </p>
-          <h4>备份与还原</h4>
-          <p>
+          <h4 data-i18n="guide.domains.h43">备份与还原</h4>
+          <p data-i18n="guide.domains.p4">
             在「设置 → 域名与
             hosts」中，可以查看托管域名数量。「立即备份」保存当前完整
             hosts；「还原到备份」在确认后恢复最近一次备份，操作前请确认备份后的其他
@@ -232,73 +248,73 @@
           </p>
         </section>
         <section id="proxy" class="doc-section doc-subsection" tabindex="-1">
-          <h3>05 / 代理转发与路径重写</h3>
-          <p>
+          <h3 data-i18n="guide.proxy.h3">05 / 代理转发与路径重写</h3>
+          <p data-i18n="guide.proxy.p">
             在站点编辑页的「代理规则」中，将某个路径前缀转发到另一个服务。前端通过同一站点地址请求接口，再由代理转发到目标后端，可以规避浏览器的跨域限制，方便前后端联调；目标后端需要单独运行。
           </p>
-          <h4>以 /api 转发为例</h4>
+          <h4 data-i18n="guide.proxy.h4">以 /api 转发为例</h4>
           <div class="table-wrap">
             <table>
               <thead>
                 <tr>
-                  <th>字段</th>
-                  <th>示例与作用</th>
+                  <th data-i18n="guide.proxy.th">字段</th>
+                  <th data-i18n="guide.proxy.th2">示例与作用</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>路径前缀</td>
-                  <td><code>/api</code>，匹配需要转发的请求路径。</td>
+                  <td data-i18n="guide.proxy.td">路径前缀</td>
+                  <td data-i18n="guide.proxy.td2"><code>/api</code>，匹配需要转发的请求路径。</td>
                 </tr>
                 <tr>
-                  <td>目标地址</td>
-                  <td>
+                  <td data-i18n="guide.proxy.td3">目标地址</td>
+                  <td data-i18n="guide.proxy.td4">
                     <code>http://127.0.0.1:3000</code>，必须是带主机的 HTTP 或
                     HTTPS 地址。
                   </td>
                 </tr>
                 <tr>
-                  <td>来源替换</td>
-                  <td>将发给目标的 Host 改为目标主机，多数后端需要开启。</td>
+                  <td data-i18n="guide.proxy.td5">来源替换</td>
+                  <td data-i18n="guide.proxy.td6">将发给目标的 Host 改为目标主机，多数后端需要开启。</td>
                 </tr>
                 <tr>
-                  <td>路径重写</td>
-                  <td>开启时去掉前缀；关闭时保留原路径。</td>
+                  <td data-i18n="guide.proxy.td7">路径重写</td>
+                  <td data-i18n="guide.proxy.td8">开启时去掉前缀；关闭时保留原路径。</td>
                 </tr>
               </tbody>
             </table>
           </div>
           <div class="code-block">
-            <div class="code-header"><span>路径重写 · 开启时</span></div>
-            <pre><code>请求   /api/users
+            <div class="code-header"><span data-i18n="guide.proxy.span">路径重写 · 开启时</span></div>
+            <pre><code data-i18n="guide.proxy.code">请求   /api/users
   ↓    去掉 /api 前缀
 目标   http://127.0.0.1:3000/users</code></pre>
           </div>
-          <p>
+          <p data-i18n="guide.proxy.p2">
             关闭路径重写时，目标收到的是
             <code>/api/users</code>。前缀与目标都填写完整的规则，保存后才会生效。
           </p>
         </section>
         <section id="advanced" class="doc-section doc-subsection" tabindex="-1">
-          <h3>06 / 高级选项</h3>
+          <h3 data-i18n="guide.advanced.h3">06 / 高级选项</h3>
 
           <ul class="descriptive-list">
             <li>
               <strong>SPA history fallback</strong>
-              <p>
+              <p data-i18n="guide.advanced.p">
                 没有匹配文件的请求回退到 <code>index.html</code>。使用前端
                 history 路由时，开启此项可避免刷新子页面出现 404。
               </p>
             </li>
             <li>
-              <strong>附加 CORS 响应头</strong>
-              <p>
+              <strong data-i18n="guide.advanced.strong">附加 CORS 响应头</strong>
+              <p data-i18n="guide.advanced.p2">
                 为静态资源附加跨域响应头，默认关闭。同一站点中的接口请求优先使用代理规则。
               </p>
             </li>
             <li>
-              <strong>应用启动时自动运行</strong>
-              <p>
+              <strong data-i18n="guide.advanced.strong2">应用启动时自动运行</strong>
+              <p data-i18n="guide.advanced.p3">
                 下次打开 LocalServe
                 时自动启动这个站点。这与应用自身的「开机自启动」是两个独立选项。
               </p>
@@ -306,28 +322,28 @@
           </ul>
         </section>
         <section id="site-operations" class="doc-section doc-subsection" tabindex="-1">
-          <h3>07 / 启停、访问与日志</h3>
-          <h4>启动、停止与重启</h4>
-          <p>
+          <h3 data-i18n="guide.site-operations.h3">07 / 启停、访问与日志</h3>
+          <h4 data-i18n="guide.site-operations.h4">启动、停止与重启</h4>
+          <p data-i18n="guide.site-operations.p">
             使用站点卡片右侧按钮启停服务。卡片显示「已停止」「启动中」「运行中」或「异常」；异常时会显示具体原因。更多菜单提供重启、编辑、导出配置、在
             Finder 中显示目录和删除站点等操作。
           </p>
-          <h4>访问站点与查看日志</h4>
-          <p>
+          <h4 data-i18n="guide.site-operations.h42">访问站点与查看日志</h4>
+          <p data-i18n="guide.site-operations.p2">
             站点运行后，点击地址可查看二维码、复制链接或在浏览器打开。按住
             <kbd>Command</kbd>（或
             <kbd>Ctrl</kbd>）点击地址，可直接用浏览器打开。
           </p>
-          <p>
+          <p data-i18n="guide.site-operations.p3">
             在站点更多菜单中打开「详情与日志」，查看端口、域名、代理数量和访问链接。日志支持按全部、访问、代理、错误筛选，也可搜索、清空和导出。清空只会清除应用记录的日志。
           </p>
         </section>
         <section id="site-transfer" class="doc-section doc-subsection" tabindex="-1">
-          <h3>08 / 导入与导出站点配置</h3>
-          <p>
+          <h3 data-i18n="guide.site-transfer.h3">08 / 导入与导出站点配置</h3>
+          <p data-i18n="guide.site-transfer.p">
             展开站点区域的更多操作，可导入配置或导出全部站点配置。单个站点的更多菜单可单独导出该站点。
           </p>
-          <p>
+          <p data-i18n="guide.site-transfer.p2">
             配置保存的是站点设置，不包含网站文件。换一台电脑使用时，也需要拷贝网站目录，并确认配置中的目录路径、端口和代理目标在新电脑上可用。导入涉及域名变化时，仍可能请求
             hosts 授权。
           </p>
@@ -335,54 +351,59 @@
       </section>
       <section class="doc-part" aria-labelledby="files-title">
         <section id="files" class="doc-section doc-part-heading" tabindex="-1">
-          <h2 id="files-title">文件分享</h2>
-          <p>
+          <h2 id="files-title" data-i18n="guide.files.h2">文件分享</h2>
+          <p data-i18n="guide.files.p">
             将文件分享给同一局域网里的设备。文件分享独立于站点管理，不需要先创建站点。<br />
             文件分享服务运行在19800端口，无法手动关闭。若启动时该端口被占用，文件分享服务将不能正常工作。
           </p>
         </section>
         <section id="file-add" class="doc-section doc-subsection" tabindex="-1">
-          <h3>01 / 添加要分享的文件</h3>
-          <p>
+          <h3 data-i18n="guide.file-add.h3">01 / 添加要分享的文件</h3>
+          <p data-i18n="guide.file-add.p">
             点击「新增 →
             新增文件」，或文件区域旁的新增按钮，选择要分享的文件。
           </p>
         </section>
         <section id="file-download" class="doc-section doc-subsection" tabindex="-1">
-          <h3>02 / 局域网扫码下载</h3>
+          <h3 data-i18n="guide.file-download.h3">02 / 局域网扫码下载</h3>
           <ol>
-            <li>选择文件卡片上的二维码入口，打开二维码弹窗</li>
-            <li>同一局域网中的设备扫码或打开链接，即可下载文件。</li>
+            <li data-i18n="guide.file-download.li">选择文件卡片上的二维码入口，打开二维码弹窗</li>
+            <li data-i18n="guide.file-download.li2">同一局域网中的设备扫码或打开链接，即可下载文件。</li>
           </ol>
           <div class="code-block">
             <div class="code-header">
-              <span>下载地址格式 · IP 和文件名请以应用为准</span>
+              <span data-i18n="guide.file-download.span">下载地址格式 · IP 和文件名请以应用为准</span>
             </div>
-            <pre><code>http://本机IP:19800/文件名</code></pre>
+            <pre><code data-i18n="guide.file-download.code">http://本机IP:19800/文件名</code></pre>
           </div>
         </section>
         <section id="file-manage" class="doc-section doc-subsection" tabindex="-1">
-          <h3>03 / 文件失效与移除分享</h3>
-          <p>
+          <h3 data-i18n="guide.file-manage.h3">03 / 文件失效与移除分享</h3>
+          <p data-i18n="guide.file-manage.p">
             原文件移动或删除后，卡片会显示「文件失效」，请直接删除，重新添加新的文件。如果未检测到局域网
             IP，下载地址会不可用。
           </p>
-          <p>
+          <p data-i18n="guide.file-manage.p2">
             「移除分享」只会从分享列表移除文件，不会删除磁盘上的原文件。你也可以通过卡片操作在
             Finder 中显示原文件。
           </p>
           <div class="callout">
-            <strong>分享你确实想分享的文件</strong>
-            <p>
+            <strong data-i18n="guide.file-manage.strong">分享你确实想分享的文件</strong>
+            <p data-i18n="guide.file-manage.p3">
               局域网内可连接该服务的设备能够通过下载链接访问文件。分享结束后，可从列表移除对应文件，停止提供该下载链接。
             </p>
           </div>
         </section>
       </section>
       <section id="settings" class="doc-section" tabindex="-1">
-        <h2>通用设置</h2>
-        <h3>窗口与菜单栏</h3>
-        <p>
+        <h2 data-i18n="guide.settings.h2">通用设置</h2>
+        <h3 data-i18n="guide.settings.h3">显示语言</h3>
+        <p data-i18n="guide.settings.p">
+          点击应用首页设置按钮左侧的「文/A」图标，选择中文或 English；也可以在「设置 → 语言 → 显示语言」中切换。
+          切换立即生效并保存，应用界面、菜单栏图标菜单和原生菜单会同步切换。
+        </p>
+        <h3 data-i18n="guide.settings.h32">窗口与菜单栏</h3>
+        <p data-i18n="guide.settings.p2">
           点击应用右上角的齿轮打开设置。启用「关闭窗口时最小化到托盘」后，关闭窗口仍会在后台提供服务。需要真正退出时，在菜单栏图标的右键菜单中选择「退出
           LocalServe」。左键点击菜单栏图标可重新打开主窗口。
         </p>
@@ -390,95 +411,95 @@
           <table>
             <thead>
               <tr>
-                <th>设置</th>
-                <th>作用</th>
+                <th data-i18n="guide.settings.th">设置</th>
+                <th data-i18n="guide.settings.th2">作用</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>关闭窗口时最小化到托盘</td>
-                <td>关闭窗口后继续在后台运行。</td>
+                <td data-i18n="guide.settings.td">关闭窗口时最小化到托盘</td>
+                <td data-i18n="guide.settings.td2">关闭窗口后继续在后台运行。</td>
               </tr>
               <tr>
-                <td>开机自启动</td>
-                <td>登录 macOS 时自动打开 LocalServe。</td>
+                <td data-i18n="guide.settings.td3">开机自启动</td>
+                <td data-i18n="guide.settings.td4">登录 macOS 时自动打开 LocalServe。</td>
               </tr>
               <tr>
-                <td>退出应用时自动还原 hosts</td>
-                <td>
+                <td data-i18n="guide.settings.td5">退出应用时自动还原 hosts</td>
+                <td data-i18n="guide.settings.td6">
                   退出时移除 LocalServe
                   托管的域名，可能需要管理员授权。关闭可减少退出时的授权提示。
                 </td>
               </tr>
               <tr>
-                <td>使用说明</td>
-                <td>打开随应用安装的离线说明文档。</td>
+                <td data-i18n="guide.settings.td7">使用说明</td>
+                <td data-i18n="guide.settings.td8">打开随应用安装的离线说明文档。</td>
               </tr>
             </tbody>
           </table>
         </div>
       </section>
       <section id="faq" class="doc-section" tabindex="-1">
-        <h2>常见问题</h2>
+        <h2 data-i18n="common.faq">常见问题</h2>
         <div class="faq-list">
           <details>
-            <summary>目录提示错误，或找不到 index.html？</summary>
-            <p>
+            <summary data-i18n="guide.faq.summary">目录提示错误，或找不到 index.html？</summary>
+            <p data-i18n="guide.faq.p">
               确认选择的路径存在且是文件夹，根目录下包含
               <code>index.html</code>。前端工程应选择构建后的产物目录，例如
               <code>dist</code>，而不是仅包含源码的项目目录。
             </p>
           </details>
           <details>
-            <summary>站点启动失败，提示端口被占用？</summary>
-            <p>
+            <summary data-i18n="guide.faq.summary2">站点启动失败，提示端口被占用？</summary>
+            <p data-i18n="guide.faq.p2">
               将端口改为未被其他站点或程序占用的值，例如
               8081。不要使用文件分享专用的
               19800。可以打开「详情与日志」查看具体错误信息。
             </p>
           </details>
           <details>
-            <summary>电脑能打开，手机却无法访问？</summary>
-            <p>
+            <summary data-i18n="guide.faq.summary3">电脑能打开，手机却无法访问？</summary>
+            <p data-i18n="guide.faq.p3">
               确认站点已开启「局域网访问」，手机与电脑处于同一局域网，且使用的是电脑的局域网
               IP，而非 127.0.0.1
               或仅映射在电脑上的域名。再检查防火墙、访客网络隔离等网络限制。
             </p>
           </details>
           <details>
-            <summary>自定义域名无法打开？</summary>
-            <p>
+            <summary data-i18n="guide.faq.summary4">自定义域名无法打开？</summary>
+            <p data-i18n="guide.faq.p4">
               确认已允许写入
               hosts，域名中没有协议或路径，且浏览器地址包含正确端口。若曾取消授权，重新保存域名以再次授权。其他设备请改用局域网
               IP。
             </p>
           </details>
           <details>
-            <summary>为什么反复要求输入管理员密码？</summary>
-            <p>
+            <summary data-i18n="guide.faq.summary5">为什么反复要求输入管理员密码？</summary>
+            <p data-i18n="guide.faq.p5">
               域名变更需要修改 hosts，因此 macOS
               会请求管理员授权。若不需要退出时清理映射，可关闭「退出应用时自动还原
               hosts」，减少退出应用时的授权请求。
             </p>
           </details>
           <details>
-            <summary>单页应用首页正常，刷新子页面却是 404？</summary>
-            <p>
+            <summary data-i18n="guide.faq.summary6">单页应用首页正常，刷新子页面却是 404？</summary>
+            <p data-i18n="guide.faq.p6">
               在站点的高级选项中开启「SPA history
               fallback」，保存并启动，让未匹配到文件的路由回退到 index.html。
             </p>
           </details>
           <details>
-            <summary>可以使用 HTTPS 或直接发布到公网吗？</summary>
-            <p>
+            <summary data-i18n="guide.faq.summary7">可以使用 HTTPS 或直接发布到公网吗？</summary>
+            <p data-i18n="guide.faq.p7">
               当前站点只提供 HTTP 服务；代理规则的目标可以使用 HTTP 或
               HTTPS。LocalServe
               本身不提供公网托管和内网穿透，局域网地址也不是公网地址。
             </p>
           </details>
           <details>
-            <summary>关闭窗口后，站点为什么还在运行？</summary>
-            <p>
+            <summary data-i18n="guide.faq.summary8">关闭窗口后，站点为什么还在运行？</summary>
+            <p data-i18n="guide.faq.p8">
               开启「关闭窗口时最小化到托盘」时，这是正常行为。要停止服务，可停止对应站点，或从菜单栏图标菜单中选择「退出
               LocalServe」。
             </p>
@@ -487,33 +508,33 @@
       </section>
       <div class="doc-end">
         <span class="check-icon">✓</span>
-        <h3>准备好，把下一个想法打开。</h3>
-        <p>回到应用，从一个文件夹开始。</p>
-        <a class="text-link" href="#quick-start">再看一眼新建站点 ↑</a>
+        <h3 data-i18n="guide.meta.h3">准备好，把下一个想法打开。</h3>
+        <p data-i18n="guide.meta.p">回到应用，从一个文件夹开始。</p>
+        <a class="text-link" href="#quick-start" data-i18n="guide.meta.a3">再看一眼新建站点 ↑</a>
       </div>
       <footer class="doc-footer">
-        <a href="index.html">← 返回首页</a><span>LocalServe · 本地运行，自在创造。</span><a href="#main">回到顶部 ↑</a>
+        <a href="index.html" data-i18n="guide.doc-footer.a">← 返回首页</a><span data-i18n="guide.doc-footer.span">LocalServe · 本地运行，自在创造。</span><a href="#main" data-i18n="guide.doc-footer.a2">回到顶部 ↑</a>
       </footer>
     </main>
     <aside class="docs-aside">
-      <span class="sidebar-label">阅读提示</span>
-      <p>第一次使用？<br />从「新建站点」入手。</p>
-      <a href="#quick-start">创建第一个站点 ↗</a>
+      <span class="sidebar-label" data-i18n="guide.docs-aside.span">阅读提示</span>
+      <p data-i18n="guide.docs-aside.p">第一次使用？<br />从「新建站点」入手。</p>
+      <a href="#quick-start" data-i18n="guide.docs-aside.a">创建第一个站点 ↗</a>
       <div class="aside-divider"></div>
-      <p>快速找到答案</p>
-      <button data-search>搜索文档 <kbd>⌘ K</kbd></button><a href="#faq">查看常见问题 ↗</a>
+      <p data-i18n="guide.docs-aside.p2">快速找到答案</p>
+      <button data-search data-i18n="guide.docs-aside.button">搜索文档 <kbd>⌘ K</kbd></button><a href="#faq" data-i18n="guide.docs-aside.a2">查看常见问题 ↗</a>
     </aside>
   </div>
   <dialog id="search-dialog" aria-labelledby="search-title">
     <div class="search-dialog-head">
-      <h2 id="search-title">搜索使用指南</h2>
-      <button data-close-search aria-label="关闭搜索">✕</button>
+      <h2 id="search-title" data-i18n="guide.search-dialog.h2">搜索使用指南</h2>
+      <button data-close-search aria-label="关闭搜索" data-i18n-aria-label="guide.search-dialog.aria-label">✕</button>
     </div>
-    <label class="sr-only" for="doc-search">输入关键词</label><input id="doc-search" type="search"
-      placeholder="搜索端口、域名、文件分享…" autocomplete="off" />
+    <label class="sr-only" for="doc-search" data-i18n="guide.search-dialog.label">输入关键词</label><input id="doc-search" type="search"
+      placeholder="搜索端口、域名、文件分享…" autocomplete="off"  data-i18n-placeholder="guide.search-dialog.placeholder"/>
     <p id="search-status" role="status" aria-live="polite"></p>
     <div id="search-results"></div>
-    <div class="search-dialog-foot">Tab 选择结果 · Enter 跳转 · Esc 关闭</div>
+    <div class="search-dialog-foot"><span data-i18n="guide.search-dialog.text">Tab 选择结果 · Enter 跳转 · Esc 关闭</span></div>
   </dialog>
 </body>
 

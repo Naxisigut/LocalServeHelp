@@ -1,4 +1,5 @@
 (() => {
+  const { t } = window.LocalServeI18n;
   const reducedMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)",
   ).matches;
@@ -79,6 +80,7 @@
       { passive: true },
     );
     updateReading();
+    document.addEventListener("localserve:languagechange", updateReading);
   }
 
   const dialog = document.querySelector("#search-dialog");
@@ -86,30 +88,36 @@
   const results = document.querySelector("#search-results");
   const searchStatus = document.querySelector("#search-status");
   if (dialog && search && results) {
-    const entries = sections.map((section) => ({
-      id: section.id,
-      title: section.querySelector("h2, h3").textContent,
-      text: section.textContent.replace(/\s+/g, " ").trim(),
-    }));
+    const buildEntries = () =>
+      sections.map((section) => ({
+        id: section.id,
+        title: section.querySelector("h2, h3").textContent,
+        text: section.textContent.replace(/\s+/g, " ").trim(),
+        keywords: section.dataset.keywords ?? "",
+      }));
+    let entries = buildEntries();
     const renderResults = () => {
       const query = search.value.trim().toLocaleLowerCase();
       const words = query.split(/\s+/).filter(Boolean);
       const matched = query
         ? entries.filter((entry) =>
             words.every((word) =>
-              entry.text.toLocaleLowerCase().includes(word),
+              `${entry.text} ${entry.keywords}`
+                .toLocaleLowerCase()
+                .includes(word),
             ),
           )
         : entries;
       results.replaceChildren();
       searchStatus.textContent = query
-        ? `找到 ${matched.length} 个相关章节`
-        : "选择章节，或输入关键词搜索";
+        ? t(matched.length === 1 ? "search.result" : "search.results", {
+            count: matched.length,
+          })
+        : t("search.prompt");
       if (!matched.length) {
         const empty = document.createElement("p");
         empty.className = "search-empty";
-        empty.textContent =
-          "暂时没有找到相关内容。试试「端口」「域名」或「文件」。";
+        empty.textContent = t("search.empty");
         results.append(empty);
       }
       matched.forEach((entry) => {
@@ -158,6 +166,14 @@
       }
     });
     search.addEventListener("input", renderResults);
+    document.addEventListener("localserve:languagechange", () => {
+      entries = buildEntries();
+      if (dialog.open) renderResults();
+      else {
+        results.replaceChildren();
+        searchStatus.textContent = "";
+      }
+    });
     document.addEventListener("keydown", (event) => {
       if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
         event.preventDefault();
@@ -166,6 +182,12 @@
     });
   }
 
+  const copyStatuses = new Map();
+  document.addEventListener("localserve:languagechange", () => {
+    copyStatuses.forEach((key, status) => {
+      status.textContent = t(key);
+    });
+  });
   document.querySelectorAll("[data-copy]").forEach((button) =>
     button.addEventListener("click", async () => {
       const text = document.getElementById(button.dataset.copy).textContent;
@@ -184,12 +206,14 @@
           button.focus();
           if (!copied) throw new Error("copy unavailable");
         }
-        status.textContent = "已复制";
+        copyStatuses.set(status, "copy.success");
       } catch {
-        status.textContent = "请选中代码手动复制";
+        copyStatuses.set(status, "copy.failure");
       }
+      status.textContent = t(copyStatuses.get(status));
       setTimeout(() => {
         status.textContent = "";
+        copyStatuses.delete(status);
       }, 2500);
     }),
   );
