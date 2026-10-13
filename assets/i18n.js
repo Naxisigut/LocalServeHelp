@@ -57,17 +57,6 @@
     "home.everyday-apps.p5":
       "Add a file to LocalServe, then scan its QR code with a phone or tablet on the same network to download it.",
     "home.everyday-apps.span6": "Scan to download on your local network",
-    "home.start.h2": "Your first site starts here.",
-    "home.start.a": "Read the full guide <span>↗</span>",
-    "home.start.h3": "Choose a folder",
-    "home.start.p":
-      "Click “Add site”.<br />Choose a folder containing <code>index.html</code>.",
-    "home.start.h32": "Configure, save, and start",
-    "home.start.p2":
-      "Give it a name and an available port.<br />Enable other options as needed.",
-    "home.start.h33": "Open it in your browser",
-    "home.start.p3":
-      "Click the site card’s browser icon.<br />Enable LAN access to share through its QR code icon.",
     "home.pricing.plan": "LocalServe",
     "home.pricing.currency": "USD",
     "home.pricing.billing": "One-time purchase. No subscription.",
@@ -91,6 +80,7 @@
     "guide.meta.button": "☰ &nbsp; Contents",
     "guide.meta.button2": "⌕ Search",
     "guide.docs-nav.a": "Meet LocalServe",
+    "guide.docs-nav.happyPath": "<span>01</span>happyPath",
     "guide.docs-nav.a2": "Site management",
     "guide.docs-nav.a3": "<span>01</span>Create a site",
     "guide.docs-nav.a4": "<span>02</span>Basic settings",
@@ -119,6 +109,19 @@
     "guide.overview.strong3": "Start locally",
     "guide.overview.p2":
       "Sites serve content over HTTP. LAN access requires devices to be on the same network. LocalServe does not provide public hosting or network tunneling.",
+    "guide.happyPath.h3": "01 / happyPath",
+    "guide.happyPath.intro": "Your first site starts here.",
+    "guide.happyPath.folderTitle": "Choose a folder",
+    "guide.happyPath.folderDescription":
+      "Click “Add site”.<br />Choose a folder containing <code>index.html</code>.",
+    "guide.happyPath.startTitle": "Configure, save, and start",
+    "guide.happyPath.startDescription":
+      "Give it a name and an available port.<br />Enable other options as needed.",
+    "guide.happyPath.browseTitle": "Open it in your browser",
+    "guide.happyPath.browseDescription":
+      "Click the site card’s browser icon.<br />Enable LAN access to share through its QR code icon.",
+    "guide.happyPath.guideLink": "Read the full guide <span>↗</span>",
+    "guide.happyPath.keywords": "first use quick start getting started three steps",
     "guide.sites.h2": "Site management",
     "guide.sites.p":
       "Deploy a local folder as a site. Create the site first, then configure LAN access, custom domains, proxy rules, and automatic startup as needed.",
@@ -320,7 +323,7 @@
     "guide.doc-footer.span": "LocalServe · Run locally. Create freely.",
     "guide.doc-footer.a2": "Back to top ↑",
     "guide.docs-aside.span": "Reading tips",
-    "guide.docs-aside.p": "First time here?<br />Start with “Create a site”.",
+    "guide.docs-aside.p": "First time here?<br />Start with “happyPath”.",
     "guide.docs-aside.a": "Create your first site ↗",
     "guide.docs-aside.p2": "Find answers quickly",
     "guide.docs-aside.button": "Search docs <kbd>⌘ K</kbd>",
