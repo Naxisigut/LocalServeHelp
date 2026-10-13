@@ -56,72 +56,99 @@
           <span data-i18n="home.hero.span">适用于 macOS</span><i></i><span data-i18n="home.hero.span2">无需命令行</span><i></i><span data-i18n="home.hero.span3">本地运行，不收集数据</span>
         </div>
       </div>
-      <div class="hero-visual" aria-label="LocalServe 站点管理界面示意" data-i18n-aria-label="home.hero.aria-label">
-        <div class="orbit orbit-one"></div>
-        <div class="orbit orbit-two"></div>
-        <div class="app-window screenshot-preview" aria-label="应用界面示意，文件名和站点名均为示例数据" data-i18n-aria-label="home.hero.aria-label2">
-          <div class="window-bar">
-            <div class="window-dots" aria-hidden="true"><b></b><b></b><b></b></div>
-            <span class="preview-title">LocalServe</span>
-            <div class="preview-window-actions"><span class="window-gear" aria-hidden="true">⚙</span><span
-                class="preview-add" data-i18n="home.hero.span4">新增</span></div>
-          </div>
-          <div class="preview-body">
-            <div class="preview-section-heading"><strong data-i18n="home.hero.strong">文件 <small>4</small></strong><span aria-hidden="true">⊕</span>
-            </div>
-            <div class="preview-files">
-              <div class="preview-file pdf"><svg viewBox="0 0 48 58" fill="none" aria-hidden="true">
-                  <path d="M5 2h25l13 13v38a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3Z" fill="currentColor"
-                    fill-opacity=".06" stroke="currentColor" stroke-width="1.7" />
-                  <path d="M30 2v13h13" stroke="currentColor" stroke-width="1.7" /><text x="23" y="35"
-                    text-anchor="middle" fill="currentColor" font-size="11" font-weight="600">PDF</text>
-                </svg><span data-i18n="home.hero.span5">灵感手册.pdf</span></div>
-              <div class="preview-file media"><svg viewBox="0 0 48 58" fill="none" aria-hidden="true">
-                  <path d="M5 2h25l13 13v38a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3Z" fill="currentColor"
-                    fill-opacity=".06" stroke="currentColor" stroke-width="1.7" />
-                  <path d="M30 2v13h13" stroke="currentColor" stroke-width="1.7" /><text x="23" y="35"
-                    text-anchor="middle" fill="currentColor" font-size="11" font-weight="600">PNG</text>
-                </svg><span data-i18n="home.hero.span6">设计草图.png</span></div>
-              <div class="preview-file media"><svg viewBox="0 0 48 58" fill="none" aria-hidden="true">
-                  <path d="M5 2h25l13 13v38a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3Z" fill="currentColor"
-                    fill-opacity=".06" stroke="currentColor" stroke-width="1.7" />
-                  <path d="M30 2v13h13" stroke="currentColor" stroke-width="1.7" /><text x="23" y="35"
-                    text-anchor="middle" fill="currentColor" font-size="11" font-weight="600">MOV</text>
-                </svg><span data-i18n="home.hero.span7">作品预览.mov</span></div>
-              <div class="preview-file pdf"><svg viewBox="0 0 48 58" fill="none" aria-hidden="true">
-                  <path d="M5 2h25l13 13v38a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3Z" fill="currentColor"
-                    fill-opacity=".06" stroke="currentColor" stroke-width="1.7" />
-                  <path d="M30 2v13h13" stroke="currentColor" stroke-width="1.7" /><text x="23" y="35"
-                    text-anchor="middle" fill="currentColor" font-size="11" font-weight="600">PDF</text>
-                </svg><span data-i18n="home.hero.span8">项目提案.pdf</span></div>
-            </div>
-            <div class="preview-section-heading"><strong data-i18n="home.hero.strong2">站点 <small>1</small></strong><span aria-hidden="true">⊕</span>
-            </div>
-            <div class="preview-site">
-              <div class="preview-site-heading"><strong data-i18n="home.hero.strong3">灵感空间</strong><span class="preview-running" data-i18n="home.hero.span9"><i></i>运行中</span>
+      <div class="hero-visual">
+        <div class="orbit orbit-one" aria-hidden="true"></div>
+        <div class="orbit orbit-two" aria-hidden="true"></div>
+        <div class="app-window screenshot-preview" role="img"
+          aria-label="LocalServe 应用界面示意：3 个文件、2 个站点，其中 1 个运行中。文件名、站点名和路径均为示例数据。"
+          data-i18n-aria-label="home.hero.previewLabel">
+          <div class="preview-window" aria-hidden="true">
+            <svg class="preview-icon-definitions" width="0" height="0" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <symbol id="preview-icon-language" viewBox="0 0 24 24"><path d="M3 5h12M9 3v2M5 5c1 6 5 9 9 10M13 5c-1 6-5 9-9 10M14 21l4-10 4 10M15.5 17h5" /></symbol>
+                <symbol id="preview-icon-settings" viewBox="0 0 24 24"><path d="m9 3-.5 2-2 .9-1.9-.6-2 3.4 1.5 1.4-.2 2.3-1.4 1.4 2 3.5 1.9-.6 2 .9.5 2h4l.5-2 2-.9 1.9.6 2-3.5-1.4-1.4-.2-2.3 1.5-1.4-2-3.4-1.9.6-2-.9-.5-2Z" /><circle cx="11" cy="11" r="3" /></symbol>
+                <symbol id="preview-icon-add" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M8 12h8M12 8v8" /></symbol>
+                <symbol id="preview-icon-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M9.5 9a2.5 2.5 0 0 1 5 .5c0 1.5-2.5 1.5-2.5 3M12 16h.01" /></symbol>
+                <symbol id="preview-icon-more-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><circle cx="7.5" cy="12" r=".7" fill="currentColor" /><circle cx="12" cy="12" r=".7" fill="currentColor" /><circle cx="16.5" cy="12" r=".7" fill="currentColor" /></symbol>
+                <symbol id="preview-icon-more" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.3" fill="currentColor" /><circle cx="12" cy="12" r="1.3" fill="currentColor" /><circle cx="19" cy="12" r="1.3" fill="currentColor" /></symbol>
+                <symbol id="preview-icon-folder" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h5l2 3h7a2 2 0 0 1 2 2v9H3Z" /></symbol>
+                <symbol id="preview-icon-open" viewBox="0 0 24 24"><path d="M14 3h7v7M21 3 10 14M10 5H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5" /></symbol>
+                <symbol id="preview-icon-qr" viewBox="0 0 24 24"><path d="M3 3h6v6H3zM15 3h6v6h-6zM3 15h6v6H3zM12 3v3m0 3v3m-9 0h6m3 3h3v3h-3zm6-3h3v3m-3 3v3h3m-9 0h3m6-3v3" /></symbol>
+                <symbol id="preview-icon-play" viewBox="0 0 24 24"><path d="m8 5 12 7-12 7Z" fill="currentColor" stroke="none" /></symbol>
+                <symbol id="preview-icon-stop" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2" fill="currentColor" stroke="none" /></symbol>
+              </defs>
+            </svg>
+            <div class="window-bar preview-window-bar">
+              <div class="window-dots"><b></b><b></b><b></b></div>
+              <span class="preview-title">LocalServe</span>
+              <div class="preview-window-actions">
+                <svg class="preview-icon"><use href="#preview-icon-language" /></svg>
+                <svg class="preview-icon"><use href="#preview-icon-settings" /></svg>
+                <span class="preview-add" data-i18n="home.hero.previewAdd">新增</span>
               </div>
-              <div class="preview-site-path"><code>~/Projects/inspiration</code><span class="preview-site-actions"
-                  aria-hidden="true"><span>■</span> ⋮</span></div>
-              <div class="preview-addresses"><span><svg class="preview-qr" viewBox="0 0 24 24" fill="none"
-                    aria-hidden="true">
-                    <path d="M3 3h6v6H3zM15 3h6v6h-6zM3 15h6v6H3z" stroke="currentColor" stroke-width="1.5" />
-                    <path
-                      d="M5 5h2v2H5zM17 5h2v2h-2zM5 17h2v2H5zM11 3h2v4h-2zM11 9h4v2h-4zM3 11h4v2H3zM9 11h2v4H9zM13 13h4v2h-4zM19 11h2v4h-2zM11 17h2v4h-2zM15 17h2v2h-2zM17 19h4v2h-4zM19 15h2v2h-2z"
-                      fill="currentColor" />
-                  </svg><span data-i18n="home.hero.text">本机</span></span><span><svg class="preview-qr" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M3 3h6v6H3zM15 3h6v6h-6zM3 15h6v6H3z" stroke="currentColor" stroke-width="1.5" />
-                    <path
-                      d="M5 5h2v2H5zM17 5h2v2h-2zM5 17h2v2H5zM11 3h2v4h-2zM11 9h4v2h-4zM3 11h4v2H3zM9 11h2v4H9zM13 13h4v2h-4zM19 11h2v4h-2zM11 17h2v4h-2zM15 17h2v2h-2zM17 19h4v2h-4zM19 15h2v2h-2z"
-                      fill="currentColor" />
-                  </svg><span data-i18n="home.hero.text2">局域网</span></span><span><svg class="preview-qr" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M3 3h6v6H3zM15 3h6v6h-6zM3 15h6v6H3z" stroke="currentColor" stroke-width="1.5" />
-                    <path
-                      d="M5 5h2v2H5zM17 5h2v2h-2zM5 17h2v2H5zM11 3h2v4h-2zM11 9h4v2h-4zM3 11h4v2H3zM9 11h2v4H9zM13 13h4v2h-4zM19 11h2v4h-2zM11 17h2v4h-2zM15 17h2v2h-2zM17 19h4v2h-4zM19 15h2v2h-2z"
-                      fill="currentColor" />
-                  </svg><span data-i18n="home.hero.text3">自定义域名</span></span></div>
             </div>
+            <div class="preview-body">
+              <div class="preview-section-heading">
+                <strong data-i18n="home.hero.previewFiles">文件 <small>3</small></strong>
+                <div class="preview-section-actions">
+                  <svg class="preview-icon"><use href="#preview-icon-add" /></svg>
+                  <svg class="preview-icon"><use href="#preview-icon-help" /></svg>
+                  <svg class="preview-icon"><use href="#preview-icon-more-circle" /></svg>
+                </div>
+              </div>
+              <div class="preview-files">
+                <div class="preview-file preview-file-image">
+                  <svg class="preview-file-icon" viewBox="0 0 48 58" fill="none">
+                    <path d="M5 2h25l13 13v38a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3Z" fill="currentColor" fill-opacity=".06" stroke="currentColor" stroke-width="1.7" />
+                    <path d="M30 2v13h13" stroke="currentColor" stroke-width="1.7" /><text x="23" y="35" text-anchor="middle" fill="currentColor" font-size="12" font-weight="600">PNG</text>
+                  </svg>
+                  <span data-i18n="home.hero.previewImageFile">灵感草图.png</span>
+                </div>
+                <div class="preview-file preview-file-archive">
+                  <svg class="preview-file-icon" viewBox="0 0 48 58" fill="none">
+                    <path d="M5 2h25l13 13v38a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3Z" fill="currentColor" fill-opacity=".06" stroke="currentColor" stroke-width="1.7" />
+                    <path d="M30 2v13h13" stroke="currentColor" stroke-width="1.7" /><text x="23" y="35" text-anchor="middle" fill="currentColor" font-size="12" font-weight="600">ZIP</text>
+                  </svg>
+                  <span data-i18n="home.hero.previewArchiveFile">创意素材<br />合集.zip</span>
+                </div>
+                <div class="preview-file preview-file-audio">
+                  <svg class="preview-file-icon" viewBox="0 0 48 58" fill="none">
+                    <path d="M5 2h25l13 13v38a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3Z" fill="currentColor" fill-opacity=".06" stroke="currentColor" stroke-width="1.7" />
+                    <path d="M30 2v13h13" stroke="currentColor" stroke-width="1.7" /><text x="23" y="35" text-anchor="middle" fill="currentColor" font-size="12" font-weight="600">M4A</text>
+                  </svg>
+                  <span data-i18n="home.hero.previewAudioFile">灵感随记<br />第一期.m4a</span>
+                </div>
+              </div>
+              <div class="preview-section-heading">
+                <strong data-i18n="home.hero.previewSites">站点 <small>2</small></strong>
+                <div class="preview-section-actions">
+                  <svg class="preview-icon"><use href="#preview-icon-add" /></svg>
+                  <svg class="preview-icon"><use href="#preview-icon-more-circle" /></svg>
+                </div>
+              </div>
+              <div class="preview-site">
+                <div class="preview-site-info">
+                  <div class="preview-site-heading"><strong data-i18n="home.hero.previewStoppedSite">作品预览</strong><span class="preview-status preview-status-stopped" data-i18n="home.hero.previewStopped"><i></i>已停止</span></div>
+                  <div class="preview-site-path"><svg class="preview-icon"><use href="#preview-icon-folder" /></svg><code>~/Projects/portfolio</code></div>
+                </div>
+                <div class="preview-site-actions">
+                  <div class="preview-site-tools"><span class="preview-tool is-disabled"><svg class="preview-icon"><use href="#preview-icon-open" /></svg></span><span class="preview-tool is-disabled"><svg class="preview-icon"><use href="#preview-icon-qr" /></svg></span><span class="preview-tool"><svg class="preview-icon"><use href="#preview-icon-more" /></svg></span></div>
+                  <span class="preview-site-action preview-site-start"><svg class="preview-icon"><use href="#preview-icon-play" /></svg></span>
+                </div>
+              </div>
+              <div class="preview-site preview-site-running">
+                <div class="preview-site-info">
+                  <div class="preview-site-heading"><strong data-i18n="home.hero.previewRunningSite">灵感空间</strong><span class="preview-status preview-status-running" data-i18n="home.hero.previewRunning"><i></i>运行中</span></div>
+                  <div class="preview-site-path"><svg class="preview-icon"><use href="#preview-icon-folder" /></svg><code>~/Projects/inspiration</code></div>
+                </div>
+                <div class="preview-site-actions">
+                  <div class="preview-site-tools"><span class="preview-port"><span data-i18n="home.hero.previewPort">端口</span><b>3000</b></span><span class="preview-tool"><svg class="preview-icon"><use href="#preview-icon-open" /></svg></span><span class="preview-tool"><svg class="preview-icon"><use href="#preview-icon-qr" /></svg></span><span class="preview-tool"><svg class="preview-icon"><use href="#preview-icon-more" /></svg></span></div>
+                  <span class="preview-site-action preview-site-stop"><svg class="preview-icon"><use href="#preview-icon-stop" /></svg></span>
+                </div>
+              </div>
+            </div>
+            <div class="preview-footer"><span data-i18n="home.hero.previewSummary">3 个文件 · 2 个站点 · 1 运行中</span><span>v0.1.0</span></div>
           </div>
-          <div class="preview-footer"><span data-i18n="home.hero.span10">4 个文件 · 1 个站点 · 1 运行中</span><span>v0.1.0</span></div>
         </div>
       </div>
     </section>
@@ -321,7 +348,7 @@
             <span class="step-num">03</span>
             <h3 data-i18n="home.start.h33">打开浏览器访问</h3>
             <p data-i18n="home.start.p3">
-              打开二维码弹窗，<br />在浏览器访问，或分享给局域网设备。
+              点击站点卡片的浏览器图标访问。<br />开启局域网访问后，可通过二维码图标分享。
             </p>
           </div>
         </div>

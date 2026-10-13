@@ -14,16 +14,6 @@
     "home.hero.span": "Built for macOS",
     "home.hero.span2": "No command line needed",
     "home.hero.span3": "Runs locally. No data collection.",
-    "home.hero.span4": "Add",
-    "home.hero.strong": "Files <small>4</small>",
-    "home.hero.span5": "Inspiration.pdf",
-    "home.hero.span6": "Sketch.png",
-    "home.hero.span7": "Preview.mov",
-    "home.hero.span8": "Proposal.pdf",
-    "home.hero.strong2": "Sites <small>1</small>",
-    "home.hero.strong3": "Inspiration space",
-    "home.hero.span9": "<i></i>Running",
-    "home.hero.span10": "Files: 4 · Sites: 1 · Running: 1",
     "home.features.h2": "Small tool. Big possibilities.",
     "home.features.h3": "Turn any local folder into a site",
     "home.features.p":
@@ -76,20 +66,13 @@
       "Give it a name and an available port.<br />Enable other options as needed.",
     "home.start.h33": "Open it in your browser",
     "home.start.p3":
-      "Open the QR code panel.<br />Visit in a browser or share with devices on your network.",
+      "Click the site card’s browser icon.<br />Enable LAN access to share through its QR code icon.",
     "home.site-footer.span": "Run locally. Create freely.",
-    "home.hero.text": "Local",
-    "home.hero.text2": "LAN",
-    "home.hero.text3": "Custom domain",
     "home.meta.content":
       "The LocalServe guide: turn local folders into websites without a command line. Preview, debug, and share on your local network.",
     "common.homeLabel": "LocalServe home",
     "common.mainNav": "Main navigation",
     "common.selectLanguage": "Select language",
-    "home.hero.aria-label":
-      "Preview of the LocalServe site management interface",
-    "home.hero.aria-label2":
-      "Illustrative app interface. File and site names are examples.",
     "guide.meta.title": "Documentation — LocalServe",
     "guide.meta.a": "Skip to the user guide",
     "guide.site-header.button": "<span>⌕</span> Search docs <kbd>⌘ K</kbd>",
@@ -128,19 +111,19 @@
     "guide.sites.p":
       "Deploy a local folder as a site. Create the site first, then configure LAN access, custom domains, proxy rules, and automatic startup as needed.",
     "guide.sites.p2":
-      "Each site has its own folder, port, and status. Sites running at the same time must use different available ports.",
+      "Each site has its own folder, port, and status. Multiple sites that are not running can save the same port; a stopped site does not occupy it. Sites with the same port must run one at a time, even if their “LAN access” settings differ.",
     "guide.quick-start.h3": "01 / Create a site",
     "guide.quick-start.p":
       "Prepare a folder containing <code>index.html</code>. For React, Vue, or similar projects, build the project first and choose the output folder, such as <code>dist</code>.",
     "guide.quick-start.h4": "Add a site and choose its folder",
     "guide.quick-start.p2":
-      "Open LocalServe and click “Add” → “Add site” in the top right. Enter a name and choose a folder. The folder must contain <code>index.html</code>.",
+      "Open LocalServe and click “Add” → “Add site” in the top right, or the plus icon beside the Sites heading. Enter a name and choose a folder. The folder must contain <code>index.html</code>.",
     "guide.quick-start.h42": "Choose an available port",
     "guide.quick-start.p3":
-      "A port is required and must not be in use by another program. The recommended range is 1024–65535.<br />The file sharing service uses port 19800, so sites cannot use that port.",
+      "The port starts blank when creating a site. Enter it manually; 1024–65535 is recommended. Saving checks whether the target listening address and port are occupied by a running site or another program.<br />Ports <code>80</code>, <code>10015</code>, and <code>19800</code> are reserved for the shared custom-domain listener, user guide, and file sharing respectively. Regular sites cannot use them.",
     "guide.quick-start.h43": "Save, start, and open your site",
     "guide.quick-start.p4":
-      "Click “Save and start” and wait for the status to become “Running”. Click an address on the site card, then select “Open in browser” in the QR code panel.",
+      "Click “Save and start” and wait for the status to become “Running”, then click the “Open in browser” icon on the right of the site card.",
     "guide.site-basics.h3": "02 / Basics: name, folder, and port",
     "guide.site-basics.th": "Setting",
     "guide.site-basics.th2": "What to enter",
@@ -152,7 +135,11 @@
       "Choose an existing folder containing <code>index.html</code>.",
     "guide.site-basics.td5": "Site port",
     "guide.site-basics.td6":
-      "Valid range: 1–65535. Recommended: 1024–65535. Port <code>19800</code> is reserved for file sharing and cannot be used by sites.",
+      "Valid range: 1–65535. Recommended: 1024–65535. Enter it manually when creating a site. Sites that are not running can use the same configured port. Ports <code>80</code>, <code>10015</code>, and <code>19800</code> are reserved by the app and cannot be used by regular sites.",
+    "guide.site-basics.portChecks":
+      "Creating or editing a configuration checks whether the target listening address and port are available. When editing a running site, keep its current port and “LAN access” setting to save other settings. Saving a site that is not running does not reserve its port. Startup still confirms availability and fails if another site or program has occupied it in the meantime.",
+    "guide.site-basics.sharedPortExample":
+      "For example, “Project preview” and “Inspiration space” can both save port <code>3000</code> while stopped. After starting one, stop it before starting the other.",
     "guide.site-basics.td7": "LAN access",
     "guide.site-basics.td8":
       "When off, only your Mac can access the site. When on, devices on the same network can access it too.",
@@ -161,13 +148,13 @@
       "Optional, for example <code>myapp.ls</code>. See the custom domains section.",
     "guide.network.h3": "03 / LAN access",
     "guide.network.p":
-      "Want to view a page on your phone or share a preview with a colleague? Enable “LAN access” in the site settings, save and start, then use the LAN address shown on the card.",
+      "Want to view a page on your phone or share a preview with a colleague? Enable “LAN access” in the site settings, save and start, then click the “Scan to visit” icon on the site card.",
     "guide.network.li":
       "Connect your Mac and the visiting device to the same local network.",
     "guide.network.li2":
       "Enable “LAN access” for the site and make sure it is running.",
     "guide.network.li3":
-      "Click the LAN address. Scan the QR code with another device, or copy the link and open it in that device’s browser.",
+      "Click the QR code icon on the right of the card. Scan the code in the “LAN access” panel, or copy the address and open it in another device’s browser.",
     "guide.network.span": "Mac · LocalServe",
     "guide.network.span2": "Phone / another computer",
     "guide.network.strong": "Same network. Open the address.",
@@ -184,7 +171,7 @@
       "When saving, deleting, or importing a configuration changes a domain, macOS requests administrator approval to update hosts. LocalServe’s changes to hosts preserve access to other domains.",
     "guide.domains.h42": "Where does the mapping work?",
     "guide.domains.p3":
-      "The hosts mapping applies only to the Mac running LocalServe. Other devices cannot use the custom domain. Use the Mac’s LAN IP address instead, including the site’s port.",
+      "Custom domains use the shared HTTP port <code>80</code>, for example <code>http://myapp.ls</code>, without the site’s individual port. Multiple sites can share this listener, but each needs a different domain. The hosts mapping applies only to the Mac running LocalServe. Other devices should use the LAN IP address with the site’s individual port.",
     "guide.domains.h43": "Backup and restore",
     "guide.domains.p4":
       "Under “Settings → Domains and hosts”, you can see how many domains are managed. “Back up now” saves the entire current hosts file. “Restore backup” restores the latest backup after confirmation. Before restoring, check whether you need to keep any other hosts changes made since that backup.",
@@ -219,21 +206,21 @@
       "Add cross-origin response headers to static resources. Off by default. For API requests from the same site, proxy rules are preferred.",
     "guide.advanced.strong2": "Start with the app",
     "guide.advanced.p3":
-      "Start this site automatically the next time you open LocalServe. This is separate from the app’s “Launch at login” setting.",
+      "Start this site automatically the next time you open LocalServe. This is separate from the app’s “Launch at login” setting. Automatic startup follows the site list order. If ports conflict, the first site to start successfully uses the port.",
     "guide.site-operations.h3": "07 / Controls, access links, and logs",
     "guide.site-operations.h4": "Start, stop, and restart",
     "guide.site-operations.p":
-      "Use the buttons on the right of a site card to start or stop it. The card shows “Stopped”, “Starting”, “Running”, or “Error”, with details when an error occurs. The more menu offers restart, edit, export configuration, show folder in Finder, and delete site actions.",
+      "Use the play or stop button at the far right of a site card to control the service. The card shows “Stopped”, “Starting”, “Running”, or “Error”. The toolbar shows the port while running, and errors include their cause. The card’s ellipsis menu offers “Details and logs”, “Edit configuration”, “Export configuration”, “Show in Finder”, and “Delete site”. “Restart site” appears only while running.",
     "guide.site-operations.h42": "Open a site and view its logs",
     "guide.site-operations.p2":
-      "Once a site is running, click an address to see its QR code, copy the link, or open it in a browser. Hold <kbd>Command</kbd> (or <kbd>Ctrl</kbd>) while clicking an address to open it directly in your browser.",
+      "Once a site is running, click its “Open in browser” icon to visit it directly. A configured custom domain takes priority; otherwise, the local address is used. The adjacent “Scan to visit” icon opens the LAN QR code for devices on the same network. Both buttons are disabled while the site is stopped.",
     "guide.site-operations.p3":
-      "Open “Details and logs” from the site’s more menu to view its port, domain, proxy count, and access links. Filter logs by All, Access, Proxy, or Error, or search, clear, and export them. Clearing only removes logs recorded by the app.",
+      "Open “Details and logs” from the site’s more menu to view its port, domain, and proxy count. Expand “Access links” to copy or open local, LAN, and custom-domain addresses individually. LAN links require LAN access and a detected IP. Choose “Site logs” or “Shared port 80 logs” as the source. Filter by All, Access, Proxy, or Error, or search, clear, and export logs. Clearing only removes logs recorded by the app.",
     "guide.site-transfer.h3": "08 / Import and export site configurations",
     "guide.site-transfer.p":
       "Expand the site area’s more actions to import a configuration or export all site configurations. Use an individual site’s more menu to export just that site.",
     "guide.site-transfer.p2":
-      "A configuration contains site settings, not website files. To use it on another computer, copy the website folder too and check that folder paths, ports, and proxy targets work there. Importing domain changes may still request approval to update hosts.",
+      "A configuration contains site settings, not website files. To use it on another computer, copy the website folder too and check that folder paths, ports, and proxy targets work there. Importing domain changes may still request approval to update hosts. Imported configurations can contain multiple sites with the same port; startup still follows the port occupancy rules.",
     "guide.files.h2": "File sharing",
     "guide.files.p":
       "Share files with devices on the same local network. File sharing works independently of site management; you do not need to create a site first.<br />The sharing service runs on port 19800 and cannot be stopped manually. If that port is occupied when the app starts, file sharing cannot work properly.",
@@ -242,7 +229,7 @@
       "Click “Add → Add files”, or the add button beside the file area, and select the files you want to share.",
     "guide.file-download.h3": "02 / Scan to download on your network",
     "guide.file-download.li":
-      "Click the QR code icon on a file card to open its QR code panel.",
+      "Hover over a file card and click the QR code icon that appears to open the “LAN access” panel.",
     "guide.file-download.li2":
       "Devices on the same network can scan the code or open the link to download the file.",
     "guide.file-download.span":
@@ -250,9 +237,9 @@
     "guide.file-download.code": "http://YOUR-LAN-IP:19800/FILENAME",
     "guide.file-manage.h3": "03 / Unavailable files and removing shares",
     "guide.file-manage.p":
-      "If the original file is moved or deleted, its card shows “File unavailable”. Remove the entry and add the new file again. Download links are unavailable if no LAN IP is detected.",
+      "If the original file is moved or deleted, its card fades and shows a warning icon. Hovering displays “File has been deleted or moved”. Remove the unavailable share and add an existing file again. The QR code entry is unavailable if the file is missing, the sharing service is not running, or no LAN IP is detected.",
     "guide.file-manage.p2":
-      "“Remove share” only removes the file from the sharing list; it does not delete the original file on disk. You can also use the card’s actions to show the original file in Finder.",
+      "Hover over a file card, click “Remove share”, and confirm. This only removes the file from the sharing list; it does not delete the original file on disk. Available files also offer “Show in Finder” to locate the original.",
     "guide.file-manage.strong": "Share only the files you intend to share",
     "guide.file-manage.p3":
       "Devices on the local network that can connect to the service can access files through their download links. When you finish sharing, remove the file from the list to stop serving that link.",
@@ -262,7 +249,7 @@
       "Click the language icon to the left of Settings on the app’s home screen and choose Chinese or English. You can also switch under “Settings → Language → Display language”. The choice takes effect immediately and is saved. The app interface, tray menu, and native menus all update together.",
     "guide.settings.h32": "Window and menu bar",
     "guide.settings.p2":
-      "Click the gear in the top right of the app to open Settings. With “Minimize to tray on close” enabled, closing the window keeps services running in the background. To quit fully, right-click the menu bar icon and choose “Quit LocalServe”. Left-click the icon to reopen the main window.",
+      "Click the gear in the top right of the app, or use the macOS menu “LocalServe → Settings…”. With “Minimize to tray on close” enabled, closing the window keeps services running in the background. Left-click the menu bar icon to reopen the main window. Its right-click menu can start, stop, and open sites, or start and stop all sites. To quit fully, choose “Quit” in that menu, or “Quit LocalServe” in the macOS app menu.",
     "guide.settings.th": "Setting",
     "guide.settings.th2": "Purpose",
     "guide.settings.td": "Minimize to tray on close",
@@ -279,15 +266,15 @@
     "guide.faq.summary": "Folder error or index.html not found?",
     "guide.faq.p":
       "Check that the selected path exists, is a folder, and contains <code>index.html</code> at its root. For frontend projects, choose the build output folder, such as <code>dist</code>, rather than a folder containing only source code.",
-    "guide.faq.summary2": "Site fails to start because the port is in use?",
+    "guide.faq.summary2": "Port in use when saving or starting a site?",
     "guide.faq.p2":
-      "Choose a port that no other site or program is using, such as 8081. Do not use 19800, which is reserved for file sharing. Open “Details and logs” for the specific error.",
+      "Stop the site or program occupying the port, or choose an available port such as <code>8081</code>. Multiple sites that are not running can retain the same configured port, but cannot run on that port together. Automatic startup and “Start all” follow list order; the first site to start successfully uses the port, and an already running site keeps it. Do not use the app’s reserved ports <code>80</code>, <code>10015</code>, or <code>19800</code>. With a custom domain enabled, the shared port <code>80</code> must also be available. Open “Details and logs” for the specific startup error.",
     "guide.faq.summary3": "Works on your Mac but not on your phone?",
     "guide.faq.p3":
       "Make sure “LAN access” is enabled, your phone and Mac are on the same network, and you are using the Mac’s LAN IP — not 127.0.0.1 or a domain mapped only on the Mac. Then check the firewall, guest network isolation, and other network restrictions.",
     "guide.faq.summary4": "Custom domain does not open?",
     "guide.faq.p4":
-      "Check that you approved the hosts update, the domain contains no protocol or path, and the browser address includes the correct port. If you canceled approval earlier, save the domain again to request it. Other devices should use the LAN IP instead.",
+      "Check that you approved the hosts update, the site is running, and the domain contains no protocol, port, or path. On your Mac, use <code>http://YOUR-DOMAIN</code> without the site’s individual port. Check “Shared port 80 logs” if the shared listener fails. If you canceled approval earlier, save the domain again to request it. Other devices should use the LAN IP with the site’s port.",
     "guide.faq.summary5":
       "Why does macOS keep asking for an administrator password?",
     "guide.faq.p5":
@@ -303,7 +290,7 @@
     "guide.faq.summary8":
       "Why does my site keep running after I close the window?",
     "guide.faq.p8":
-      "This is expected with “Minimize to tray on close” enabled. Stop the individual site, or choose “Quit LocalServe” from the menu bar icon’s menu to stop the app.",
+      "This is expected with “Minimize to tray on close” enabled. Stop the individual site, or choose “Quit” from the menu bar icon’s right-click menu to stop the app.",
     "guide.meta.h3": "Ready to open your next idea?",
     "guide.meta.p": "Return to the app and start with a folder.",
     "guide.meta.a3": "Review how to create a site ↑",
@@ -328,6 +315,38 @@
     "guide.overview.keywords": "introduction features HTTP",
     "guide.search-dialog.aria-label": "Close search",
     "guide.search-dialog.placeholder": "Search ports, domains, file sharing…",
+    "home.hero.previewLabel":
+      "Illustrative LocalServe interface: 3 files, 2 sites, and 1 running site. File names, site names, and paths are sample data.",
+    "home.hero.previewAdd": "Add",
+    "home.hero.previewFiles": "Files <small>3</small>",
+    "home.hero.previewImageFile": "Sketch.png",
+    "home.hero.previewArchiveFile": "Creative<br />assets.zip",
+    "home.hero.previewAudioFile": "Idea notes<br />Episode 1.m4a",
+    "home.hero.previewSites": "Sites <small>2</small>",
+    "home.hero.previewStoppedSite": "Project preview",
+    "home.hero.previewStopped": "<i></i>Stopped",
+    "home.hero.previewRunningSite": "Inspiration space",
+    "home.hero.previewRunning": "<i></i>Running",
+    "home.hero.previewPort": "Port",
+    "home.hero.previewSummary": "Files: 3 · Sites: 2 · Running: 1",
+    "guide.network.qrActions":
+      "Click the QR code image to copy it. Click the address text or “Copy address” icon to copy the complete link, even if the displayed address is shortened. The “Open in browser” icon opens the LAN link on your current Mac.",
+    "guide.network.qrDisabled":
+      "The QR code button is available only when the site is running, LAN access is enabled, and a LAN IP has been detected. If it is disabled, check these three conditions; hover over the button for a hint.",
+    "guide.domains.sharedPort":
+      "Port <code>80</code> must be available when starting a site with a custom domain. If the listener cannot start, open “Details and logs” and select “Shared port 80 logs” to check the cause.",
+    "guide.site-operations.listToolbarTitle":
+      "List filters and bulk actions",
+    "guide.site-operations.listToolbar":
+      "Click the circled ellipsis beside the Sites heading to expand the list toolbar. Filter by status and keywords matching the name, folder, port, or domain. The toolbar also offers “Start all”, “Stop all”, import, and export all configurations. Bulk start and stop apply to every site, even when the list is filtered.",
+    "guide.site-operations.startOrder":
+      "“Start all” starts sites one by one in list order. Once a site starts successfully, later sites with a conflicting port show “Error” and the occupancy reason, while other sites continue starting. An already running site keeps its port and is not replaced by an earlier site in the list. To switch to another site on the same port, stop the current site and then start the desired site individually.",
+    "guide.file-add.listToolbar":
+      "Scroll the list horizontally when there are many files. Click the circled ellipsis beside the Files heading to expand keyword filtering and search by filename or path.",
+    "guide.file-download.qrActions":
+      "Click the QR code image to copy it. Click the address text or “Copy address” icon to copy the complete download link. Click “Open in browser” to download through the browser on your current Mac.",
+    "guide.settings.guideSite":
+      "On the first launch of a fresh installation, the app adds and automatically starts a site for the bundled user guide on port <code>10015</code>, accessible only from your Mac by default. “Settings → About → User guide → Open” starts and opens that site. If you have deleted it, the bundled offline guide opens directly instead. Existing configurations do not have this site added automatically.",
   };
   const messages = {
     "search.prompt": [
@@ -382,6 +401,7 @@
   const attributes = [];
   for (const [marker, attribute] of [
     ["aria-label", "aria-label"],
+    ["alt", "alt"],
     ["title", "title"],
     ["placeholder", "placeholder"],
     ["content", "content"],

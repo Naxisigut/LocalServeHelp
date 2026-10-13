@@ -106,7 +106,8 @@
             把本地文件夹部署为站点。先完成新建流程，再按需要配置局域网访问、自定义域名、代理规则和自动运行等选项。
           </p>
           <p data-i18n="guide.sites.p2">
-            每个站点有独立的目录、端口和运行状态；同时运行多个站点时，需要使用不同的可用端口。
+            每个站点有独立的目录、端口和运行状态。多个未运行的站点可以保存相同端口，未启动的站点不会占用端口。
+            同端口的站点需要轮流启动，即使「局域网访问」选项不同，也不能同时运行。
           </p>
         </section>
         <section id="quick-start" class="doc-section doc-subsection" tabindex="-1">
@@ -122,7 +123,7 @@
                 <h4 data-i18n="guide.quick-start.h4">新增站点，选择目录</h4>
                 <p data-i18n="guide.quick-start.p2">
                   打开
-                  LocalServe，点击右上角「新增」→「新增站点」。填写名称，选择目录。目录中必须包含<code>index.html</code>。
+                  LocalServe，点击右上角「新增」→「新增站点」，或站点区域右侧的加号。填写名称，选择目录。目录中必须包含 <code>index.html</code>。
                 </p>
               </div>
             </div>
@@ -131,8 +132,8 @@
               <div>
                 <h4 data-i18n="guide.quick-start.h42">设置一个可用的端口</h4>
                 <p data-i18n="guide.quick-start.p3">
-                  端口必须设置，切不能被其他程序占用，推荐使用1024-65535之间的端口。<br />
-                  注意：本应用的文件分享服务已使用19800端口，故其不能再被站点使用。
+                  新建站点的端口默认留空，需要手动填写，建议使用 1024–65535。保存时会检查目标监听地址和端口是否被运行中的站点或其他程序占用。<br />
+                  <code>80</code>、<code>10015</code> 和 <code>19800</code> 分别为自定义域名共享入口、使用说明和文件分享保留，不可用于普通站点。
                 </p>
               </div>
             </div>
@@ -141,7 +142,7 @@
               <div>
                 <h4 data-i18n="guide.quick-start.h43">保存并启动，打开站点</h4>
                 <p data-i18n="guide.quick-start.p4">
-                  点击「保存并启动」，等待状态变为「运行中」。点击卡片上的地址，在弹出的二维码面板中选择在浏览器打开。
+                  点击「保存并启动」，等待状态变为「运行中」，再点击站点卡片右侧的「在浏览器打开」图标。
                 </p>
               </div>
             </div>
@@ -169,8 +170,7 @@
                 <tr>
                   <td data-i18n="guide.site-basics.td5">独立端口</td>
                   <td data-i18n="guide.site-basics.td6">
-                    范围为 1–65535，建议使用 1024–65535。<code>19800</code>
-                    为文件分享保留，不可用于站点。
+                    范围为 1–65535，建议使用 1024–65535。新建时需手动填写；未运行的站点可以配置相同端口。<code>80</code>、<code>10015</code> 和 <code>19800</code> 为应用保留，不可用于普通站点。
                   </td>
                 </tr>
                 <tr>
@@ -184,17 +184,24 @@
               </tbody>
             </table>
           </div>
+          <p data-i18n="guide.site-basics.portChecks">
+            新建或修改配置时，会检查目标监听地址和端口是否可用。编辑运行中的站点时，保留原端口和「局域网访问」选项，可保存其他设置。
+            未运行的站点保存配置不会预留端口；启动时仍会确认端口是否可用，若期间被其他站点或程序占用，启动会失败。
+          </p>
+          <p data-i18n="guide.site-basics.sharedPortExample">
+            例如，「作品预览」和「灵感空间」都可以在停止状态下保存端口 <code>3000</code>。启动其中一个后，需要先停止它，才能启动另一个。
+          </p>
         </section>
         <section id="network" class="doc-section doc-subsection" tabindex="-1">
           <h3 data-i18n="guide.network.h3">03 / 局域网访问</h3>
           <p data-i18n="guide.network.p">
-            想在手机上查看页面，或让同事预览作品？在站点配置里开启「局域网访问」，保存并启动后，使用卡片提供的局域网地址。
+            想在手机上查看页面，或让同事预览作品？在站点配置里开启「局域网访问」，保存并启动后，点击站点卡片上的「扫码访问」图标。
           </p>
           <ol>
             <li data-i18n="guide.network.li">让电脑和访问设备连接到同一局域网。</li>
             <li data-i18n="guide.network.li2">开启该站点的「局域网访问」，确保站点处于运行状态。</li>
             <li data-i18n="guide.network.li3">
-              点击局域网地址，使用另一台设备扫码，或复制链接在其浏览器中打开。
+              点击卡片右侧的二维码图标，在「局域网访问」弹窗中扫码，或复制地址到另一台设备的浏览器中打开。
             </li>
           </ol>
           <div class="network-example">
@@ -208,6 +215,12 @@
           </div>
           <p class="caption" data-i18n="guide.network.p2">
             上方 IP 仅为示例，请以应用显示的实际局域网地址为准。
+          </p>
+          <p data-i18n="guide.network.qrActions">
+            点击二维码图片可复制二维码；点击下方地址文字或「复制地址」图标可复制完整链接，即使显示的地址被省略也不影响复制。「浏览器打开」图标会在当前 Mac 上打开局域网链接。
+          </p>
+          <p data-i18n="guide.network.qrDisabled">
+            扫码按钮仅在站点运行、已开启局域网访问且检测到局域网 IP 时可用。按钮变灰时，先检查这三个条件；将鼠标停在按钮上可查看提示。
           </p>
           <div class="callout">
             <strong data-i18n="guide.network.strong2">手机上不要使用 127.0.0.1</strong>
@@ -235,9 +248,11 @@
           </p>
           <h4 data-i18n="guide.domains.h42">域名映射在哪生效？</h4>
           <p data-i18n="guide.domains.p3">
-            hosts 映射仅作用于运行 LocalServe 的这台
-            Mac，其它设备无法访问自定义域名，请使用局域网 IP
-            地址访问，且仍需带上站点的端口。
+            自定义域名通过共享的 HTTP <code>80</code> 端口访问，例如 <code>http://myapp.ls</code>，无需带上站点的独立端口。多个站点可以共用这个入口，但必须使用不同域名。
+            hosts 映射仅作用于运行 LocalServe 的这台 Mac；其他设备请使用局域网 IP 地址，并带上站点的独立端口。
+          </p>
+          <p data-i18n="guide.domains.sharedPort">
+            启用自定义域名的站点启动时，需要共享端口 <code>80</code> 可用。如果入口无法启动，在「详情与日志」中切换到「共享端口 80 日志」查看原因。
           </p>
           <h4 data-i18n="guide.domains.h43">备份与还原</h4>
           <p data-i18n="guide.domains.p4">
@@ -317,6 +332,7 @@
               <p data-i18n="guide.advanced.p3">
                 下次打开 LocalServe
                 时自动启动这个站点。这与应用自身的「开机自启动」是两个独立选项。
+                自动启动按站点列表顺序执行；同端口站点冲突时，前面成功启动的站点先使用端口。
               </p>
             </li>
           </ul>
@@ -325,17 +341,25 @@
           <h3 data-i18n="guide.site-operations.h3">07 / 启停、访问与日志</h3>
           <h4 data-i18n="guide.site-operations.h4">启动、停止与重启</h4>
           <p data-i18n="guide.site-operations.p">
-            使用站点卡片右侧按钮启停服务。卡片显示「已停止」「启动中」「运行中」或「异常」；异常时会显示具体原因。更多菜单提供重启、编辑、导出配置、在
-            Finder 中显示目录和删除站点等操作。
+            使用站点卡片最右侧的播放或停止按钮启停服务。卡片显示「已停止」「启动中」「运行中」或「异常」；运行时工具栏显示端口，异常时显示具体原因。
+            卡片上的省略号菜单提供「详情与日志」「编辑配置」「导出配置」「在 Finder 中显示」和「删除站点」；「重启站点」仅在运行时出现。
           </p>
           <h4 data-i18n="guide.site-operations.h42">访问站点与查看日志</h4>
           <p data-i18n="guide.site-operations.p2">
-            站点运行后，点击地址可查看二维码、复制链接或在浏览器打开。按住
-            <kbd>Command</kbd>（或
-            <kbd>Ctrl</kbd>）点击地址，可直接用浏览器打开。
+            站点运行后，点击卡片上的「在浏览器打开」图标直接访问站点：已配置自定义域名时优先使用域名，否则使用本机地址。
+            旁边的「扫码访问」图标打开局域网二维码，供同一网络里的设备访问。站点停止时，这两个按钮均不可用。
           </p>
           <p data-i18n="guide.site-operations.p3">
-            在站点更多菜单中打开「详情与日志」，查看端口、域名、代理数量和访问链接。日志支持按全部、访问、代理、错误筛选，也可搜索、清空和导出。清空只会清除应用记录的日志。
+            在站点更多菜单中打开「详情与日志」，查看端口、域名和代理数量。展开「访问链接」可分别复制或打开本机、局域网和自定义域名地址；局域网链接需要开启局域网访问并检测到 IP。
+            日志来源可选「站点日志」或「共享端口 80 日志」，支持按全部、访问、代理、错误筛选，也可搜索、清空和导出。清空只会清除应用记录的日志。
+          </p>
+          <h4 data-i18n="guide.site-operations.listToolbarTitle">列表筛选与批量操作</h4>
+          <p data-i18n="guide.site-operations.listToolbar">
+            点击「站点」标题右侧的圆形省略号，展开列表工具栏。可按运行状态和关键字筛选站点，关键字可匹配名称、目录、端口或域名；也可使用「全部启动」「全部停止」、导入和导出全部配置。批量启停作用于全部站点，即使列表已筛选。
+          </p>
+          <p data-i18n="guide.site-operations.startOrder">
+            「全部启动」按站点列表顺序逐一执行。前面的站点启动成功后，端口冲突的后续站点会显示「异常」和占用原因，其他站点继续启动。
+            已经运行的站点会继续使用原端口，不会被列表前面的站点替换。想切换到同端口的另一个站点，请先停止当前站点，再单独启动目标站点。
           </p>
         </section>
         <section id="site-transfer" class="doc-section doc-subsection" tabindex="-1">
@@ -345,7 +369,7 @@
           </p>
           <p data-i18n="guide.site-transfer.p2">
             配置保存的是站点设置，不包含网站文件。换一台电脑使用时，也需要拷贝网站目录，并确认配置中的目录路径、端口和代理目标在新电脑上可用。导入涉及域名变化时，仍可能请求
-            hosts 授权。
+            hosts 授权。导入配置可包含端口相同的多个站点，启动时仍需遵守端口占用规则。
           </p>
         </section>
       </section>
@@ -363,13 +387,19 @@
             点击「新增 →
             新增文件」，或文件区域旁的新增按钮，选择要分享的文件。
           </p>
+          <p data-i18n="guide.file-add.listToolbar">
+            文件较多时可横向滚动列表。点击「文件」标题右侧的圆形省略号展开关键字筛选，可按文件名或路径查找文件。
+          </p>
         </section>
         <section id="file-download" class="doc-section doc-subsection" tabindex="-1">
           <h3 data-i18n="guide.file-download.h3">02 / 局域网扫码下载</h3>
           <ol>
-            <li data-i18n="guide.file-download.li">选择文件卡片上的二维码入口，打开二维码弹窗</li>
+            <li data-i18n="guide.file-download.li">将鼠标移到文件卡片上，点击出现的二维码图标，打开「局域网访问」弹窗。</li>
             <li data-i18n="guide.file-download.li2">同一局域网中的设备扫码或打开链接，即可下载文件。</li>
           </ol>
+          <p data-i18n="guide.file-download.qrActions">
+            点击二维码图片可复制二维码，点击地址文字或「复制地址」图标可复制完整下载链接；点击「浏览器打开」图标可在当前 Mac 的浏览器中下载。
+          </p>
           <div class="code-block">
             <div class="code-header">
               <span data-i18n="guide.file-download.span">下载地址格式 · IP 和文件名请以应用为准</span>
@@ -380,12 +410,11 @@
         <section id="file-manage" class="doc-section doc-subsection" tabindex="-1">
           <h3 data-i18n="guide.file-manage.h3">03 / 文件失效与移除分享</h3>
           <p data-i18n="guide.file-manage.p">
-            原文件移动或删除后，卡片会显示「文件失效」，请直接删除，重新添加新的文件。如果未检测到局域网
-            IP，下载地址会不可用。
+            原文件移动或删除后，卡片会变淡并显示警告图标，鼠标悬停时提示「文件已被删除或移动」。移除失效分享后，重新添加现有文件。
+            文件失效、分享服务未运行或未检测到局域网 IP 时，二维码入口不可用。
           </p>
           <p data-i18n="guide.file-manage.p2">
-            「移除分享」只会从分享列表移除文件，不会删除磁盘上的原文件。你也可以通过卡片操作在
-            Finder 中显示原文件。
+            将鼠标移到文件卡片上，点击「移除分享」并确认，只会从分享列表移除文件，不会删除磁盘上的原文件。有效文件的卡片还提供「在访达中显示」，用于定位原文件。
           </p>
           <div class="callout">
             <strong data-i18n="guide.file-manage.strong">分享你确实想分享的文件</strong>
@@ -404,8 +433,8 @@
         </p>
         <h3 data-i18n="guide.settings.h32">窗口与菜单栏</h3>
         <p data-i18n="guide.settings.p2">
-          点击应用右上角的齿轮打开设置。启用「关闭窗口时最小化到托盘」后，关闭窗口仍会在后台提供服务。需要真正退出时，在菜单栏图标的右键菜单中选择「退出
-          LocalServe」。左键点击菜单栏图标可重新打开主窗口。
+          点击应用右上角的齿轮，或 macOS 菜单「LocalServe → 设置…」打开设置。启用「关闭窗口时最小化到托盘」后，关闭窗口仍会在后台提供服务。
+          左键点击菜单栏图标可重新打开主窗口；右键菜单可启停、打开站点，也可全部启动或停止。需要真正退出时，选择该菜单中的「退出」，或 macOS 菜单中的「退出 LocalServe」。
         </p>
         <div class="table-wrap">
           <table>
@@ -438,6 +467,10 @@
             </tbody>
           </table>
         </div>
+        <p data-i18n="guide.settings.guideSite">
+          全新安装首次启动时，应用会添加并自动运行「使用说明」站点，默认仅本机访问，端口为 <code>10015</code>。
+          「设置 → 关于 → 使用说明 → 打开」会启动并打开该站点；若该站点已被删除，则直接打开随应用安装的离线文档。已有配置不会自动补建这个站点。
+        </p>
       </section>
       <section id="faq" class="doc-section" tabindex="-1">
         <h2 data-i18n="common.faq">常见问题</h2>
@@ -451,11 +484,11 @@
             </p>
           </details>
           <details>
-            <summary data-i18n="guide.faq.summary2">站点启动失败，提示端口被占用？</summary>
+            <summary data-i18n="guide.faq.summary2">保存或启动站点时提示端口被占用？</summary>
             <p data-i18n="guide.faq.p2">
-              将端口改为未被其他站点或程序占用的值，例如
-              8081。不要使用文件分享专用的
-              19800。可以打开「详情与日志」查看具体错误信息。
+              停止占用端口的站点或程序，或改用空闲端口，例如 <code>8081</code>。多个未运行站点可以保留相同端口配置，但同端口站点不能同时运行。
+              自动启动或「全部启动」时，列表中前面成功启动的站点先使用端口，已经运行的站点会保留端口。
+              不要使用应用保留的 <code>80</code>、<code>10015</code> 或 <code>19800</code>。若启用了自定义域名，还需确保共享端口 <code>80</code> 可用。启动失败时可打开「详情与日志」查看具体错误信息。
             </p>
           </details>
           <details>
@@ -470,8 +503,8 @@
             <summary data-i18n="guide.faq.summary4">自定义域名无法打开？</summary>
             <p data-i18n="guide.faq.p4">
               确认已允许写入
-              hosts，域名中没有协议或路径，且浏览器地址包含正确端口。若曾取消授权，重新保存域名以再次授权。其他设备请改用局域网
-              IP。
+              hosts，站点已运行，域名中没有协议、端口或路径。在本机使用 <code>http://你的域名</code> 访问，无需添加独立端口；若共享入口异常，查看「共享端口 80 日志」。
+              若曾取消授权，重新保存域名以再次授权。其他设备请改用局域网 IP 加站点端口。
             </p>
           </details>
           <details>
@@ -500,8 +533,7 @@
           <details>
             <summary data-i18n="guide.faq.summary8">关闭窗口后，站点为什么还在运行？</summary>
             <p data-i18n="guide.faq.p8">
-              开启「关闭窗口时最小化到托盘」时，这是正常行为。要停止服务，可停止对应站点，或从菜单栏图标菜单中选择「退出
-              LocalServe」。
+              开启「关闭窗口时最小化到托盘」时，这是正常行为。要停止服务，可停止对应站点，或从菜单栏图标的右键菜单中选择「退出」。
             </p>
           </details>
         </div>

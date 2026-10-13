@@ -12,6 +12,7 @@ const han = /\p{Script=Han}/u;
 const referenced = new Set();
 const attributeMarkers = {
   "aria-label": "aria-label",
+  alt: "alt",
   title: "title",
   placeholder: "placeholder",
   content: "content",
