@@ -390,13 +390,41 @@
       return null;
     }
   };
+  const detectDefaultLanguage = () => {
+    // Language and time zone are hints for a default, not geolocation.
+    try {
+      const preferred = navigator.language || navigator.languages?.[0] || "";
+      if (/^zh(?:-|$)/i.test(preferred)) return "zh";
+    } catch {
+      // Still try the time zone if browser language is unavailable.
+    }
+    try {
+      const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      // Include legacy IANA aliases returned by older browser runtimes.
+      if (
+        [
+          "Asia/Shanghai",
+          "Asia/Urumqi",
+          "Asia/Chongqing",
+          "Asia/Chungking",
+          "Asia/Harbin",
+          "Asia/Kashgar",
+          "PRC",
+        ].includes(timeZone)
+      )
+        return "zh";
+    } catch {
+      // Missing or restricted Intl support falls back to English.
+    }
+    return "en";
+  };
   const requestedLanguage = new URL(location.href).searchParams.get("lang");
   const savedLanguage = readSavedLanguage();
   let language = isLanguage(requestedLanguage)
     ? requestedLanguage
     : isLanguage(savedLanguage)
       ? savedLanguage
-      : "zh";
+      : detectDefaultLanguage();
 
   // Save complete inline markup once so repeated switches preserve code, icons,
   // keyboard hints, and the original Chinese formatting.
@@ -485,7 +513,13 @@
     }
   };
   const setLanguage = (next, { persist = true } = {}) => {
-    if (!isLanguage(next) || next === language) return;
+    if (!isLanguage(next)) return;
+    if (next === language) {
+      // Explicitly selecting the detected default must save a preference too.
+      if (persist) saveLanguage();
+      updateURL();
+      return;
+    }
     language = next;
     applyLanguage();
     if (persist) saveLanguage();

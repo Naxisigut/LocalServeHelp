@@ -97,6 +97,12 @@ const boot = ({
   saved = null,
   blockedStorage = false,
   blockedHistory = false,
+  browserLanguage = "en-US",
+  browserLanguages = [browserLanguage],
+  timeZone = "America/New_York",
+  missingNavigator = false,
+  missingIntl = false,
+  blockedTimeZone = false,
 } = {}) => {
   const element = (attrs, innerHTML = "") => ({
     attrs: { ...attrs },
@@ -153,6 +159,17 @@ const boot = ({
     document,
     location,
     URL,
+    navigator: missingNavigator
+      ? undefined
+      : { language: browserLanguage, languages: browserLanguages },
+    Intl: missingIntl
+      ? undefined
+      : {
+          DateTimeFormat() {
+            if (blockedTimeZone) throw new Error("Blocked");
+            return { resolvedOptions: () => ({ timeZone }) };
+          },
+        },
     window: {
       addEventListener(name, callback) {
         windowEvents[name] = callback;
@@ -198,7 +215,86 @@ const boot = ({
   };
 };
 
-const defaults = boot();
+// Environment detection only runs when URL and saved preferences are absent.
+assert.equal(boot().api.language, "en");
+assert.equal(boot().document.documentElement.lang, "en");
+assert.equal(boot().heading.innerHTML, english["home.hero.h1"]);
+assert.equal(boot().saved(), null);
+for (const browserLanguage of ["zh", "zh-CN", "zh-TW", "zh-Hans", "ZH-hk"]) {
+  assert.equal(boot({ browserLanguage }).api.language, "zh");
+}
+assert.equal(
+  boot({ browserLanguage: "en-US", browserLanguages: ["en-US", "zh-CN"] })
+    .api.language,
+  "en",
+);
+assert.equal(
+  boot({ browserLanguage: "", browserLanguages: ["zh-CN"] }).api.language,
+  "zh",
+);
+for (const timeZone of [
+  "Asia/Shanghai",
+  "Asia/Urumqi",
+  "Asia/Chongqing",
+  "Asia/Chungking",
+  "Asia/Harbin",
+  "Asia/Kashgar",
+  "PRC",
+]) {
+  assert.equal(boot({ timeZone }).api.language, "zh");
+}
+for (const timeZone of [
+  "Asia/Singapore",
+  "Asia/Taipei",
+  "Asia/Hong_Kong",
+  "Asia/Macau",
+  "Etc/GMT-8",
+  "",
+  null,
+]) {
+  assert.equal(boot({ timeZone }).api.language, "en");
+}
+assert.equal(
+  boot({ missingNavigator: true, missingIntl: true }).api.language,
+  "en",
+);
+assert.equal(
+  boot({ missingNavigator: true, timeZone: "Asia/Shanghai" }).api.language,
+  "zh",
+);
+assert.equal(
+  boot({ browserLanguage: "zh-CN", missingIntl: true }).api.language,
+  "zh",
+);
+assert.equal(boot({ blockedTimeZone: true }).api.language, "en");
+assert.equal(boot({ saved: "zh" }).api.language, "zh");
+assert.equal(
+  boot({ saved: "en", timeZone: "Asia/Shanghai" }).api.language,
+  "en",
+);
+assert.equal(boot({ saved: "bad" }).api.language, "en");
+assert.equal(
+  boot({
+    url: "http://localhost/index.html?lang=fr",
+    timeZone: "Asia/Shanghai",
+  }).api.language,
+  "zh",
+);
+assert.equal(
+  boot({
+    url: "http://localhost/guide.html?lang=en",
+    saved: "zh",
+    timeZone: "Asia/Shanghai",
+  }).api.language,
+  "en",
+);
+assert.equal(boot({ blockedStorage: true }).api.language, "en");
+const explicitDefault = boot();
+explicitDefault.api.setLanguage("en");
+assert.equal(explicitDefault.saved(), "en");
+assert.equal(new URL(explicitDefault.location.href).searchParams.get("lang"), "en");
+assert.equal(explicitDefault.events.length, 0);
+const defaults = boot({ browserLanguage: "zh-CN" });
 assert.equal(defaults.api.language, "zh");
 const original = defaults.heading.innerHTML;
 defaults.api.setLanguage("en");
@@ -233,7 +329,6 @@ assert.equal(
 assert.equal(defaults.api.t("copy.success"), "已复制");
 assert.equal(defaults.events.length, 2);
 assert.equal(boot({ saved: "en" }).api.language, "en");
-assert.equal(boot({ saved: "bad" }).api.language, "zh");
 assert.equal(
   boot({ url: "http://localhost/sub/guide.html?lang=zh#settings", saved: "en" })
     .api.language,
@@ -248,11 +343,12 @@ const file = boot({
   url: "file:///tmp/help/index.html#features",
   blockedStorage: true,
   blockedHistory: true,
+  timeZone: "Asia/Shanghai",
 });
 file.api.setLanguage("en");
 assert.equal(file.api.language, "en");
 assert.equal(file.links[1].attrs.href, "guide.html?lang=en#quick-start");
-const synced = boot();
+const synced = boot({ browserLanguage: "zh-CN" });
 synced.windowEvents.storage({
   key: "localserve-help-language",
   newValue: "en",
@@ -260,5 +356,5 @@ synced.windowEvents.storage({
 assert.equal(synced.api.language, "en");
 assert.equal(synced.saved(), null);
 console.log(
-  `i18n: ${referenced.size} translations, HTML coverage, language persistence, URL precedence, storage fallback, and bilingual messages passed`,
+  `i18n: ${referenced.size} translations, HTML coverage, browser language/time zone defaults, language persistence, URL precedence, storage fallback, and bilingual messages passed`,
 );
