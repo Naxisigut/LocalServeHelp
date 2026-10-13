@@ -275,6 +275,16 @@
     "guide.faq.summary4": "Custom domain does not open?",
     "guide.faq.p4":
       "Check that you approved the hosts update, the site is running, and the domain contains no protocol, port, or path. On your Mac, use <code>http://YOUR-DOMAIN</code> without the site’s individual port. Check “Shared port 80 logs” if the shared listener fails. If you canceled approval earlier, save the domain again to request it. Other devices should use the LAN IP with the site’s port.",
+    "guide.faq.domainPort.title":
+      "How do custom domains relate to port 80 conflicts?",
+    "guide.faq.domainPort.listener":
+      "When a site with a custom domain starts, LocalServe listens on port <code>80</code> so you can use <code>http://YOUR-DOMAIN</code> without a port number. This shared listener is separate from the site’s individual port; multiple LocalServe sites can share it using different domains. Saving a configuration, starting a site without a custom domain, or adding shared files does not occupy port <code>80</code> for this purpose. File sharing uses port <code>19800</code>.",
+    "guide.faq.domainPort.conflict":
+      "If another app occupies port <code>80</code> and prevents the shared listener from starting, the entire site shows “Error” with the message “Port 80 is already in use. Free the port or disable this site's custom domains, then try again.” The site cannot start even if its individual port is available. Changing only the individual port does not resolve this conflict.",
+    "guide.faq.domainPort.solution":
+      "Stop the service using port <code>80</code> in the other app, then start your site again. Alternatively, edit the site and turn off “Custom domain” in its basic settings, save, and restart. Use the local address or LAN IP with the site’s individual port to access it.",
+    "guide.faq.domainPort.release":
+      "While LocalServe’s custom-domain listener is running, other apps usually cannot listen on port <code>80</code> either. Stop all sites with custom domains or quit LocalServe to release the shared listener. This does not prevent other apps from accessing external websites on port <code>80</code>.",
     "guide.faq.summary5":
       "Why does macOS keep asking for an administrator password?",
     "guide.faq.p5":

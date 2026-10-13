@@ -508,6 +508,21 @@
             </p>
           </details>
           <details>
+            <summary data-i18n="guide.faq.domainPort.title">自定义域名与 80 端口占用有什么关系？</summary>
+            <p data-i18n="guide.faq.domainPort.listener">
+              启动带自定义域名的站点时，LocalServe 会监听 <code>80</code> 端口，让你通过 <code>http://你的域名</code> 访问，无需填写端口。这个入口与站点配置的独立端口不同，多个 LocalServe 站点可以使用不同域名共用它。仅保存配置、启动未配置自定义域名的站点，或添加文件分享，都不会因此占用 <code>80</code> 端口；文件分享使用的是 <code>19800</code> 端口。
+            </p>
+            <p data-i18n="guide.faq.domainPort.conflict">
+              如果其他应用先占用了 <code>80</code> 端口，导致共享入口无法启动，整个站点会显示「异常」，并提示「80端口被占用，请解除占用或关闭本站点自定义域名后再试」。即使站点的独立端口可用，也无法启动；只修改独立端口不能解决这个冲突。
+            </p>
+            <p data-i18n="guide.faq.domainPort.solution">
+              请停止其他应用中占用 <code>80</code> 端口的服务，再启动本站点；或者编辑本站点，在基础信息中关闭「自定义域名」，保存后重新启动，通过本机地址或局域网 IP 加独立端口访问。
+            </p>
+            <p data-i18n="guide.faq.domainPort.release">
+              当 LocalServe 的自定义域名入口正在运行时，其他应用通常也无法再监听 <code>80</code> 端口。停止所有带自定义域名的站点，或退出 LocalServe，即可释放这个入口。这不会影响其他应用通过 <code>80</code> 端口访问外部网站。
+            </p>
+          </details>
+          <details>
             <summary data-i18n="guide.faq.summary5">为什么反复要求输入管理员密码？</summary>
             <p data-i18n="guide.faq.p5">
               域名变更需要修改 hosts，因此 macOS
