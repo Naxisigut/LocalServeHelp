@@ -19,7 +19,7 @@
     <div class="nav-wrap">
       <a class="brand" href="index.html" aria-label="LocalServe 首页" data-i18n-aria-label="common.homeLabel"><img src="assets/logo.png" alt="" width="30"
           height="30" />LocalServe</a>
-      <nav aria-label="主导航" data-i18n-aria-label="common.mainNav"><a class="nav-link" href="guide.html" data-i18n="common.docs">使用文档</a><a class="nav-link"
+      <nav aria-label="主导航" data-i18n-aria-label="common.mainNav"><a class="nav-link" href="#pricing" data-i18n="common.pricing">定价</a><a class="nav-link" href="guide.html" data-i18n="common.docs">使用文档</a><a class="nav-link"
           href="guide.html#faq" data-i18n="common.faq">常见问题</a>
       </nav>
       <div class="nav-actions">
@@ -323,7 +323,29 @@
         </article>
       </div>
     </section>
-    <section id="start" class="steps-section">
+    <section id="pricing" class="section container pricing-section" aria-labelledby="pricing-title">
+      <article class="pricing-card reveal" aria-labelledby="pricing-title">
+        <div class="pricing-card-heading">
+          <img src="assets/logo.png" alt="" width="42" height="42" />
+          <h2 id="pricing-title" data-i18n="home.pricing.plan">LocalServe 完整版</h2>
+        </div>
+        <span class="pricing-trial" data-i18n="home.pricing.trial">7 天免费试用</span>
+        <p class="pricing-amount"><span class="pricing-symbol">$</span><span class="pricing-value">11</span><span class="pricing-currency" data-i18n="home.pricing.currency">美元</span></p>
+        <p class="pricing-billing" data-i18n="home.pricing.billing">一次性购买，无订阅</p>
+        <ul class="pricing-features">
+          <li data-i18n="home.pricing.feature1">本地站点与自定义域名</li>
+          <li data-i18n="home.pricing.feature2">反向代理与路径重写</li>
+          <li data-i18n="home.pricing.feature3">局域网访问与扫码分享</li>
+          <li data-i18n="home.pricing.feature4">托盘管理与开机启动</li>
+        </ul>
+        <div class="pricing-actions">
+          <button class="button pricing-purchase" type="button" disabled data-i18n="home.pricing.purchase">购买即将开放</button>
+          <a class="text-link" href="guide.html#quick-start" data-i18n="home.pricing.guide">查看使用指南</a>
+        </div>
+        <p class="pricing-platform" data-i18n="home.pricing.note">适用于 macOS</p>
+      </article>
+    </section>
+    <section id="start" class="section steps-section">
       <div class="container">
         <div class="section-heading reveal">
           <div>
@@ -359,7 +381,7 @@
     <a class="brand" href="index.html"><img src="assets/logo.png" alt="" width="25"
         height="25" />LocalServe</a><span data-i18n="home.site-footer.span">本地运行，自在创造。</span>
     <div>
-      <a href="guide.html" data-i18n="common.docs">使用文档</a><a href="guide.html#faq" data-i18n="common.faq">常见问题</a>
+      <a href="#pricing" data-i18n="common.pricing">定价</a><a href="guide.html" data-i18n="common.docs">使用文档</a><a href="guide.html#faq" data-i18n="common.faq">常见问题</a>
     </div>
   </footer>
 </body>

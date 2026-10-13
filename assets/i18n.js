@@ -5,6 +5,7 @@
     "home.meta.a": "Skip to main content",
     "common.docs": "Documentation",
     "common.faq": "FAQ",
+    "common.pricing": "Pricing",
     "home.site-header.a": "Quick start",
     "home.hero.h1": "Let ideas<br /><span>take root locally</span>",
     "home.hero.p":
@@ -67,6 +68,17 @@
     "home.start.h33": "Open it in your browser",
     "home.start.p3":
       "Click the site card’s browser icon.<br />Enable LAN access to share through its QR code icon.",
+    "home.pricing.plan": "LocalServe",
+    "home.pricing.currency": "USD",
+    "home.pricing.billing": "One-time purchase. No subscription.",
+    "home.pricing.trial": "7-day free trial",
+    "home.pricing.feature1": "Local sites and custom domains",
+    "home.pricing.feature2": "Reverse proxy and path rewriting",
+    "home.pricing.feature3": "LAN access and QR code sharing",
+    "home.pricing.feature4": "Menu bar controls and launch at login",
+    "home.pricing.guide": "Read the getting started guide",
+    "home.pricing.purchase": "Purchase coming soon",
+    "home.pricing.note": "For macOS",
     "home.site-footer.span": "Run locally. Create freely.",
     "home.meta.content":
       "The LocalServe guide: turn local folders into websites without a command line. Preview, debug, and share on your local network.",
