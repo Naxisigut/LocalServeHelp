@@ -948,6 +948,8 @@ kbd {
 }
 
 .pricing-card {
+  position: relative;
+  isolation: isolate;
   width: 100%;
   max-width: 460px;
   padding: 32px 30px 26px;
@@ -956,6 +958,68 @@ kbd {
   background: var(--white);
   box-shadow: 0 4px 8px #00000003, 0 28px 64px #0000000d;
   text-align: center;
+  transition: background-color 900ms ease;
+}
+
+.pricing-card.is-ambient-active {
+  background-color: color-mix(in srgb, var(--white) 60%, transparent);
+}
+
+.pricing-card > :not(.pricing-ambient) {
+  position: relative;
+  z-index: 1;
+}
+
+.pricing-ambient {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  border-radius: inherit;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1100ms ease;
+}
+
+.pricing-card.is-ambient-active .pricing-ambient {
+  opacity: 1;
+}
+
+.pricing-blob {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 42%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.55;
+}
+
+.pricing-card.is-ambient-active .pricing-blob {
+  will-change: transform;
+}
+
+/* Rasterize the static blur inside the moving compositor layer. */
+.pricing-blob::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--blob-color);
+  filter: blur(24px);
+}
+
+.pricing-blob:nth-child(1) {
+  --blob-color: #8ec5ff;
+}
+
+.pricing-blob:nth-child(2) {
+  --blob-color: #f5a6d6;
+}
+
+.pricing-blob:nth-child(3) {
+  --blob-color: #ffda8e;
 }
 
 .pricing-card-heading {
@@ -2911,6 +2975,10 @@ dialog::backdrop {
     --line: #3a3a3a;
     --soft: #2e2e2e;
     --accent-on: #111111;
+  }
+
+  .pricing-blob {
+    opacity: 0.28;
   }
 }
 

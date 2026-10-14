@@ -1,8 +1,9 @@
 (() => {
   const { t } = window.LocalServeI18n;
-  const reducedMotion = window.matchMedia(
+  const motionPreference = window.matchMedia(
     "(prefers-reduced-motion: reduce)",
-  ).matches;
+  );
+  const reducedMotion = motionPreference.matches;
   if ("IntersectionObserver" in window && !reducedMotion) {
     const revealObserver = new IntersectionObserver(
       (entries) => {
@@ -19,6 +20,132 @@
       el.classList.add("will-reveal");
       revealObserver.observe(el);
     });
+  }
+
+  const pricingCard = document.querySelector(".pricing-card");
+  if (pricingCard) {
+    const hoverPreference = window.matchMedia(
+      "(hover: hover) and (pointer: fine)",
+    );
+    const random = (min, max) => min + Math.random() * (max - min);
+    const speed = 32;
+    const blurMargin = 24;
+    let width = pricingCard.clientWidth;
+    let height = pricingCard.clientHeight;
+    const origins = [];
+    const aspectRatio = height / width;
+    const pickOrigin = () => {
+      let best;
+      let largestGap = -1;
+      // Keep distinct patches with empty space, without assigning corners.
+      for (let attempt = 0; attempt < 60; attempt++) {
+        const point = { x: random(0.16, 0.84), y: random(0.13, 0.87) };
+        const gap = Math.min(
+          ...origins.map((origin) =>
+            Math.hypot(point.x - origin.x, (point.y - origin.y) * aspectRatio),
+          ),
+        );
+        if (gap >= 0.48) return point;
+        if (gap > largestGap) {
+          best = point;
+          largestGap = gap;
+        }
+      }
+      return best;
+    };
+    const blobs = Array.from(
+      pricingCard.querySelectorAll(".pricing-blob"),
+      (element) => {
+        const origin = pickOrigin();
+        origins.push(origin);
+        const size = random(0.36, 0.45);
+        const direction = random(0, Math.PI * 2);
+        element.style.width = `${size * 100}%`;
+        return {
+          element,
+          size,
+          x: origin.x * width,
+          y: origin.y * height,
+          vx: Math.cos(direction) * speed,
+          vy: Math.sin(direction) * speed,
+        };
+      },
+    );
+    let hovered = pricingCard.matches(":hover");
+    let frame = null;
+    let previousTime = null;
+
+    const renderBlob = (blob) => {
+      blob.element.style.transform = `translate3d(${blob.x}px, ${blob.y}px, 0) translate(-50%, -50%)`;
+    };
+    const reflectAxis = (position, velocity, elapsed, min, max) => {
+      const span = max - min;
+      if (span <= 0) return { position: (min + max) / 2, velocity };
+      // Fold the travelled distance back into the card, including overshoot.
+      const offset = position - min + velocity * elapsed;
+      const phase = ((offset % (span * 2)) + span * 2) % (span * 2);
+      if (phase === 0) return { position: min, velocity: Math.abs(velocity) };
+      if (phase === span) return { position: max, velocity: -Math.abs(velocity) };
+      return phase < span
+        ? { position: min + phase, velocity }
+        : { position: max - (phase - span), velocity: -velocity };
+    };
+    const drift = (timestamp) => {
+      const elapsed = previousTime === null ? 0 : (timestamp - previousTime) / 1000;
+      previousTime = timestamp;
+      blobs.forEach((blob) => {
+        const inset = (blob.size * width) / 2 + blurMargin;
+        const x = reflectAxis(blob.x, blob.vx, elapsed, inset, width - inset);
+        const y = reflectAxis(blob.y, blob.vy, elapsed, inset, height - inset);
+        blob.x = x.position;
+        blob.y = y.position;
+        blob.vx = x.velocity;
+        blob.vy = y.velocity;
+        renderBlob(blob);
+      });
+      frame = requestAnimationFrame(drift);
+    };
+    const updateAmbient = () => {
+      const active = hovered && hoverPreference.matches;
+      pricingCard.classList.toggle("is-ambient-active", active);
+      if (active && !motionPreference.matches && !document.hidden) {
+        if (frame === null) frame = requestAnimationFrame(drift);
+      } else {
+        if (frame !== null) cancelAnimationFrame(frame);
+        frame = null;
+        previousTime = null;
+      }
+    };
+    const resizeBlobs = () => {
+      const nextWidth = pricingCard.clientWidth;
+      const nextHeight = pricingCard.clientHeight;
+      if (!nextWidth || !nextHeight) return;
+      blobs.forEach((blob) => {
+        const inset = (blob.size * nextWidth) / 2 + blurMargin;
+        const clamp = (value, extent) =>
+          Math.max(inset, Math.min(extent - inset, value));
+        blob.x = clamp((blob.x / width) * nextWidth, nextWidth);
+        blob.y = clamp((blob.y / height) * nextHeight, nextHeight);
+        renderBlob(blob);
+      });
+      width = nextWidth;
+      height = nextHeight;
+    };
+
+    resizeBlobs();
+    new ResizeObserver(resizeBlobs).observe(pricingCard);
+    pricingCard.addEventListener("mouseenter", () => {
+      hovered = true;
+      updateAmbient();
+    });
+    pricingCard.addEventListener("mouseleave", () => {
+      hovered = false;
+      updateAmbient();
+    });
+    hoverPreference.addEventListener("change", updateAmbient);
+    motionPreference.addEventListener("change", updateAmbient);
+    document.addEventListener("visibilitychange", updateAmbient);
+    updateAmbient();
   }
 
   const sidebar = document.querySelector(".docs-sidebar");
