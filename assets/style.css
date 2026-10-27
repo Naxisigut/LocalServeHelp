@@ -1080,8 +1080,8 @@ kbd {
   align-items: baseline;
   justify-content: center;
   gap: 0.08em;
-  margin: 18px 0 22px;
-  font-size: 52px;
+  margin: 26px 0 30px;
+  font-size: 62px;
   font-weight: 600;
   line-height: 1;
   color: var(--ink);
@@ -2422,8 +2422,8 @@ dialog::backdrop {
   }
 
   .pricing-amount {
-    margin: 16px 0 18px;
-    font-size: 46px;
+    margin: 22px 0 26px;
+    font-size: 54px;
   }
 
   .pricing-symbol {
