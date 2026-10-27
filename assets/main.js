@@ -24,11 +24,8 @@
 
   const pricingCard = document.querySelector(".pricing-card");
   if (pricingCard) {
-    const hoverPreference = window.matchMedia(
-      "(hover: hover) and (pointer: fine)",
-    );
     const random = (min, max) => min + Math.random() * (max - min);
-    const speed = 32;
+    const speed = 48;
     const blurMargin = 24;
     let width = pricingCard.clientWidth;
     let height = pricingCard.clientHeight;
@@ -71,7 +68,6 @@
         };
       },
     );
-    let hovered = pricingCard.matches(":hover");
     let frame = null;
     let previousTime = null;
 
@@ -105,10 +101,11 @@
       });
       frame = requestAnimationFrame(drift);
     };
+    // The ambient glow is always visible, so only reduced motion and a
+    // hidden tab pause the drift.
     const updateAmbient = () => {
-      const active = hovered && hoverPreference.matches;
-      pricingCard.classList.toggle("is-ambient-active", active);
-      if (active && !motionPreference.matches && !document.hidden) {
+      const active = !motionPreference.matches && !document.hidden;
+      if (active) {
         if (frame === null) frame = requestAnimationFrame(drift);
       } else {
         if (frame !== null) cancelAnimationFrame(frame);
@@ -134,15 +131,6 @@
 
     resizeBlobs();
     new ResizeObserver(resizeBlobs).observe(pricingCard);
-    pricingCard.addEventListener("mouseenter", () => {
-      hovered = true;
-      updateAmbient();
-    });
-    pricingCard.addEventListener("mouseleave", () => {
-      hovered = false;
-      updateAmbient();
-    });
-    hoverPreference.addEventListener("change", updateAmbient);
     motionPreference.addEventListener("change", updateAmbient);
     document.addEventListener("visibilitychange", updateAmbient);
     updateAmbient();
