@@ -53,7 +53,7 @@
       <nav aria-label="指南章节" data-i18n-aria-label="guide.docs-nav.aria-label">
         <a class="sidebar-part-link active" href="#overview" data-i18n="guide.docs-nav.a">认识 LocalServe</a>
         <div class="sidebar-subnav">
-          <a href="#happyPath" data-i18n="guide.docs-nav.happyPath"><span>01</span>happyPath</a>
+          <a href="#happyPath" data-i18n="guide.docs-nav.happyPath"><span>01</span>快速开始</a>
         </div>
         <a class="sidebar-part-link" href="#sites" data-i18n="guide.docs-nav.a2">站点管理</a>
         <div class="sidebar-subnav">
@@ -104,7 +104,7 @@
           </div>
         </section>
         <section id="happyPath" class="doc-section doc-subsection" tabindex="-1" data-keywords="第一次使用 快速开始 上手 三步" data-i18n-keywords="guide.happyPath.keywords">
-          <h3 data-i18n="guide.happyPath.h3">01 / happyPath</h3>
+          <h3 data-i18n="guide.happyPath.h3">01 / 快速开始</h3>
           <p data-i18n="guide.happyPath.intro">从这里，开始第一个站点。</p>
           <div class="doc-steps">
             <div>
@@ -291,12 +291,10 @@
           <p data-i18n="guide.domains.sharedPort">
             启用自定义域名的站点启动时，需要共享端口 <code>80</code> 可用。如果入口无法启动，在「详情与日志」中切换到「共享端口 80 日志」查看原因。
           </p>
-          <h4 data-i18n="guide.domains.h43">备份与还原</h4>
+          <h4 data-i18n="guide.domains.h43">查看托管域名</h4>
           <p data-i18n="guide.domains.p4">
             在「设置 → 域名与
-            hosts」中，可以查看托管域名数量。「立即备份」保存当前完整
-            hosts；「还原到备份」在确认后恢复最近一次备份，操作前请确认备份后的其他
-            hosts 修改是否需要保留。
+            hosts」中展开「托管块」，可以查看 LocalServe 已写入 hosts 的全部域名。
           </p>
         </section>
         <section id="proxy" class="doc-section doc-subsection" tabindex="-1">
@@ -505,7 +503,7 @@
           </table>
         </div>
         <p data-i18n="guide.settings.guideSite">
-          全新安装首次启动时，应用会添加并自动运行「使用说明」站点，默认仅本机访问，端口为 <code>10015</code>。
+          全新安装首次启动时，应用会添加并自动运行名称为 <code>User Guide</code> 的站点，默认仅本机访问，端口为 <code>10015</code>。
           「设置 → 关于 → 使用说明 → 打开」会启动并打开该站点；若该站点已被删除，则直接打开随应用安装的离线文档。已有配置不会自动补建这个站点。
         </p>
       </section>
@@ -602,7 +600,7 @@
     </main>
     <aside class="docs-aside">
       <span class="sidebar-label" data-i18n="guide.docs-aside.span">阅读提示</span>
-      <p data-i18n="guide.docs-aside.p">第一次使用？<br />从「happyPath」入手。</p>
+      <p data-i18n="guide.docs-aside.p">第一次使用？<br />从「快速开始」入手。</p>
       <a href="#happyPath" data-i18n="guide.docs-aside.a">创建第一个站点 ↗</a>
       <div class="aside-divider"></div>
       <p data-i18n="guide.docs-aside.p2">快速找到答案</p>
