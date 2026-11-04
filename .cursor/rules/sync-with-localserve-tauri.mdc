@@ -1,0 +1,16 @@
+---
+description: 本项目（LocalServe 帮助站）与应用仓库 LocalServeTauri 的同步关系
+alwaysApply: true
+---
+
+# 与 LocalServeTauri 同步
+
+- 本项目是 LocalServe 的落地页与使用文档（`index.html`、`guide.html`、`assets/`），应用源码在同级目录 `../LocalServeTauri`。
+- `../LocalServeTauri/src-tauri/resources/user-guide/` 是**本项目产物的拷贝**，不是事实来源。检查是否需要同步时，不能只对比这份拷贝。
+- 应用有改动时，以应用源码为准核对文档：
+  - 界面文案与英文翻译：`src/i18n.ts`（中文为 key，英文为 value）
+  - 交互与状态展示：`src/components/*.tsx`、`src/store.tsx`、`src/site-list-filter.ts`
+  - 业务规则（端口、启停、文件分享、授权等）：`src-tauri/src/services/*.rs`、`src-tauri/src/commands.rs`、`src-tauri/src/tray.rs`、`src-tauri/src/app_menu.rs`
+- 定位改动范围：在 LocalServeTauri 中用 `git log` 找到本项目最近一次提交时间之后的提交，再 `git diff <base> HEAD -- src src-tauri/src`。
+- 文档中引用的按钮、菜单、设置项名称需与 `src/i18n.ts` 中的中英文一致；中文写在 HTML，英文写在 `assets/i18n.js` 的 `english` 对象。
+- 修改后运行 `node scripts/check-i18n.mjs` 校验翻译覆盖。

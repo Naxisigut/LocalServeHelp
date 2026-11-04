@@ -59,7 +59,7 @@
     "home.everyday-apps.span6": "Scan to download on your local network",
     "home.pricing.plan": "LocalServe",
     "home.pricing.license": "Lifetime license",
-    "home.pricing.onetime": "One-time purchase",
+    "home.pricing.onetime": "Pay once",
     "home.pricing.devices": "Up to 3 devices",
     "home.pricing.feature1": "Local sites and custom domains",
     "home.pricing.feature2": "Reverse proxy and path rewriting",
@@ -151,7 +151,7 @@
     "guide.site-basics.td6":
       "Any number from 1 to 65535; 1024–65535 is recommended. Stopped sites can share a port number. Ports <code>80</code>, <code>10015</code>, and <code>19800</code> are reserved by LocalServe.",
     "guide.site-basics.portChecks":
-      "When you create or edit a site, LocalServe checks that its address and port are free. To edit a running site, keep its port and “LAN access” setting unchanged. A stopped site doesn’t reserve its port, so starting it fails if another site or app has taken the port in the meantime.",
+      "When you create or edit a site, LocalServe checks that its address and port are free. When editing a running site, keep its port and you can save right away, even if you turn “LAN access” on or off; the site restarts to apply the change. A stopped site doesn’t reserve its port, so starting it fails if another site or app has taken the port in the meantime.",
     "guide.site-basics.sharedPortExample":
       "For example, “Project preview” and “Inspiration space” can both save port <code>3000</code> while stopped. After starting one, stop it before starting the other.",
     "guide.site-basics.td7": "LAN access",
@@ -224,7 +224,7 @@
     "guide.site-operations.h3": "07 / Controls, access links, and logs",
     "guide.site-operations.h4": "Start, stop, and restart",
     "guide.site-operations.p":
-      "Use the play or stop button at the far right of a site card to control the service. The card shows “Stopped”, “Starting”, “Running”, or “Error”. The toolbar shows the port while running, and errors include their cause. The card’s “More actions” menu offers “Details and logs”, “Edit configuration”, “Export configuration”, “Show in Finder”, and “Delete site”. “Restart site” appears only while running.",
+      "Use the play or stop button at the far right of a site card to control the service. Starting and running sites show a “Starting” or “Running” label; sites that aren’t running show no label. The toolbar shows the port while running. If a site fails to start when you click Start, a message appears and the site stays stopped. After a failure from Start all, automatic start at launch, or an unexpected stop, the card shows an “Error” label; hover over it to see why. It goes away once the site starts. The card’s “More actions” menu offers “Details and logs”, “Edit configuration”, “Export configuration”, “Show in Finder”, and “Delete site”. “Restart site” appears only while running.",
     "guide.site-operations.h42": "Open a site and view its logs",
     "guide.site-operations.p2":
       "Once a site is running, click its “Open in browser” icon to open it. If the site has a custom domain, that address is used; otherwise, the local address is. The “Scan to open” icon next to it shows a LAN QR code for other devices. Both buttons are disabled while the site is stopped.",
@@ -237,10 +237,10 @@
       "A configuration holds site settings, not website files. To use it on another computer, copy the website folders too, and check that folder paths, ports, and proxy targets still work there. Importing domain changes may ask for approval to update hosts. An import can include several sites with the same port; only one of them can run at a time.",
     "guide.files.h2": "File sharing",
     "guide.files.p":
-      "Share files with devices on your local network. File sharing works on its own — you don’t need to create a site first.<br />The sharing service always runs on port 19800. If another app is using that port when LocalServe starts, file sharing won’t work.",
+      "Share files with devices on your local network. File sharing works on its own — you don’t need to create a site first.<br />The sharing service always runs on port 19800 and can’t be turned off. If another app is using that port, file sharing can’t start and an error button appears next to the Files heading. Hover over it to see why, free up the port, then click it to retry. Adding files doesn’t restart the service.",
     "guide.file-add.h3": "01 / Add files to share",
     "guide.file-add.p":
-      "Click “Add → Add files”, or the add button beside the file area, and select the files you want to share.",
+      "Click “Add → Add files”, or the add button beside the file area, and select the files you want to share. Newly added files appear at the front of the list.",
     "guide.file-download.h3": "02 / Scan to download on your network",
     "guide.file-download.li":
       "Hover over a file card and click the QR code icon that appears to open the “LAN access” panel.",
@@ -261,6 +261,9 @@
     "guide.settings.h3": "Display language",
     "guide.settings.p":
       "Click the language icon to the left of Settings in the main window and choose Chinese or English. You can also switch under “Settings → Language → Display language”. The choice takes effect immediately and is saved. The app interface, tray menu, and native menus all update together.",
+    "guide.settings.themeTitle": "Appearance",
+    "guide.settings.theme":
+      "Under “Settings → Appearance → Theme”, choose “System”, “Light”, or “Dark”. The change takes effect immediately and is saved. By default, LocalServe follows your macOS appearance.",
     "guide.settings.h32": "Window and menu bar",
     "guide.settings.p2":
       "Click the gear in the top right of the app, or use the macOS menu “LocalServe → Settings…”. With “Minimize to tray on close” enabled, closing the window keeps services running in the background. Left-click the menu bar icon to reopen the main window. Its right-click menu can start, stop, and open sites, or start and stop all sites. To quit fully, choose “Quit” in that menu, or “Quit LocalServe” in the macOS app menu.",
@@ -294,7 +297,7 @@
     "guide.faq.domainPort.listener":
       "When a site with a custom domain starts, LocalServe listens on port <code>80</code> so you can open <code>http://YOUR-DOMAIN</code> without a port number. This shared listener is separate from each site’s own port, and multiple sites can share it with different domains. Saving a site, starting a site without a custom domain, or sharing files doesn’t use port <code>80</code>. (File sharing uses port <code>19800</code>.)",
     "guide.faq.domainPort.conflict":
-      "If another app is using port <code>80</code>, the shared listener can’t start, so the site shows “Error” with the message “Port 80 is in use. Free it up or turn off this site’s custom domain, then try again.” This happens even if the site’s own port is free, so changing only that port won’t help.",
+      "If another app is using port <code>80</code>, the shared listener can’t start, so the site stays stopped and shows the message “Port 80 is in use. Free it up or turn off this site’s custom domain, then try again.” This happens even if the site’s own port is free, so changing only that port won’t help.",
     "guide.faq.domainPort.solution":
       "Stop whatever is using port <code>80</code> in the other app, then start your site again. Or edit the site, turn off “Enable custom domain”, save, and restart it — then open it via the local address or LAN IP with the site’s port.",
     "guide.faq.domainPort.release":
@@ -364,7 +367,7 @@
     "guide.site-operations.listToolbar":
       "Click “More actions” next to the Sites heading to show the list toolbar. Filter by status, or search by name, folder, port, or domain. The toolbar also has “Start all”, “Stop all”, import, and export. Start all and Stop all affect every site, even when the list is filtered.",
     "guide.site-operations.startOrder":
-      "“Start all” starts sites one at a time in list order. If a site’s port is already taken, it shows “Error” with the reason, and the rest keep starting. A running site keeps its port, even if an earlier site in the list uses the same one. To switch between sites on the same port, stop the current one, then start the other.",
+      "“Start all” starts sites one at a time in list order, with newly added sites at the top. If a site’s port is already taken, it stays stopped with an “Error” label (hover to see why), and the rest keep starting. A running site keeps its port, even if an earlier site in the list uses the same one. To switch between sites on the same port, stop the current one, then start the other.",
     "guide.file-add.listToolbar":
       "Scroll the list sideways when there are many files. Click “More actions” next to the Files heading to search by file name or path.",
     "guide.file-download.qrActions":
