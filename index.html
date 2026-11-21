@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="zh-CN" class="home-pages">
 
 <head>
   <meta charset="UTF-8" />
@@ -8,9 +8,9 @@
   <meta name="theme-color" content="#f0f0f0" />
   <title data-i18n="home.meta.title">LocalServe — 让灵感，在本地生根</title>
   <link rel="icon" href="assets/logo.png" type="image/png" />
-  <link rel="stylesheet" href="assets/style.css?v=home-video-164" />
+  <link rel="stylesheet" href="assets/style.css?v=home-pages-165" />
   <script src="assets/i18n.js" defer></script>
-  <script src="assets/main.js?v=pricing-ambient-size-150" defer></script>
+  <script src="assets/main.js?v=home-pages-151" defer></script>
 </head>
 
 <body>
@@ -41,7 +41,7 @@
     </div>
   </header>
   <main id="main">
-    <section class="hero container">
+    <section id="home" class="hero container page-slide">
       <div class="hero-copy">
         <h1 data-i18n="home.hero.h1">让灵感，<br /><span>在本地生根</span></h1>
         <p class="hero-desc" data-i18n="home.hero.p">
@@ -152,7 +152,7 @@
         </div>
       </div>
     </section>
-    <section id="demo" class="section container">
+    <section id="demo" class="section container page-slide">
       <div class="video-frame reveal">
         <iframe
           src="https://www.youtube-nocookie.com/embed/nKE3FeW07qU"
@@ -163,7 +163,7 @@
           loading="lazy"></iframe>
       </div>
     </section>
-    <section id="features" class="section container">
+    <section id="features" class="section container page-slide">
       <div class="section-heading reveal">
         <div>
           <h2 data-i18n="home.features.h2">小工具，大自由。</h2>
@@ -283,7 +283,7 @@
         </article>
       </div>
     </section>
-    <section id="everyday-apps" class="section container everyday-apps" aria-labelledby="everyday-title">
+    <section id="everyday-apps" class="section container everyday-apps page-slide" aria-labelledby="everyday-title">
       <div class="everyday-intro reveal">
         <h2 id="everyday-title" data-i18n="home.everyday-apps.h2">在本地管理你的Vibe Coding作品集</h2>
         <p class="everyday-lead" data-i18n="home.everyday-apps.p">开发简单，生态丰富，访问便捷 —— Web项目正是AI VibeCoding的最佳技术栈</p>
@@ -334,7 +334,7 @@
         </article>
       </div>
     </section>
-    <section id="pricing" class="section container pricing-section" aria-labelledby="pricing-title">
+    <section id="pricing" class="section container pricing-section page-slide" aria-labelledby="pricing-title">
       <article class="pricing-card reveal" aria-labelledby="pricing-title">
         <div class="pricing-ambient" aria-hidden="true">
           <span class="pricing-blob"></span>
@@ -390,6 +390,13 @@
       </article>
     </section>
   </main>
+  <nav class="page-dots" aria-label="页面板块" data-i18n-aria-label="home.pageNav.label">
+    <a href="#home"><span data-i18n="home.pageNav.home">首页</span></a>
+    <a href="#demo"><span data-i18n="home.pageNav.demo">演示视频</span></a>
+    <a href="#features"><span data-i18n="home.pageNav.features">功能</span></a>
+    <a href="#everyday-apps"><span data-i18n="home.pageNav.scenarios">使用场景</span></a>
+    <a href="#pricing"><span data-i18n="common.pricing">定价</span></a>
+  </nav>
   <footer class="site-footer container">
     <a class="brand" href="index.html"><img src="assets/logo.png" alt="" width="25"
         height="25" />LocalServe</a><span data-i18n="home.site-footer.span">本地运行，自在创造。</span>

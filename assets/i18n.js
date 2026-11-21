@@ -68,6 +68,11 @@
     "home.pricing.download": "Free download",
     "home.pricing.note": "For macOS",
     "home.site-footer.span": "Run locally. Create freely.",
+    "home.pageNav.label": "Page sections",
+    "home.pageNav.home": "Home",
+    "home.pageNav.demo": "Demo video",
+    "home.pageNav.features": "Features",
+    "home.pageNav.scenarios": "Use cases",
     "home.meta.content":
       "The LocalServe guide: turn local folders into websites without a command line. Preview, debug, and share on your local network.",
     "common.homeLabel": "LocalServe home",

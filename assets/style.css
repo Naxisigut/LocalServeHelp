@@ -3667,3 +3667,244 @@ dialog::backdrop {
 .docs-sidebar nav .sidebar-subnav a { font-weight: 400; }
 
 .doc-entry-icon { display: block; width: 28px; height: 28px; }
+
+/* Home: one section per page on screens large enough to hold it; phones keep free scrolling. */
+.page-dots {
+  display: none;
+}
+
+@media (min-width: 801px) and (min-height: 600px) {
+  html.home-pages {
+    --header-h: 86px;
+    scroll-snap-type: y mandatory;
+    scroll-padding-top: var(--header-h);
+  }
+
+  .home-pages .page-slide {
+    min-height: calc(100vh - var(--header-h));
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  .home-pages .hero {
+    align-content: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .home-pages .section.page-slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .home-pages .pricing-section {
+    align-items: center;
+    min-height: calc(100vh - var(--header-h) - var(--footer-h, 84px));
+  }
+
+  .home-pages .site-footer {
+    scroll-snap-align: end;
+  }
+
+  .home-pages .video-frame {
+    width: min(100%, calc((100vh - var(--header-h) - 96px) * 16 / 9));
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .page-dots {
+    position: fixed;
+    z-index: 15;
+    right: 24px;
+    top: calc(50% + var(--header-h) / 2);
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: 8px 4px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--paper) 82%, transparent);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 6px 18px #0000000a;
+  }
+
+  .page-dots a {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 18px;
+    height: 16px;
+    border-radius: 999px;
+    transition: height 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .page-dots a:before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--ink) 22%, transparent);
+    transition:
+      height 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+      background-color 0.3s;
+  }
+
+  .page-dots a:hover:before {
+    background: color-mix(in srgb, var(--ink) 55%, transparent);
+  }
+
+  .page-dots a[aria-current="location"] {
+    height: 34px;
+  }
+
+  .page-dots a[aria-current="location"]:before {
+    height: 22px;
+    background: var(--ink);
+  }
+
+  .page-dots a:focus-visible {
+    outline-width: 2px;
+    outline-offset: 2px;
+  }
+
+  .page-dots span {
+    position: absolute;
+    top: 50%;
+    right: calc(100% + 14px);
+    padding: 3px 10px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: var(--white);
+    box-shadow: 0 4px 12px #0000000d;
+    color: var(--text);
+    font-size: 12px;
+    line-height: 1.6;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(6px, -50%);
+    transition:
+      opacity 0.2s,
+      transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .page-dots a:hover span,
+  .page-dots a:focus-visible span {
+    opacity: 1;
+    transform: translate(0, -50%);
+  }
+}
+
+@media (min-width: 801px) and (max-width: 1100px) and (min-height: 600px) {
+  .page-dots {
+    right: 6px;
+  }
+}
+
+/* Short laptop screens: tighten spacing so each section still fits one page. */
+@media (min-width: 801px) and (min-height: 600px) and (max-height: 820px) {
+  .home-pages .hero {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .home-pages .hero h1 {
+    margin: 14px 0 18px;
+  }
+
+  .home-pages .hero-desc {
+    margin-bottom: 22px;
+  }
+
+  .home-pages .hero-visual {
+    padding-top: 8px;
+    padding-bottom: 24px;
+  }
+
+  .home-pages .section.page-slide {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  .home-pages .section-heading {
+    margin-bottom: 20px;
+  }
+
+  .home-pages .section-heading h2 {
+    margin-top: 0;
+  }
+
+  .home-pages .feature-card {
+    padding: 20px 24px;
+  }
+
+  .home-pages .feature-card p {
+    margin-bottom: 6px;
+  }
+
+  .home-pages .folder-flow,
+  .home-pages .mini-network,
+  .home-pages .capability-art {
+    min-height: 100px;
+    padding-top: 12px;
+    padding-bottom: 4px;
+  }
+
+  .home-pages .everyday-intro h2 {
+    margin: 0 0 14px;
+  }
+
+  .home-pages .scenario-heading {
+    margin-top: 28px;
+    margin-bottom: 16px;
+  }
+
+  .home-pages .scenario-card {
+    padding: 20px;
+  }
+
+  .home-pages .scenario-card h3 {
+    margin: 12px 0 8px;
+  }
+
+  .home-pages .scenario-card p {
+    margin-bottom: 14px;
+  }
+
+  .home-pages .pricing-card-heading {
+    gap: 10px;
+  }
+
+  .home-pages .pricing-card-heading img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .home-pages .pricing-chips {
+    margin-top: 16px;
+  }
+
+  .home-pages .pricing-amount {
+    margin: 18px 0 20px;
+    font-size: 54px;
+  }
+
+  .home-pages .pricing-features {
+    margin: 16px 0;
+  }
+
+  .home-pages .pricing-platform {
+    margin-top: 12px;
+  }
+}
+
+@media (min-width: 801px) and (min-height: 600px) and (prefers-reduced-motion: no-preference) {
+  html.home-pages {
+    scroll-behavior: smooth;
+  }
+}

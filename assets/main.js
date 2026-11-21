@@ -136,6 +136,35 @@
     updateAmbient();
   }
 
+  const pageDots = document.querySelector(".page-dots");
+  if (pageDots) {
+    const dotLinks = Array.from(pageDots.querySelectorAll('a[href^="#"]'));
+    const slides = dotLinks.map((link) => document.querySelector(link.hash));
+    const setCurrentSlide = (slide) =>
+      dotLinks.forEach((link, index) => {
+        if (slides[index] === slide)
+          link.setAttribute("aria-current", "location");
+        else link.removeAttribute("aria-current");
+      });
+    // A zero-height root at mid-viewport marks the page currently in view.
+    const slideObserver = new IntersectionObserver(
+      (entries) =>
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setCurrentSlide(entry.target);
+        }),
+      { rootMargin: "-50% 0px -50% 0px" },
+    );
+    slides.forEach((slide) => slideObserver.observe(slide));
+
+    const footer = document.querySelector(".site-footer");
+    new ResizeObserver(() =>
+      document.documentElement.style.setProperty(
+        "--footer-h",
+        `${footer.offsetHeight}px`,
+      ),
+    ).observe(footer);
+  }
+
   const sidebar = document.querySelector(".docs-sidebar");
   const menu = document.querySelector(".docs-menu");
   if (menu && sidebar) {
