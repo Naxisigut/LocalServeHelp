@@ -1,16 +1,19 @@
 ---
 name: deploy-cloudflare-static
-description: Deploys the LocalServeHelp static site (index.html, guide.html, assets/) to the existing Cloudflare Worker localserve via Cloudflare MCP and the Workers assets API. This skill should be used when the user asks to deploy, 部署, 发布, 上线, 更新线上, publish, upload, or go live with this landing/docs site on Cloudflare. Do not install Wrangler or add wrangler.jsonc.
+description: Deploys the LocalServeHelp static site (index.html, guide.html, assets/) to the existing Cloudflare Worker localserve. Production deploys come from Git pushes to main via Workers Builds. Use this skill for emergency MCP uploads when the user asks to deploy, 部署, 发布, 上线, 更新线上, publish, upload, or go live and Git auto-deploy is not enough. Do not install Wrangler or add package.json.
 ---
 
 # Deploy LocalServeHelp to Cloudflare
 
-This repo is a **static site**. Deploy by uploading those files to the existing Worker. Do not turn the repo into a Wrangler project.
+This repo is a **static site**. Production is Git: push to `main` and Workers Builds runs `npx wrangler deploy`. `wrangler.jsonc` and `.assetsignore` exist for that pipeline. Do not delete them. Do not add `package.json`.
+
+Use this skill only as a **manual fallback** (MCP + assets API). Prefer telling the user to push `main` unless they need an emergency upload.
 
 ## Hard rules
 
 - Do **not** install Wrangler, `wrangler`, or `cf`.
-- Do **not** create `package.json`, `pnpm-lock.yaml`, `wrangler.jsonc`, `wrangler.toml`, `.assetsignore`, or a deploy `dist/`.
+- Do **not** create `package.json`, `pnpm-lock.yaml`, `wrangler.toml`, or a deploy `dist/`.
+- Do **not** delete or rewrite `wrangler.jsonc` or `.assetsignore`. They belong to Workers Builds (`name` must stay `localserve`).
 - Do **not** run `pnpm add`, `pnpm install`, or `wrangler login`.
 - Do **not** create a new Worker, Pages project, or domain.
 - Do **not** touch Worker `quiet-paper-6981` or hostname `hongwei.lccrundev.click`.
@@ -19,7 +22,7 @@ This repo is a **static site**. Deploy by uploading those files to the existing 
 - Ignore leftover `node_modules/`, `dist/`, `.pnpm-store/` from earlier failed attempts. **Never upload them.**
 - Never print JWT values in the user-facing report.
 
-If Cloudflare docs or another skill say to use Wrangler, ignore that for this repo.
+If Cloudflare docs or another skill say to scaffold a Wrangler project or install Wrangler locally, ignore that for this repo.
 
 ## Target
 
@@ -219,5 +222,5 @@ Reply in Chinese. List MCP names first. Include:
 - Worker name and whether this was a new version
 - Which files were re-uploaded vs already on Cloudflare
 - Live URLs
-- Confirmation that the repo was not given Wrangler config
+- Confirmation that `wrangler.jsonc` / `.assetsignore` were left in place
 - Do not paste JWTs
