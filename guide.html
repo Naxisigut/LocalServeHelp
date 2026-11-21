@@ -64,7 +64,6 @@
           <a href="#proxy" data-i18n="guide.docs-nav.a7"><span>05</span>代理转发与路径重写</a>
           <a href="#advanced" data-i18n="guide.docs-nav.a8"><span>06</span>高级选项</a>
           <a href="#site-operations" data-i18n="guide.docs-nav.a9"><span>07</span>启停、访问与日志</a>
-          <a href="#site-transfer" data-i18n="guide.docs-nav.a10"><span>08</span>导入与导出配置</a>
         </div>
         <a class="sidebar-part-link" href="#files" data-i18n="guide.docs-nav.a11">文件分享</a>
         <div class="sidebar-subnav">
@@ -144,7 +143,7 @@
           </p>
           <p data-i18n="guide.sites.p2">
             每个站点有独立的目录、端口和运行状态。多个未运行的站点可以保存相同端口，未启动的站点不会占用端口。
-            同端口的站点需要轮流启动，即使「局域网访问」选项不同，也不能同时运行。
+            同端口的站点需要轮流启动，即使「启用局域网访问」选项不同，也不能同时运行。
           </p>
         </section>
         <section id="quick-start" class="doc-section doc-subsection" tabindex="-1">
@@ -211,18 +210,18 @@
                   </td>
                 </tr>
                 <tr>
-                  <td data-i18n="guide.site-basics.td7">局域网访问</td>
+                  <td data-i18n="guide.site-basics.td7">启用局域网访问</td>
                   <td data-i18n="guide.site-basics.td8">关闭时仅本机访问，开启后同一网络内的设备也可访问。</td>
                 </tr>
                 <tr>
-                  <td data-i18n="guide.site-basics.td9">自定义域名</td>
-                  <td data-i18n="guide.site-basics.td10">选填，例如 <code>myapp.ls</code>，详见域名章节。</td>
+                  <td data-i18n="guide.site-basics.td9">启用自定义域名</td>
+                  <td data-i18n="guide.site-basics.td10">选填，开启后填写主机名，例如 <code>myapp.ls</code>，详见域名章节。</td>
                 </tr>
               </tbody>
             </table>
           </div>
           <p data-i18n="guide.site-basics.portChecks">
-            新建或修改配置时，会检查目标监听地址和端口是否可用。编辑运行中的站点时，保留原端口即可直接保存，切换「局域网访问」也不受影响；保存后站点会重启以应用新设置。
+            新建或修改配置时，会检查目标监听地址和端口是否可用。编辑运行中的站点时，保留原端口即可直接保存，切换「启用局域网访问」也不受影响；保存后站点会重启以应用新设置。
             未运行的站点保存配置不会预留端口；启动时仍会确认端口是否可用，若期间被其他站点或程序占用，启动会失败。
           </p>
           <p data-i18n="guide.site-basics.sharedPortExample">
@@ -232,11 +231,11 @@
         <section id="network" class="doc-section doc-subsection" tabindex="-1">
           <h3 data-i18n="guide.network.h3">03 / 局域网访问</h3>
           <p data-i18n="guide.network.p">
-            想在手机上查看页面，或让同事预览作品？在站点配置里开启「局域网访问」，保存并启动后，点击站点卡片上的「扫码访问」图标。
+            想在手机上查看页面，或让同事预览作品？在站点编辑弹窗的「基础」页开启「启用局域网访问」，保存并启动后，点击站点卡片上的「扫码访问」图标。
           </p>
           <ol>
             <li data-i18n="guide.network.li">让电脑和访问设备连接到同一局域网。</li>
-            <li data-i18n="guide.network.li2">开启该站点的「局域网访问」，确保站点处于运行状态。</li>
+            <li data-i18n="guide.network.li2">开启该站点的「启用局域网访问」，确保站点处于运行状态。</li>
             <li data-i18n="guide.network.li3">
               点击卡片右侧的二维码图标，在「局域网访问」弹窗中扫码，或复制地址到另一台设备的浏览器中打开。
             </li>
@@ -272,14 +271,14 @@
         <section id="domains" class="doc-section doc-subsection" tabindex="-1">
           <h3 data-i18n="guide.domains.h3">04 / 自定义域名</h3>
           <p data-i18n="guide.domains.p">
-            在站点基础信息的「自定义域名」中填写主机名，例如
+            在站点编辑弹窗的「基础」页开启「启用自定义域名」，填写主机名，例如
             <code>myapp.ls</code>。推荐使用
             <code>.ls</code>
             后缀，不要填写协议、端口或路径。每个站点保存一个域名。
           </p>
           <h4 data-i18n="guide.domains.h4">域名映射请求管理员授权</h4>
           <p data-i18n="guide.domains.p2">
-            保存、删除或导入配置时，如果域名发生变化，macOS
+            保存或删除站点时，如果域名发生变化，macOS
             会请求管理员授权，以便修改 hosts。LocalServe
             对 hosts的操作不影响其它域名访问。
           </p>
@@ -289,7 +288,7 @@
             hosts 映射仅作用于运行 LocalServe 的这台 Mac；其他设备请使用局域网 IP 地址，并带上站点的独立端口。
           </p>
           <p data-i18n="guide.domains.sharedPort">
-            启用自定义域名的站点启动时，需要共享端口 <code>80</code> 可用。如果入口无法启动，在「详情与日志」中切换到「共享端口 80 日志」查看原因。
+            启用自定义域名的站点启动时，需要共享端口 <code>80</code> 可用。如果入口无法启动，打开「详情与日志」，切换到「日志」，选择「共享端口」查看原因。
           </p>
           <h4 data-i18n="guide.domains.h43">查看托管域名</h4>
           <p data-i18n="guide.domains.p4">
@@ -300,7 +299,7 @@
         <section id="proxy" class="doc-section doc-subsection" tabindex="-1">
           <h3 data-i18n="guide.proxy.h3">05 / 代理转发与路径重写</h3>
           <p data-i18n="guide.proxy.p">
-            在站点编辑页的「代理规则」中，将某个路径前缀转发到另一个服务。前端通过同一站点地址请求接口，再由代理转发到目标后端，可以规避浏览器的跨域限制，方便前后端联调；目标后端需要单独运行。
+            在站点编辑弹窗的「代理」页中，将某个路径前缀转发到另一个服务。前端通过同一站点地址请求接口，再由代理转发到目标后端，可以规避浏览器的跨域限制，方便前后端联调；目标后端需要单独运行。
           </p>
           <h4 data-i18n="guide.proxy.h4">以 /api 转发为例</h4>
           <div class="table-wrap">
@@ -347,7 +346,7 @@
         </section>
         <section id="advanced" class="doc-section doc-subsection" tabindex="-1">
           <h3 data-i18n="guide.advanced.h3">06 / 高级选项</h3>
-
+          <p data-i18n="guide.advanced.intro">在站点编辑弹窗左侧切换到「高级」，可配置以下选项。</p>
           <ul class="descriptive-list">
             <li>
               <strong>SPA history fallback</strong>
@@ -377,7 +376,7 @@
           <h4 data-i18n="guide.site-operations.h4">启动、停止与重启</h4>
           <p data-i18n="guide.site-operations.p">
             使用站点卡片最右侧的播放或停止按钮启停服务。启动中和运行中的站点会显示「启动中」「运行中」标签，未运行的站点不显示标签；运行时工具栏显示端口。点击启动失败时会弹出提示，站点保持停止；批量启动、应用启动时自动启动或运行中意外停止时，卡片会显示「异常」标签，悬停可查看原因，站点成功启动后自动消失。
-            卡片上的省略号菜单提供「详情与日志」「编辑配置」「导出配置」「在 Finder 中显示」和「删除站点」；「重启站点」仅在运行时出现。
+            卡片上的省略号菜单提供「编辑」「详情与日志」「在 Finder 中显示」和「删除」；「重启站点」仅在运行时出现。
           </p>
           <h4 data-i18n="guide.site-operations.h42">访问站点与查看日志</h4>
           <p data-i18n="guide.site-operations.p2">
@@ -385,26 +384,17 @@
             旁边的「扫码访问」图标打开局域网二维码，供同一网络里的设备访问。站点停止时，这两个按钮均不可用。
           </p>
           <p data-i18n="guide.site-operations.p3">
-            在站点更多菜单中打开「详情与日志」，查看端口、域名和代理数量。展开「访问链接」可分别复制或打开本机、局域网和自定义域名地址；局域网链接需要开启局域网访问并检测到 IP。
-            日志来源可选「站点日志」或「共享端口 80 日志」，支持按全部、访问、代理、错误筛选，也可搜索、清空和导出。清空只会清除应用记录的日志。
+            在站点更多菜单中打开「详情与日志」。弹窗左侧可切换「详情」和「日志」。
+            「详情」页显示状态、独立端口、自定义域名和代理数量，以及「访问链接」，可分别复制或打开本机、局域网和自定义域名地址；局域网链接需要开启局域网访问并检测到 IP。
+            「日志」页可在「独立端口」和「共享端口」之间切换来源，支持按全部、访问、代理、错误筛选，也可搜索、清空和导出。清空只会清除应用记录的日志。
           </p>
           <h4 data-i18n="guide.site-operations.listToolbarTitle">列表筛选与批量操作</h4>
           <p data-i18n="guide.site-operations.listToolbar">
-            点击「站点」标题右侧的圆形省略号，展开列表工具栏。可按运行状态和关键字筛选站点，关键字可匹配名称、目录、端口或域名；也可使用「全部启动」「全部停止」、导入和导出全部配置。批量启停作用于全部站点，即使列表已筛选。
+            点击「站点」标题右侧的圆形省略号，展开列表工具栏。可按运行状态和关键字筛选站点，关键字可匹配名称、目录、端口或域名；也可使用「全部启动」「全部停止」。批量启停作用于全部站点，即使列表已筛选。
           </p>
           <p data-i18n="guide.site-operations.startOrder">
             「全部启动」按站点列表顺序逐一执行，新建的站点排在列表最前面。前面的站点启动成功后，端口冲突的后续站点保持停止，并显示「异常」标签（悬停查看原因），其他站点继续启动。
             已经运行的站点会继续使用原端口，不会被列表前面的站点替换。想切换到同端口的另一个站点，请先停止当前站点，再单独启动目标站点。
-          </p>
-        </section>
-        <section id="site-transfer" class="doc-section doc-subsection" tabindex="-1">
-          <h3 data-i18n="guide.site-transfer.h3">08 / 导入与导出站点配置</h3>
-          <p data-i18n="guide.site-transfer.p">
-            展开站点区域的更多操作，可导入配置或导出全部站点配置。单个站点的更多菜单可单独导出该站点。
-          </p>
-          <p data-i18n="guide.site-transfer.p2">
-            配置保存的是站点设置，不包含网站文件。换一台电脑使用时，也需要拷贝网站目录，并确认配置中的目录路径、端口和代理目标在新电脑上可用。导入涉及域名变化时，仍可能请求
-            hosts 授权。导入配置可包含端口相同的多个站点，启动时仍需遵守端口占用规则。
           </p>
         </section>
       </section>
@@ -533,7 +523,7 @@
           <details>
             <summary data-i18n="guide.faq.summary3">电脑能打开，手机却无法访问？</summary>
             <p data-i18n="guide.faq.p3">
-              确认站点已开启「局域网访问」，手机与电脑处于同一局域网，且使用的是电脑的局域网
+              确认站点已开启「启用局域网访问」，手机与电脑处于同一局域网，且使用的是电脑的局域网
               IP，而非 127.0.0.1
               或仅映射在电脑上的域名。再检查防火墙、访客网络隔离等网络限制。
             </p>
@@ -542,7 +532,7 @@
             <summary data-i18n="guide.faq.summary4">自定义域名无法打开？</summary>
             <p data-i18n="guide.faq.p4">
               确认已允许写入
-              hosts，站点已运行，域名中没有协议、端口或路径。在本机使用 <code>http://你的域名</code> 访问，无需添加独立端口；若共享入口异常，查看「共享端口 80 日志」。
+              hosts，站点已运行，域名中没有协议、端口或路径。在本机使用 <code>http://你的域名</code> 访问，无需添加独立端口；若共享入口异常，在「详情与日志」的「日志」页选择「共享端口」查看。
               若曾取消授权，重新保存域名以再次授权。其他设备请改用局域网 IP 加站点端口。
             </p>
           </details>
@@ -555,7 +545,7 @@
               如果其他应用先占用了 <code>80</code> 端口，导致共享入口无法启动，整个站点会保持停止，并提示「80端口被占用，请解除占用或关闭本站点自定义域名后再试」。即使站点的独立端口可用，也无法启动；只修改独立端口不能解决这个冲突。
             </p>
             <p data-i18n="guide.faq.domainPort.solution">
-              请停止其他应用中占用 <code>80</code> 端口的服务，再启动本站点；或者编辑本站点，在基础信息中关闭「自定义域名」，保存后重新启动，通过本机地址或局域网 IP 加独立端口访问。
+              请停止其他应用中占用 <code>80</code> 端口的服务，再启动本站点；或者编辑本站点，在「基础」页关闭「启用自定义域名」，保存后重新启动，通过本机地址或局域网 IP 加独立端口访问。
             </p>
             <p data-i18n="guide.faq.domainPort.release">
               当 LocalServe 的自定义域名入口正在运行时，其他应用通常也无法再监听 <code>80</code> 端口。停止所有带自定义域名的站点，或退出 LocalServe，即可释放这个入口。这不会影响其他应用通过 <code>80</code> 端口访问外部网站。
@@ -572,7 +562,7 @@
           <details>
             <summary data-i18n="guide.faq.summary6">单页应用首页正常，刷新子页面却是 404？</summary>
             <p data-i18n="guide.faq.p6">
-              在站点的高级选项中开启「SPA history
+              在站点编辑弹窗的「高级」页中开启「SPA history
               fallback」，保存并启动，让未匹配到文件的路由回退到 index.html。
             </p>
           </details>

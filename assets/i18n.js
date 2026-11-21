@@ -88,7 +88,6 @@
     "guide.docs-nav.a7": "<span>05</span>Proxy and path rewriting",
     "guide.docs-nav.a8": "<span>06</span>Advanced options",
     "guide.docs-nav.a9": "<span>07</span>Controls, links, and logs",
-    "guide.docs-nav.a10": "<span>08</span>Import and export",
     "guide.docs-nav.a11": "File sharing",
     "guide.docs-nav.a12": "<span>01</span>Add files",
     "guide.docs-nav.a13": "<span>02</span>Scan to download",
@@ -112,7 +111,7 @@
     "guide.happyPath.intro": "Your first site starts here.",
     "guide.happyPath.folderTitle": "Choose a folder",
     "guide.happyPath.folderDescription":
-      "Click “Add site”.<br />Choose a folder containing <code>index.html</code>.",
+      "Click “Add Site”.<br />Choose a folder containing <code>index.html</code>.",
     "guide.happyPath.startTitle": "Configure, save, and start",
     "guide.happyPath.startDescription":
       "Give it a name and an available port.<br />Enable other options as needed.",
@@ -125,19 +124,19 @@
     "guide.sites.p":
       "Deploy a local folder as a site. Create the site first, then configure LAN access, custom domains, proxy rules, and automatic startup as needed.",
     "guide.sites.p2":
-      "Each site has its own folder, port, and status. Several sites can use the same port number, because a stopped site doesn’t hold its port — but only one of them can run at a time, even if their “LAN access” settings differ.",
+      "Each site has its own folder, port, and status. Several sites can use the same port number, because a stopped site doesn’t hold its port — but only one of them can run at a time, even if their “Enable LAN Access” settings differ.",
     "guide.quick-start.h3": "01 / Create a site",
     "guide.quick-start.p":
       "Prepare a folder containing <code>index.html</code>. For React, Vue, or similar projects, build the project first and choose the output folder, such as <code>dist</code>.",
     "guide.quick-start.h4": "Add a site and choose its folder",
     "guide.quick-start.p2":
-      "Open LocalServe and click “Add” → “Add site” in the top right, or the plus icon beside the Sites heading. Enter a name and choose a folder. The folder must contain <code>index.html</code>.",
+      "Open LocalServe and click “Add” → “Add Site” in the top right, or the plus icon beside the Sites heading. Enter a name and choose a folder. The folder must contain <code>index.html</code>.",
     "guide.quick-start.h42": "Choose an available port",
     "guide.quick-start.p3":
       "New sites have no port set, so enter one yourself (1024–65535 recommended). When you save, LocalServe checks that the port isn’t already used by a running site or another app.<br />Ports <code>80</code>, <code>10015</code>, and <code>19800</code> are reserved for custom domains, the user guide, and file sharing, so sites can’t use them.",
     "guide.quick-start.h43": "Save, start, and open your site",
     "guide.quick-start.p4":
-      "Click “Save and start”, wait for the status to show “Running”, then click the “Open in browser” icon on the site card.",
+      "Click “Save And Start”, wait for the status to show “Running”, then click the “Open in browser” icon on the site card.",
     "guide.site-basics.h3": "02 / Basics: name, folder, and port",
     "guide.site-basics.th": "Setting",
     "guide.site-basics.th2": "What to enter",
@@ -147,26 +146,26 @@
     "guide.site-basics.td3": "Folder",
     "guide.site-basics.td4":
       "Choose an existing folder containing <code>index.html</code>.",
-    "guide.site-basics.td5": "Site port",
+    "guide.site-basics.td5": "Site Port",
     "guide.site-basics.td6":
       "Any number from 1 to 65535; 1024–65535 is recommended. Stopped sites can share a port number. Ports <code>80</code>, <code>10015</code>, and <code>19800</code> are reserved by LocalServe.",
     "guide.site-basics.portChecks":
-      "When you create or edit a site, LocalServe checks that its address and port are free. When editing a running site, keep its port and you can save right away, even if you turn “LAN access” on or off; the site restarts to apply the change. A stopped site doesn’t reserve its port, so starting it fails if another site or app has taken the port in the meantime.",
+      "When you create or edit a site, LocalServe checks that its address and port are free. When editing a running site, keep its port and you can save right away, even if you turn “Enable LAN Access” on or off; the site restarts to apply the change. A stopped site doesn’t reserve its port, so starting it fails if another site or app has taken the port in the meantime.",
     "guide.site-basics.sharedPortExample":
       "For example, “Project preview” and “Inspiration space” can both save port <code>3000</code> while stopped. After starting one, stop it before starting the other.",
-    "guide.site-basics.td7": "LAN access",
+    "guide.site-basics.td7": "Enable LAN Access",
     "guide.site-basics.td8":
       "When off, only your Mac can access the site. When on, devices on the same network can access it too.",
-    "guide.site-basics.td9": "Custom domain",
+    "guide.site-basics.td9": "Enable Custom Domain",
     "guide.site-basics.td10":
-      "Optional, for example <code>myapp.ls</code>. See “Custom domains” below.",
+      "Optional. Turn it on and enter a hostname, for example <code>myapp.ls</code>. See “Custom domains” below.",
     "guide.network.h3": "03 / LAN access",
     "guide.network.p":
-      "Want to view a page on your phone or share a preview with a colleague? Turn on “Enable LAN access” in the site settings, save and start, then click the “Scan to open” icon on the site card.",
+      "Want to view a page on your phone or share a preview with a colleague? Turn on “Enable LAN Access” on the site editor’s “Basics” page, save and start, then click the “Scan to open” icon on the site card.",
     "guide.network.li":
       "Connect your Mac and the visiting device to the same local network.",
     "guide.network.li2":
-      "Enable “LAN access” for the site and make sure it is running.",
+      "Turn on “Enable LAN Access” for the site and make sure it is running.",
     "guide.network.li3":
       "Click the QR code icon on the right of the card. Scan the code in the “LAN access” panel, or copy the address and open it in another device’s browser.",
     "guide.network.span": "Mac · LocalServe",
@@ -179,10 +178,10 @@
       "<code>127.0.0.1</code> always refers to the device making the request. To open a site running on your Mac from a phone, use the Mac’s LAN IP. If it doesn’t open, make sure you’re not on a guest network that isolates devices, and that the macOS firewall allows incoming connections for LocalServe.",
     "guide.domains.h3": "04 / Custom domains",
     "guide.domains.p":
-      "In the site’s Basics section, turn on “Enable custom domain” and enter a hostname, for example <code>myapp.ls</code>. We recommend the <code>.ls</code> suffix. Don’t include a protocol, port, or path. Each site can have one domain.",
+      "On the site editor’s “Basics” page, turn on “Enable Custom Domain” and enter a hostname, for example <code>myapp.ls</code>. We recommend the <code>.ls</code> suffix. Don’t include a protocol, port, or path. Each site can have one domain.",
     "guide.domains.h4": "Domains require administrator approval",
     "guide.domains.p2":
-      "Whenever saving, deleting, or importing a site changes a domain, macOS asks for administrator approval to update the hosts file. LocalServe only edits its own entries and leaves the rest of the file untouched.",
+      "Whenever saving or deleting a site changes a domain, macOS asks for administrator approval to update the hosts file. LocalServe only edits its own entries and leaves the rest of the file untouched.",
     "guide.domains.h42": "Where do custom domains work?",
     "guide.domains.p3":
       "Custom domains use the shared HTTP port <code>80</code>, so you open <code>http://myapp.ls</code> without a port number. Multiple sites share this listener, each with a different domain. Custom domains only work on the Mac running LocalServe; other devices should use the LAN IP with the site’s port.",
@@ -191,7 +190,7 @@
       "Go to “Settings → Domains and hosts” and expand “Managed domains” to see every domain LocalServe has added to hosts.",
     "guide.proxy.h3": "05 / Proxy forwarding and path rewriting",
     "guide.proxy.p":
-      "Use “Proxy rules” in the site editor to forward requests under a path prefix to another service. Your frontend calls APIs through the site’s own address, and LocalServe forwards them to your backend — no cross-origin (CORS) errors. The backend must be running separately.",
+      "Use the “Proxies” page in the site editor to forward requests under a path prefix to another service. Your frontend calls APIs through the site’s own address, and LocalServe forwards them to your backend — no cross-origin (CORS) errors. The backend must be running separately.",
     "guide.proxy.h4": "Example: forwarding /api",
     "guide.proxy.th": "Column",
     "guide.proxy.th2": "Example and purpose",
@@ -213,28 +212,25 @@
     "guide.proxy.p2":
       "With Rewrite off, the target receives <code>/api/users</code>. Fill in both Prefix and Target, then save to apply the rule.",
     "guide.advanced.h3": "06 / Advanced options",
+    "guide.advanced.intro":
+      "Switch to “Advanced” on the left of the site editor to configure these options.",
     "guide.advanced.p":
       "Serves <code>index.html</code> when no file matches the request. Turn it on for single-page apps that use history routing, so refreshing a subpage doesn’t return 404.",
-    "guide.advanced.strong": "Add CORS headers",
+    "guide.advanced.strong": "Add CORS Headers",
     "guide.advanced.p2":
       "Adds cross-origin (CORS) headers to static files. Off by default. For API calls, proxy rules are usually the better option.",
-    "guide.advanced.strong2": "Start with the app",
+    "guide.advanced.strong2": "Start With The App",
     "guide.advanced.p3":
       "Starts this site automatically whenever LocalServe opens. This is separate from “Launch at login”. Sites start in list order; if two share a port, the first one to start gets it.",
     "guide.site-operations.h3": "07 / Controls, access links, and logs",
     "guide.site-operations.h4": "Start, stop, and restart",
     "guide.site-operations.p":
-      "Use the play or stop button at the far right of a site card to control the service. Starting and running sites show a “Starting” or “Running” label; sites that aren’t running show no label. The toolbar shows the port while running. If a site fails to start when you click Start, a message appears and the site stays stopped. After a failure from Start all, automatic start at launch, or an unexpected stop, the card shows an “Error” label; hover over it to see why. It goes away once the site starts. The card’s “More actions” menu offers “Details and logs”, “Edit configuration”, “Export configuration”, “Show in Finder”, and “Delete site”. “Restart site” appears only while running.",
+      "Use the play or stop button at the far right of a site card to control the service. Starting and running sites show a “Starting” or “Running” label; sites that aren’t running show no label. The toolbar shows the port while running. If a site fails to start when you click Start, a message appears and the site stays stopped. After a failure from Start all, automatic start at launch, or an unexpected stop, the card shows an “Error” label; hover over it to see why. It goes away once the site starts. The card’s “More actions” menu offers “Edit”, “Details and logs”, “Show in Finder”, and “Delete”. “Restart site” appears only while running.",
     "guide.site-operations.h42": "Open a site and view its logs",
     "guide.site-operations.p2":
       "Once a site is running, click its “Open in browser” icon to open it. If the site has a custom domain, that address is used; otherwise, the local address is. The “Scan to open” icon next to it shows a LAN QR code for other devices. Both buttons are disabled while the site is stopped.",
     "guide.site-operations.p3":
-      "Choose “Details and logs” from the site’s “More actions” menu to see its port, domain, and proxy count. Expand “Access links” to copy or open the local, LAN, and custom-domain addresses (LAN links need LAN access and a detected IP). For logs, choose “Site logs” or “Shared port 80 logs”, filter by All, Access, Proxy, or Error, and search, clear, or export them. Clearing only removes logs inside the app.",
-    "guide.site-transfer.h3": "08 / Import and export site configurations",
-    "guide.site-transfer.p":
-      "Open “More actions” next to the Sites heading to import a configuration or export all configurations. To export a single site, use that site’s “More actions” menu.",
-    "guide.site-transfer.p2":
-      "A configuration holds site settings, not website files. To use it on another computer, copy the website folders too, and check that folder paths, ports, and proxy targets still work there. Importing domain changes may ask for approval to update hosts. An import can include several sites with the same port; only one of them can run at a time.",
+      "Choose “Details and logs” from the site’s “More actions” menu. Switch between “Details” and “Logs” on the left of the dialog. The Details page shows status, Site Port, Custom Domain, proxy count, and Access links you can copy or open (LAN links need LAN access and a detected IP). On the Logs page, switch the source between “Site Port” and “Shared Port”. Filter by All, Access, Proxies, or Error, and search, clear, or export them. Clearing only removes logs inside the app.",
     "guide.files.h2": "File sharing",
     "guide.files.p":
       "Share files with devices on your local network. File sharing works on its own — you don’t need to create a site first.<br />The sharing service always runs on port 19800 and can’t be turned off. If another app is using that port, file sharing can’t start and an error button appears next to the Files heading. Hover over it to see why, free up the port, then click it to retry. Adding files doesn’t restart the service.",
@@ -288,10 +284,10 @@
       "Stop the site or app using the port, or pick a free one such as <code>8081</code>. Stopped sites can share a port number, but only one can run on it at a time. Auto-start and “Start all” go in list order: the first site to start gets the port, and a running site keeps it. Avoid the reserved ports <code>80</code>, <code>10015</code>, and <code>19800</code>. If the site has a custom domain, port <code>80</code> must also be free. See “Details and logs” for the exact error.",
     "guide.faq.summary3": "Works on your Mac but not on your phone?",
     "guide.faq.p3":
-      "Make sure “LAN access” is enabled, your phone and Mac are on the same network, and you are using the Mac’s LAN IP — not 127.0.0.1 or a domain mapped only on the Mac. Then check the firewall, guest network isolation, and other network restrictions.",
+      "Make sure “Enable LAN Access” is on, your phone and Mac are on the same network, and you are using the Mac’s LAN IP — not 127.0.0.1 or a domain mapped only on the Mac. Then check the firewall, guest network isolation, and other network restrictions.",
     "guide.faq.summary4": "Custom domain does not open?",
     "guide.faq.p4":
-      "Check that you approved the hosts update, the site is running, and the domain contains no protocol, port, or path. On your Mac, use <code>http://YOUR-DOMAIN</code> without the site’s individual port. Check “Shared port 80 logs” if the shared listener fails. If you canceled approval earlier, save the domain again to request it. Other devices should use the LAN IP with the site’s port.",
+      "Check that you approved the hosts update, the site is running, and the domain contains no protocol, port, or path. On your Mac, use <code>http://YOUR-DOMAIN</code> without the site’s individual port. If the shared listener fails, open “Details and logs”, switch to “Logs”, and select “Shared Port”. If you canceled approval earlier, save the domain again to request it. Other devices should use the LAN IP with the site’s port.",
     "guide.faq.domainPort.title":
       "How do custom domains relate to port 80 conflicts?",
     "guide.faq.domainPort.listener":
@@ -299,7 +295,7 @@
     "guide.faq.domainPort.conflict":
       "If another app is using port <code>80</code>, the shared listener can’t start, so the site stays stopped and shows the message “Port 80 is in use. Free it up or turn off this site’s custom domain, then try again.” This happens even if the site’s own port is free, so changing only that port won’t help.",
     "guide.faq.domainPort.solution":
-      "Stop whatever is using port <code>80</code> in the other app, then start your site again. Or edit the site, turn off “Enable custom domain”, save, and restart it — then open it via the local address or LAN IP with the site’s port.",
+      "Stop whatever is using port <code>80</code> in the other app, then start your site again. Or edit the site, turn off “Enable Custom Domain” on the Basics page, save, and restart it — then open it via the local address or LAN IP with the site’s port.",
     "guide.faq.domainPort.release":
       "While LocalServe’s custom-domain listener is running, other apps usually can’t listen on port <code>80</code>. To free it, stop all sites with custom domains or quit LocalServe. This doesn’t affect other apps visiting websites on port <code>80</code>.",
     "guide.faq.summary5":
@@ -309,7 +305,7 @@
     "guide.faq.summary6":
       "SPA home page works, but refreshing a subpage returns 404?",
     "guide.faq.p6":
-      "Enable “SPA history fallback” in the site’s advanced options, then save and start. Routes without a matching file will fall back to index.html.",
+      "Enable “SPA history fallback” on the site editor’s “Advanced” page, then save and start. Routes without a matching file will fall back to index.html.",
     "guide.faq.summary7":
       "Can I use HTTPS or publish directly to the internet?",
     "guide.faq.p7":
@@ -361,11 +357,11 @@
     "guide.network.qrDisabled":
       "The QR code button only works when the site is running, LAN access is on, and a LAN IP is detected. If it’s disabled, hover over it to see which one is missing.",
     "guide.domains.sharedPort":
-      "Port <code>80</code> must be available when starting a site with a custom domain. If the listener cannot start, open “Details and logs” and select “Shared port 80 logs” to check the cause.",
+      "Port <code>80</code> must be available when starting a site with a custom domain. If the listener cannot start, open “Details and logs”, switch to “Logs”, and select “Shared Port” to check the cause.",
     "guide.site-operations.listToolbarTitle":
       "List filters and bulk actions",
     "guide.site-operations.listToolbar":
-      "Click “More actions” next to the Sites heading to show the list toolbar. Filter by status, or search by name, folder, port, or domain. The toolbar also has “Start all”, “Stop all”, import, and export. Start all and Stop all affect every site, even when the list is filtered.",
+      "Click “More actions” next to the Sites heading to show the list toolbar. Filter by status, or search by name, folder, port, or domain. The toolbar also has “Start all” and “Stop all”. Start all and Stop all affect every site, even when the list is filtered.",
     "guide.site-operations.startOrder":
       "“Start all” starts sites one at a time in list order, with newly added sites at the top. If a site’s port is already taken, it stays stopped with an “Error” label (hover to see why), and the rest keep starting. A running site keeps its port, even if an earlier site in the list uses the same one. To switch between sites on the same port, stop the current one, then start the other.",
     "guide.file-add.listToolbar":
