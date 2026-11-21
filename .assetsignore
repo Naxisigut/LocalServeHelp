@@ -1,19 +1,7 @@
-.cursor/
-.github/
-scripts/
-.gitignore
-.gitattributes
-*.md
-LICENSE*
-wrangler.jsonc
-wrangler.toml
-.assetsignore
-package.json
-pnpm-lock.yaml
-package-lock.json
-node_modules/
-.pnpm-store/
-.wrangler/
-dist/
-build/
-.DS_Store
+# Allowlist: only the public static site.
+.git/
+*
+!index.html
+!guide.html
+!assets/
+!assets/**
